@@ -1,2 +1,6 @@
 # IBP
-VUT FUT BP
+VUT FIT BP
+
+Porovnani volne dostupnych simulacnich nastroju
+
+
