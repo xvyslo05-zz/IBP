@@ -6,12 +6,8 @@ model BouncingBall "The 'classic' bouncing ball model"
   Height h "Height";
   Velocity v(start=0.0, fixed=true) "Velocity";
 
-
 initial equation
   h = h0;
-
-
-
 
 equation
   v = der(h);
