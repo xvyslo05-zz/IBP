@@ -6,7 +6,7 @@ height      = 2     # in meters
 velocity    = 10    # in m/s
 g           = 9.8   # acceleration in m/s^2
 cr          = 0.9   # coeficient of restitution, from 0 to 1, where 1 equals perfect elastic collision
-counter = 0
+counter     = 0
 
 for j in range(900):
     velocity = velocity * math.sqrt(1 - math.exp(-2 * g * height / (velocity ** 2)))
