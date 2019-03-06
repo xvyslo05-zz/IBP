@@ -1,7 +1,6 @@
 import math
 import random
 
-
 height      = 2     # in meters
 velocity    = 10    # in m/s
 g           = 9.8   # acceleration in m/s^2
@@ -15,12 +14,10 @@ for j in range(900):
 
     height =- ((velocity ** 2)/g) * math.log((math.cos(math.atan(restitution_velocity/velocity))))
 
-    counter += 1
-
     print("#############################")
 
     print(velocity, restitution_velocity)
 
     print(height)
 
-    print(counter)
+    print(j)
