@@ -1,6 +1,6 @@
 % This is the problem regarding a ball bouncing including air drag
 % These variables were to be set in the workspace
-% You'd want to comment these out before submission
+% Youd want to comment these out before submission
 clear all
 h_i=2; % Height in meters
 v_t=10; % Terminal velocity in meters per second
