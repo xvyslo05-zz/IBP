@@ -4,7 +4,7 @@ model BouncingBall "The 'classic' bouncing ball model"
   parameter Real e=0.9 "Coefficient of restitution";
   parameter Height h0=2.0 "Initial height";
   Height h "Height";
-  Velocity v(start=0.0, fixed=true) "Velocity";
+  Velocity v(start=10.0, fixed=true) "Velocity";
 
 initial equation
   h = h0;
