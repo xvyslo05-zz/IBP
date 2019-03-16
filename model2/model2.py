@@ -20,4 +20,3 @@ y0 = 1
 t = numpy.linspace(0, 20)
 
 y = odeint(model1, y0, t)
-
