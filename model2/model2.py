@@ -12,7 +12,7 @@ def prettyPrint(err, dxdt, dydt, t):
     print("===========")
     print("err:", err)
     print("x:", dxdt)
-    print("y:", dydt)
+    print("dy:", dydt)
     print("t:", t)
 
 y0 = 1
