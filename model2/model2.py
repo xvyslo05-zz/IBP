@@ -2,17 +2,17 @@ import numpy
 from scipy.integrate import odeint
 
 def model1(y, t):
-    x = y
-    dydt = -x
-    err = x - numpy.sin(t)
-    prettyPrint(err, x, y, t)
+    dxdt = y
+    dydt = -dxdt
+    err = dxdt - numpy.sin(t)
+    prettyPrint(err, dxdt, dydt, t)
     return dydt
 
-def prettyPrint(err, x, y, t):
+def prettyPrint(err, dxdt, dydt, t):
     print("===========")
     print("err:", err)
-    print("x:", x)
-    print("y:", y)
+    print("x:", dxdt)
+    print("y:", dydt)
     print("t:", t)
 
 y0 = 1
