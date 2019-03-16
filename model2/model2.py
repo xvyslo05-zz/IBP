@@ -5,10 +5,10 @@ def model1(y, t):
     x = y
     dydt = -x
     err = x - numpy.sin(t)
-    giveResults(err, x, y, t)
+    prettyPrint(err, x, y, t)
     return dydt
 
-def giveResults(err, x, y, t):
+def prettyPrint(err, x, y, t):
     print("===========")
     print("err:", err)
     print("x:", x)
