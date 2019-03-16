@@ -1,19 +1,30 @@
 import numpy
+from scipy.integrate import quad
 from scipy.integrate import odeint
+
 
 def model1(y, t):
     dxdt = y
-    dydt = -dxdt
-    err = dxdt - numpy.sin(t)
-    prettyPrint(err, dxdt, dydt, t)
+    x = dxdt
+    dxdt = quad(integrand, 0, 1)
+    dydt = -dxdt[0]
+    err = dxdt[0] - numpy.sin(t)
+    prettyPrint(err, x, dxdt[0], dydt, t)
     return dydt
 
-def prettyPrint(err, dxdt, dydt, t):
+
+def integrand(x):
+    return x
+
+
+def prettyPrint(err, x, dxdt, dydt, t):
     print("===========")
     print("err:", err)
-    print("x:", dxdt)
+    print("x:", x)
+    print("dx:", dxdt)
     print("dy:", dydt)
     print("t:", t)
+
 
 y0 = 1
 
