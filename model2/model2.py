@@ -6,10 +6,10 @@ from scipy.integrate import odeint
 def model1(y, t):
     dxdt = y
     x = dxdt
-    dxdt = quad(integrand, 0, 1)
-    dydt = -dxdt[0]
-    err = dxdt[0] - numpy.sin(t)
-    prettyPrint(err, x, dxdt[0], dydt, t)
+    x = quad(integrand, 0, 1)
+    dydt = -x[0]
+    err = x[0] - numpy.sin(t)
+    prettyPrint(err, x[0], dxdt, dydt, t)
     return dydt
 
 
