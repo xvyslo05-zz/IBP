@@ -4,10 +4,10 @@ from scipy.integrate import odeint
 
 
 def model1(y, t):
-    dxdt = y
+    dxdt = y # x' = y
     x = dxdt
     x = quad(integrand, 0, 1)
-    dydt = -x[0]
+    dydt = -x[0] # y' = x
     err = x[0] - numpy.sin(t)
     prettyPrint(err, x[0], dxdt, dydt, t)
     return dydt
