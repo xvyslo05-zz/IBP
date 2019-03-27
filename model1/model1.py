@@ -6,6 +6,7 @@ velocity    = 10    # in m/s
 g           = 9.8   # acceleration in m/s^2
 cr          = 0.9   # coeficient of restitution, from 0 to 1, where 1 equals perfect elastic collision
 
+
 for j in range(900):
     velocity = velocity * math.sqrt(1 - math.exp(-2 * g * height / (velocity ** 2)))
 
@@ -13,10 +14,15 @@ for j in range(900):
 
     height =- ((velocity ** 2)/g) * math.log((math.cos(math.atan(restitution_velocity/velocity))))
 
+    prettyPrint(velocity, restitution_velocity, height, j)
+
+
+def prettyPrint(velocity, restitution_velocity, height, numberOfIteration):
+
     print("#############################")
 
     print(velocity, restitution_velocity)
 
     print(height)
 
-    print(j)
+    print(numberOfIteration)
