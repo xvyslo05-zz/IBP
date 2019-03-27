@@ -1,8 +1,10 @@
 1. model:
   prepsat modelicu na stejny zapis
+  python - pridat scipy rozsireni
+
 
 2. model:
-  kruhovka
+  kruhovka - snad cajk
 
 
 3. model:

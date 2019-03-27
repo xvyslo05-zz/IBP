@@ -1,3 +1,6 @@
+# @TODO: scipy zakomponovat!!
+
+
 import math
 import random
 
