@@ -9,3 +9,6 @@
 
 3. model:
   stiff system
+
+4. model:
+  NS-3 discrete
