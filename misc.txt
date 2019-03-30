@@ -8,5 +8,4 @@
 
 
 3. model:
-  dravec korist?
-  co treba neco s elektrinou?
+  stiff system
