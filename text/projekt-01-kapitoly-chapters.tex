@@ -2,49 +2,49 @@
 % Autoři: Michal Bidlo, Bohuslav Křena, Jaroslav Dytrych, Petr Veigend a Adam Herout 2018
 \chapter{Úvod}
 
-Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci. Z takto provedené simulace získáme představu o tom, jak se náš produkt chová. A pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými simulačními jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - Matlab a Modelica, případně jazyky jim podobné. Zároveň je pro porovnání vybrán jazyk Python s rozšířeními Scipy a Numpy, který není příbuzný s výše uvedenými jazyky.
+Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci. Z~takto provedené simulace získáme představu o~tom, jak se náš produkt chová. A~pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými simulačními jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB a Modelica, případně jazyky jim podobné. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními Scipy a Numpy, který není příbuzný s~výše uvedenými jazyky.
 
-Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k pojednání o vhodnosti použití implementovaných modelů pro zvolené nástroje.
+Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v~různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k~pojednání o~vhodnosti použití implementovaných modelů pro zvolené nástroje.
 
-V kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V následující kapitole \ref{kapitola5} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola6} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s popisem způsobilosti použitých modelů pro využité nástroje.
+V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V~následující kapitole \ref{kapitola5} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola6} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
 
 \chapter{Modelování a simulace}
 \label{kapitola2}
 
-Modelování a simulace jsou dnes již nedílnou součástí vědy a výzkumu. V této kapitole se věnuji popisu pojmů nutných k pochopení základní problematiky modelování. Dále je zde možné najít popis problematiky porovnávání a porovnávací metodiku.
+Modelování a simulace jsou dnes již nedílnou součástí vědy a výzkumu. V~této kapitole se věnuji popisu pojmů nutných k~pochopení základní problematiky modelování. Dále je zde možné najít popis problematiky porovnávání a porovnávací metodiku.
 
 \section{Problematika modelování a simulací}
-Jelikož jsou modelování a simulace velmi komplexní disciplíny, je nutné si stanovit, alespoň v jednoduchosti, základní pojmy, které jsou v rámci této práce využívány. 
+Jelikož jsou modelování a simulace velmi komplexní disciplíny, je nutné si stanovit, alespoň v~jednoduchosti, základní pojmy, které jsou v~rámci této práce využívány.
 
 \subsection{Modelování a model}
 \label{modelovani}
-Modelování je vědecká disciplína, při které dochází k popisu \textit{systému} z reálného světa a získání všech možných informací, které k tomuto procesu máme. Ze získaných poznatků se vytvoří model. V rámci zkoumání získaných informací je nutná analýza možných nepochopitelných a nepopsatelných vlastností modelu. Model je tedy jen přiblížení se ke skutečnosti, nikoliv její dokonalý odraz. Modely lze dělit podle jejich chování na:
+Modelování je vědecká disciplína, při které dochází k~popisu \textit{systému} z~reálného světa a získání všech možných informací, které k~tomuto procesu máme. Ze získaných poznatků se vytvoří model. V~rámci zkoumání získaných informací je nutná analýza možných nepochopitelných a nepopsatelných vlastností modelu. Model je tedy jen přiblížení se ke skutečnosti, nikoliv její dokonalý odraz. Modely lze dělit podle jejich chování na:
 
 \begin{itemize}
-    \item spojité -- hodnoty modelu se v průběhu simulace mění spojitě. Tyto modely jsou popsatelné diferenciálními rovnicemi
-    \item diskrétní -- hodnoty modelu se v průběhu simulace mění skokově. Tyto modely lze popsat jako konečný, nebo celulární automat
+    \item spojité -- hodnoty modelu se v~průběhu simulace mění spojitě. Tyto modely jsou popsatelné diferenciálními rovnicemi
+    \item diskrétní -- hodnoty modelu se v~průběhu simulace mění skokově. Tyto modely lze popsat jako konečný, nebo celulární automat
     \item kombinované -- tyto modely obsahují společně spojité a diskrétní složky vedle sebe
 \end{itemize}
 
-V literatuře můžeme nalézt další možné rozdělení modelů \cite{IMS-skripta}.
+V~literatuře můžeme nalézt další možné rozdělení modelů \cite{IMS-skripta}.
 
 
-S takto popsanými modely je pak možné vykonávat \textit{simulace}. Během simulace se pozoruje chování modelu, vyhodnocují se výsledky simulací a případně se mění popis modelu, pokud to vyžaduje simulace, nebo pokud se přijde na nové, nečekané chování.
+S~takto popsanými modely je pak možné vykonávat \textit{simulace}. Během simulace se pozoruje chování modelu, vyhodnocují se výsledky simulací a případně se mění popis modelu, pokud to vyžaduje simulace, nebo pokud se přijde na nové, nečekané chování.
 
 \subsection{Systém}
 Systém je možno definovat jako soustavu částic, které na sebe vzájemně působí. Systémy se mohou dělit na:
 
 \begin{itemize}
-    \item Otevřené a uzavřené -- podle jejich interakce s okolním prostředím
+    \item Otevřené a uzavřené -- podle jejich interakce s~okolním prostředím
     \item Spojité a diskrétní -- podle toho, zda se hodnoty systému mění spojitě, nebo skokově
-    \item Statické a dynamické -- podle toho, zda se systém vyvíjí v čase
+    \item Statické a dynamické -- podle toho, zda se systém vyvíjí v~čase
 \end{itemize}
-Pro potřeby simulací jsou využívány především dynamické systémy, u kterých můžeme sledovat jejich vývoj v průbehu simulace.
+Pro potřeby simulací jsou využívány především dynamické systémy, u~kterých můžeme sledovat jejich vývoj v~průbehu simulace.
 
 \subsection{Simulace}
-Simulace je disciplína zabývající se získáváním informací z modelů pomocí provádení experimentů s nimi. Pro získání validních informací o modelu je potřeba provést simulaci vícekrát a následně porovnat a vyhodnotit výsledné hodnoty. 
+Simulace je disciplína zabývající se získáváním informací z~modelů pomocí provádení experimentů s~nimi. Pro získání validních informací o~modelu je potřeba provést simulaci vícekrát a následně porovnat a vyhodnotit výsledné hodnoty.
 
-Před během simulace a po vyhodnocení výsledků je vhodné provést analýzu vhodnosti modelu pro simulaci. Pokud shledáme model nevalidním, není vhodný pro náš záměr a je záhodné ho z dalších simulací vyřadit.
+Před během simulace a po vyhodnocení výsledků je vhodné provést analýzu vhodnosti modelu pro simulaci. Pokud shledáme model nevalidním, není vhodný pro náš záměr a je záhodné ho z~dalších simulací vyřadit.
 
 
 Simulace můžeme rozdělovat podle mnoha kritérii:
@@ -57,22 +57,28 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
         \end{itemize}
     \item Podle zpracování výsledků:
         \begin{itemize}
-            \item Kvalitativní -- v rámci kvalitativní metody nevnímáme model jako komplexní objekt, ale zaměřujeme se pouze na pár vybraných kvalit
+            \item Kvalitativní -- v~rámci kvalitativní metody nevnímáme model jako komplexní objekt, ale zaměřujeme se pouze na pár vybraných kvalit
             \item Kvantitativní -- tato metoda zpracování je vhodná pro modely, které neumíme přesně zapsat a popsat
         \end{itemize}
     \item Podle rozložení výpočtů:
         \begin{itemize}
             \item Simulace na jednom stroji -- pro účely výpočtu je využit jen jeden výpočetní stroj. Toto využití je vhodné pro simulace jednoduššího rázu.
-            \item Paralelní a distribuovaná simulace -- simulace probíhá na více strojích zároveň. Pomocí dilčího rozdělení výpočtů můžeme dosáhnout značného zrychlení v případě složitých simulací, např. lety do kosmu.
+            \item Paralelní a distribuovaná simulace -- simulace probíhá na více strojích zároveň. Pomocí dilčího rozdělení výpočtů můžeme dosáhnout značného zrychlení v~případě složitých simulací, např. lety do kosmu.
         \end{itemize}
 \end{enumerate}
-Další a mnohá rozdělení simulací můžeme nalézt v literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v rozdělení simulací.
+Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
 \section{Popis použitých simulačních jazyků}
 
-Jazyků umožňujících vytvoření a specifikaci modelu a provádení experimentů s ním je na trhu nepřeberné množství \cite{blablabla}. Pro potřeby bakalářské práce jsem si zvolil volně dostupné simulační nástroje postavené na dvou jazycích, případně jejich modifikacích s použitím podpůrných knihoven. Těmito jazyky jsou Matlab a Modelica. Dále pak byl vybrán pro porovnání jazyk Python s podporou matematických, vědeckých a simulačních knihoven.
+Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie simulačních jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají v~čisté formě, případně jejich modifikované s~použitím podpůrných knihoven. Těmito jazyky jsou MATLAB a Modelica. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů~\footnote{https://scipy.org/}.
 
-\subsection{Matlab}
+\subsection{MATLAB}
+Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k popisu analýzy dat, k návrhu a implementaci algoritmů a také k vytváření modelů a provádění operací (simulací) s nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s maticemu, v případě jednořádkové matice, vektoru, je s práce s touto maticí shodná s prací s polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v této práci, které jsou provedeny v MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s funkcemi napsanými v jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v jiných jazycích, jako jsou například Java, .NET nebo Perl.
+
+% @TODO: obrazek MATLAB (tak na milion znaku)
+
+Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k dostání volně dostupné jazyky, jako například GNU Octave a SciLab, které jsou s MATLABem kompatibilní. Také tyto jazyky jsou ve výběru jazyků využitých v této bakalářské práci.
+
 
 \subsection{Modelica}
 
