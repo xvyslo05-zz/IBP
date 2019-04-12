@@ -1,5 +1,4 @@
 %===============================================================================
-% Autoři: Michal Bidlo, Bohuslav Křena, Jaroslav Dytrych, Petr Veigend a Adam Herout 2018
 \chapter{Úvod}
 
 Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci. Z~takto provedené simulace získáme představu o~tom, jak se náš produkt chová. A~pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými simulačními jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB a Modelica, případně jazyky jim podobné. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními Scipy a Numpy, který není příbuzný s~výše uvedenými jazyky.
@@ -77,12 +76,16 @@ Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovan�
 
 % @TODO: obrazek MATLAB (tak na milion znaku)
 
-Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k dostání volně dostupné jazyky, jako například GNU Octave a SciLab, které jsou s MATLABem kompatibilní. Také tyto jazyky jsou ve výběru jazyků využitých v této bakalářské práci.
+Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s jazykem MATLAB kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v této bakalářské práci.
+
+Jazyk MATLAB bohužel není volně dostupný, nicméně v akademickém prostředí je velmi běžně k dostání, stejně jako v následné praxi. Pro účely bakalářské práce je využita studentská licence ve vlastnictví VUT FIT.
 
 
 \subsection{Modelica}
+Jazyk Modelica je objektově orientovaný, modelační a simulační jazyk, který je vyvíjen neziskovou organizací Modelca Association od roku 1997. Díky tomu, že je tento jazyk volně dostupný, je na trhu mnoho simulačních nástrojí a vývojových prostředí, které pracují právě s tímto jazykem. Pro účely této práce byly vybrány nástoje Dymola, OpenModelica a jModelica.org. Vývojové prostředí Dymola není, stejně jako MATLAB, volně dostupné. Pro účely provádění experimentů s tímto vývojovým prostředím je využita licence, pomocí které je možno spustit nástroj Dymola na školním serveru Merlin v rámci VUT FIT.
 
 \subsection{Python}
+
 
 \section{Popis použitých simulačních nástrojů}
 
