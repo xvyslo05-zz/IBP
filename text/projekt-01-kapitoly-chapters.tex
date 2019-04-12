@@ -73,8 +73,8 @@ Jazyků umožňujících vytváření a specifikaci modelů a provádení experi
 
 \subsection{MATLAB}
 Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k popisu analýzy dat, k návrhu a implementaci algoritmů a také k vytváření modelů a provádění operací (simulací) s nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s maticemu, v případě jednořádkové matice, vektoru, je s práce s touto maticí shodná s prací s polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v této práci, které jsou provedeny v MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s funkcemi napsanými v jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v jiných jazycích, jako jsou například Java, .NET nebo Perl.
-
 % @TODO: obrazek MATLAB (tak na milion znaku)
+\includegraphics[width=15cm]{obrazky-figures/dummy.png}
 
 Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s jazykem MATLAB kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v této bakalářské práci.
 
@@ -83,6 +83,32 @@ Jazyk MATLAB bohužel není volně dostupný, nicméně v akademickém prostřed
 
 \subsection{Modelica}
 Jazyk Modelica je objektově orientovaný, modelační a simulační jazyk, který je vyvíjen neziskovou organizací Modelca Association od roku 1997. Díky tomu, že je tento jazyk volně dostupný, je na trhu mnoho simulačních nástrojí a vývojových prostředí, které pracují právě s tímto jazykem. Pro účely této práce byly vybrány nástoje Dymola, OpenModelica a jModelica.org. Vývojové prostředí Dymola není, stejně jako MATLAB, volně dostupné. Pro účely provádění experimentů s tímto vývojovým prostředím je využita licence, pomocí které je možno spustit nástroj Dymola na školním serveru Merlin v rámci VUT FIT.
+
+Modely, které jsou zapsány v jazyku Modelica, mají veškeré své chování popsané rovnicemi. Například rovnice, který má matematický zápis:
+
+$$
+mc_p\Dot{T} = hA(T_{\infty} - T)
+$$
+
+se v jazyce Modelica zapíše naprosto totožným způsobem. Rovnice má tedy po zapsání následující tvar:
+
+\begin{verbatim}
+                        m*c_p*der(T) = h*A*(T_inf-T)
+\end{verbatim}
+
+Pro to, aby byl model funkční, je nutné definovat vstupní hodnoty jednotlivých proměnných. Zapsaná rovnice se tedy chová naprosto stejně, jako když počítáme rovnici na papíře. Použítím znaku $ = $ tedy nedochází k přiřazení, jako je to běžné u jiných programovacích jazyků, ale slouží zde jako znak pro porovnání - proto tedy ona práce s rovnicemi.
+
+Jazyk je v současnosti velmi využíván v oblasti proudění kapalin a termodynamiky, vzhledem k jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v elektrotechnice a strojírenství.
+% @TODO: obrazek prostredi Modelica
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{obrazky-figures/dummy.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků pomocí grafů. I v tomto případě jsou v kapitole \ref{kapitola6} grafy vytvořeny pomocí vestavěného nástroje pro tvorbu grafů v jazyce Modelica.
+
 
 \subsection{Python}
 
