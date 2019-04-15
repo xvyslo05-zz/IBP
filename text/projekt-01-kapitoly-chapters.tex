@@ -17,7 +17,7 @@ Jelikož jsou modelování a simulace velmi komplexní disciplíny, je nutné si
 
 \subsection{Modelování a model}
 \label{modelovani}
-Modelování je vědecká disciplína, při které dochází k~popisu \textit{systému} z~reálného světa a získání všech možných informací, které k~tomuto procesu máme. Ze získaných poznatků se vytvoří model. V~rámci zkoumání získaných informací je nutná analýza možných nepochopitelných a nepopsatelných vlastností modelu. Model je tedy jen přiblížení se ke skutečnosti, nikoliv její dokonalý odraz. Modely lze dělit podle jejich chování na:
+Modelování je vědecká disciplína, při které dochází k~popisu systému z~reálného světa a získání všech možných informací, které k~tomuto procesu máme. Ze získaných poznatků se vytvoří model. V~rámci zkoumání získaných informací je nutná analýza možných nepochopitelných a nepopsatelných vlastností modelu. Model je tedy jen přiblížení se ke skutečnosti, nikoliv její dokonalý odraz. Modely lze dělit podle jejich chování na:
 
 \begin{itemize}
     \item spojité -- hodnoty modelu se v~průběhu simulace mění spojitě. Tyto modely jsou popsatelné diferenciálními rovnicemi
@@ -28,7 +28,7 @@ Modelování je vědecká disciplína, při které dochází k~popisu \textit{sy
 V~literatuře můžeme nalézt další možné rozdělení modelů \cite{IMS-skripta}.
 
 
-S~takto popsanými modely je pak možné vykonávat \textit{simulace}. Během simulace se pozoruje chování modelu, vyhodnocují se výsledky simulací a případně se mění popis modelu, pokud to vyžaduje simulace, nebo pokud se přijde na nové, nečekané chování.
+S~takto popsanými modely je pak možné vykonávat simulace. Během simulace se pozoruje chování modelu, vyhodnocují se výsledky simulací a případně se mění popis modelu, pokud to vyžaduje simulace, nebo pokud se přijde na nové, nečekané chování.
 
 \subsection{Systém}
 Systém je možno definovat jako soustavu částic, které na sebe vzájemně působí. Systémy se mohou dělit na:
@@ -43,7 +43,7 @@ Pro potřeby simulací jsou využívány především dynamické systémy, u~kte
 \subsection{Simulace}
 Simulace je disciplína zabývající se získáváním informací z~modelů pomocí provádení experimentů s~nimi. Pro získání validních informací o~modelu je potřeba provést simulaci vícekrát a následně porovnat a vyhodnotit výsledné hodnoty.
 
-Před během simulace a po vyhodnocení výsledků je vhodné provést analýzu vhodnosti modelu pro simulaci. Pokud shledáme model nevalidním, není vhodný pro náš záměr a je záhodné ho z~dalších simulací vyřadit.
+Před během simulace a po vyhodnocení výsledků je vhodné provést analýzu vhodnosti modelu pro simulaci. Pokud shledáme model nevalidním, není vhodný pro náš záměr a je záhodno jej z~dalších simulací vyřadit.
 
 
 Simulace můžeme rozdělovat podle mnoha kritérii:
@@ -69,7 +69,7 @@ Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro úče
 
 \section{Popis použitých simulačních jazyků}
 
-Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie simulačních jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají v~čisté formě, případně jejich modifikované s~použitím podpůrných knihoven. Těmito jazyky jsou MATLAB a Modelica. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů~\footnote{https://scipy.org/}.
+Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie simulačních jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze s~použitím podpůrných knihoven. Těmito jazyky jsou MATLAB a Modelica. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů~\footnote{https://scipy.org/}.
 
 \subsection{MATLAB}
 Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k popisu analýzy dat, k návrhu a implementaci algoritmů a také k vytváření modelů a provádění operací (simulací) s nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s maticemu, v případě jednořádkové matice, vektoru, je s práce s touto maticí shodná s prací s polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v této práci, které jsou provedeny v MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s funkcemi napsanými v jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v jiných jazycích, jako jsou například Java, .NET nebo Perl.
@@ -123,7 +123,7 @@ Tento jazyk byl zvolen z důvodu, který byl řečený výše. Python nemá prim
 Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python využity k zobrazování výsledků simulací v kapitole \ref{kapitola6}
 
 \section{Popis použitých simulačních nástrojů}
-Zde nevím, jestli by toto měla být samostatná kapitola, nebo podkapitola \ref{kapitola3}, nebo jestli tuto část klidně vynechat a raději sem dát podkapitolu o srovnávací metodice (která má samostatnou kapitolu, viz kapitola \ref{kapitola5})
+Zde nevím, jestli by toto měla být samostatná kapitola, nebo podkapitola \ref{kapitola2}, nebo jestli tuto část klidně vynechat a raději sem dát podkapitolu o srovnávací metodice (která má samostatnou kapitolu, viz kapitola \ref{kapitola5})
 
 \chapter{Implementace modelů}
 \label{kapitola4}
