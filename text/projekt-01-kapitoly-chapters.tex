@@ -17,7 +17,7 @@ Jelikož jsou modelování a simulace velmi komplexní disciplíny, je nutné si
 
 \subsection{Modelování a model}
 \label{modelovani}
-Modelování je vědecká disciplína, při které dochází k~popisu systému z~reálného světa a získání všech možných informací, které k~tomuto procesu máme. Ze získaných poznatků se vytvoří model. V~rámci zkoumání získaných informací je nutná analýza možných nepochopitelných a nepopsatelných vlastností modelu. Model je tedy jen přiblížení se ke skutečnosti, nikoliv její dokonalý odraz. Modely lze dělit podle jejich chování na:
+Modelování je vědecká disciplína, při které dochází k~popisu systému většinou z~reálného světa a získání všech možných informací, které k~tomuto systému máme. Ze získaných poznatků se vytvoří model. V~rámci zkoumání získaných informací je nutná analýza možných nepochopitelných a nepopsatelných vlastností modelu. Model je tedy jen přiblížení se ke skutečnosti, nikoliv její dokonalý odraz. Modely lze dělit podle jejich chování na:
 
 \begin{itemize}
     \item spojité -- hodnoty modelu se v~průběhu simulace mění spojitě. Tyto modely jsou popsatelné diferenciálními rovnicemi
@@ -26,9 +26,11 @@ Modelování je vědecká disciplína, při které dochází k~popisu systému z
 \end{itemize}
 
 V~literatuře můžeme nalézt další možné rozdělení modelů \cite{IMS-skripta}.
-
+\newline
 
 S~takto popsanými modely je pak možné vykonávat simulace. Během simulace se pozoruje chování modelu, vyhodnocují se výsledky simulací a případně se mění popis modelu, pokud to vyžaduje simulace, nebo pokud se přijde na nové, nečekané chování.
+
+Model je také možné vytvářet pomocí tzv. "nereálného"\space systému. Takové systémy jsou často k nalezení v počítačových hrách, případně ve vědeckých oborech, kde jsou získané poznatky o systému velmi omezené.
 
 \subsection{Systém}
 Systém je možno definovat jako soustavu částic, které na sebe vzájemně působí. Systémy se mohou dělit na:
@@ -61,24 +63,68 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
         \end{itemize}
     \item Podle rozložení výpočtů:
         \begin{itemize}
-            \item Simulace na jednom stroji -- pro účely výpočtu je využit jen jeden výpočetní stroj. Toto využití je vhodné pro simulace jednoduššího rázu.
+            \item Simulace na jednom stroji -- pro účely výpočtu je využit jen jeden výpočetní stroj (procesor, cluster). Toto využití je vhodné pro simulace jednoduššího rázu.
             \item Paralelní a distribuovaná simulace -- simulace probíhá na více strojích zároveň. Pomocí dilčího rozdělení výpočtů můžeme dosáhnout značného zrychlení v~případě složitých simulací, např. lety do kosmu.
         \end{itemize}
 \end{enumerate}
 Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
-\section{Popis použitých simulačních jazyků}
+\section{Postup modelování a simulace}
+Jak už bylo řečeno v kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o něm. Pro účely popisu tvoření modelu budeme vycházet z předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o systému vytvoříme abstraktní model, který je vlastně zjednodušenina pozorovaného systému, díky tomu, že pracujeme pouze s daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
 
+Z takto popsaného abstraktního modelu dále vytvoříme simulační model. Simulační model je vlastně přepis abstraktního modelu do programovacího jazyka tak, abychom byli schopni s tímto modelem provádět měření a experimenty. Simulační model je tedy program/skript, který počítá výsledky podle zadaných vstupních hodnot, počátečního stavu, parametrů modelu a případných proměnných.
+
+S výsledky získánými ze simulačního modelu získáváme další poznatky o chování abstraktního modelu. Tyto získané výsledky můžeme využít pro upravení abstraktního modelu, následně upravení simulačního modelu podle modelu abstraktního a opětovnému provedení simulace \cite{IMS-skripta}.
+
+Výsledky je vhodné vizualizovat tak, abychom mohli s nimi dále pracovat a analyzovat je. V rámci analýzy je potřeba rozlišit s jakým typem dat pracuji a podle toho zvolit metodu, pomocí které budu analýzu provádět. Mezi běžné druhy analýzy výsledků patří:
+\begin{itemize}
+    \item Porovnání získaných výsledků s reálnými naměřenými daty daného systému
+    \item Použití statistických metod pro zpracování výsledků
+    \item Automatické vyhodnocení výsledků simulace podle metodiky zvoleného simulačního nástroje
+\end{itemize}
+
+V rámci simulace můžeme sledovat i hodnoty, které nepřímo souvisí s výsledkem simulace. Mezi tyto hodnoty patří např.:
+\begin{itemize}
+    \item Strojový čas
+    \item Přesnost použité numerické metody
+    \item Alokace zdrojů při simulaci
+\end{itemize}
+
+Část z těchto proměnných budeme sledovat v rámci této bakalářské práce. Popis sledování a následného porovnání lze nalézt v kapitole \ref{kapitola5}.
+
+\section{Výhody a nevýhody využití simulací}
+
+Jako všechny procesy, tak i simulace mají své pozitivní i negativní vlastnosti. V jednoduchosti se dá říct, že simulace šetří čas a peníze, ale na druhou stranu mohou stát mnoho zdrojů (peníze a čas) pro to, aby vůbec byly vytvořeny a uskutečněny podle reálného podkladu.
+
+\subsection{Výhody využití simulací}
+Jak už bylo zmíněno výše, hlavními výhodami jsou ušetření času a ceny experimentu. Dále to pak mohou být bezpečnost, replikovatelnost a rychlost. Bližší popis výhod:
+
+\begin{enumerate}
+    \item Cena je v dnešní době velmi důležitým faktorem pro potřeby simulací, protože experimenty s reálným systémem mohou být velmi drahé. Díky využití modelů a simulací je možné výrazně ušetřit na výrobě testovacích kusů. Toto je velmi patrné například v leteckém průmyslu - reálné systémy (letadla, jejich komponenty) se zde využívají až pro validaci výsledků předchozích simulací. 
+    \item Rychlost je dalším z kritérií pro běh simulací. V závislosti na výkonu výkonu stroje, který simulaci vykonává, můžeme simulaci zpomalovat a zrychlovat dle našich potřeb. Důležitým faktorem je zde výkon výpočetního zdroje, který nám omezuje maximální (minimální) rychlost simulace. Dobrým příkladem pro nutnost zrychlování simulace je sledování pohybu litosferických desek. Tento pohyb je v reálném systému velmi pomalý, ale pokud máme dostatečně výkonný výpočetní stroj, můžeme simulaci zrychlit a dosáhnout výsledků o mnoho dříve. 
+    \item Replikovatelnost je faktor, který velmi úzce souvisí s cenou simulace. Pomocí simulace můžeme provést výpočty na jednom modelu prakticky nekonečně mnohokrát bez potřeby využití reálného systému. Pomocí replikovatelnosti jsme schopni dosáhnout přesnějších výsledků a tím pádem i větši znalosti vlastností objektů.
+    \item Bezpečnost je další faktor, který je velkou výhodou využití simulací. Některé experimenty s reálnými systémy není možné z bezpečnostních důvodů vůbec provádět - například crash testy letadel, nebo simulace chemických a jaderných reakcí, případně simulace epidemií různých nemocí.
+    \item V neposlední řadě je to možnost experimentovat se systémy, které můžeme poznat právě jen díky provádění simulací s nimi - například kolize vesmírných těles, tvorba planet, působení černých děr, apod.
+\end{enumerate}
+
+Tento výpis výhod simulací rozhodně není konečný. Je velmi pravděpodobné, že se v blízké době objeví další velká výhoda tohoto procesu. Jelikož výpočetní výkon počítačů neustále roste podle Moorova zákona \cite{Schaller1997}, bude možné provádět experimenty s daleko složitějšími modely než doposud. 
+
+\subsection{Nevýhody využití simulací}
+
+
+\chapter{Popis použitých simulačních jazyků a nástrojů}
+\label{kapitola3}
+
+\section{Použité simulační jazyky}
 Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie simulačních jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze s~použitím podpůrných knihoven. Těmito jazyky jsou MATLAB a Modelica. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů~\footnote{https://scipy.org/}.
 
 \subsection{MATLAB}
 Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k popisu analýzy dat, k návrhu a implementaci algoritmů a také k vytváření modelů a provádění operací (simulací) s nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s maticemu, v případě jednořádkové matice, vektoru, je s práce s touto maticí shodná s prací s polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v této práci, které jsou provedeny v MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s funkcemi napsanými v jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v jiných jazycích, jako jsou například Java, .NET nebo Perl.
-% @TODO: obrazek MATLAB (tak na milion znaku)
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí MATLAB}
-    \label{fig:my_label}
+    \label{fig:matlab}
 \end{figure}
 
 Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s jazykem MATLAB kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v této bakalářské práci.
@@ -103,14 +149,14 @@ se v jazyce Modelica zapíše naprosto totožným způsobem. Rovnice má tedy po
 
 Pro to, aby byl model funkční, je nutné definovat vstupní hodnoty jednotlivých proměnných. Zapsaná rovnice se tedy chová naprosto stejně, jako když počítáme rovnici na papíře. Použítím znaku $ = $ tedy nedochází k přiřazení, jako je to běžné u jiných programovacích jazyků, ale slouží zde jako znak pro porovnání - proto tedy ona práce s rovnicemi.
 
-Jazyk je v současnosti velmi využíván v oblasti proudění kapalin a termodynamiky, vzhledem k jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v elektrotechnice a strojírenství.
-% @TODO: obrazek prostredi Modelica
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí jModelica.org}
-    \label{fig:my_label}
+    \label{fig:modelica}
 \end{figure}
+
+Jazyk je v současnosti velmi využíván v oblasti proudění kapalin a termodynamiky, vzhledem k jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v elektrotechnice a strojírenství.
 
 Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků pomocí grafů. I v tomto případě jsou v kapitole \ref{kapitola6} grafy vytvořeny pomocí vestavěného nástroje pro tvorbu grafů v jazyce Modelica.
 
@@ -123,16 +169,29 @@ Tento jazyk byl zvolen z důvodu, který byl řečený výše. Python nemá prim
 Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python využity k zobrazování výsledků simulací v kapitole \ref{kapitola6}
 
 \section{Popis použitých simulačních nástrojů}
-Zde nevím, jestli by toto měla být samostatná kapitola, nebo podkapitola \ref{kapitola2}, nebo jestli tuto část klidně vynechat a raději sem dát podkapitolu o srovnávací metodice (která má samostatnou kapitolu, viz kapitola \ref{kapitola5})
+
 
 \chapter{Implementace modelů}
 \label{kapitola4}
 
+\section{Kruhový test}
+
+\section{Skákající míček}
+
+\section{Tuhý systém}
+
+\section{Diskrétní simulace}
+
+
 \chapter{Porovnání}
 \label{kapitola5}
-Měl by popis srovnávací metodiky být zde, nebo v kapitole \ref{kapitola2}?
 
-\chapter{Výsledky porovnání}
+\section{Základní problematika}
+
+\section{Popis použité metodiky}
+
+
+\chapter{Výsledky simulací a porovnání výsledků}
 \label{kapitola6}
 
 \chapter{Závěr}
