@@ -97,6 +97,7 @@ V rámci simulace můžeme sledovat i hodnoty, které nepřímo souvisí s výsl
 Jako všechny procesy, tak i simulace mají své pozitivní i negativní vlastnosti. V jednoduchosti se dá říct, že simulace šetří čas a peníze, ale na druhou stranu mohou stát mnoho zdrojů (peníze a čas) pro to, aby vůbec byly vytvořeny a uskutečněny podle reálného podkladu.
 
 \subsection{Výhody využití simulací}
+\label{vyhody}
 Jak už bylo zmíněno výše, hlavními výhodami jsou ušetření času a ceny experimentu. Dále to pak mohou být bezpečnost, replikovatelnost a rychlost. Bližší popis výhod:
 
 \begin{enumerate}
@@ -107,10 +108,20 @@ Jak už bylo zmíněno výše, hlavními výhodami jsou ušetření času a ceny
     \item V neposlední řadě je to možnost experimentovat se systémy, které můžeme poznat právě jen díky provádění simulací s nimi - například kolize vesmírných těles, tvorba planet, působení černých děr, apod.
 \end{enumerate}
 
-Tento výpis výhod simulací rozhodně není konečný. Je velmi pravděpodobné, že se v blízké době objeví další velká výhoda tohoto procesu. Jelikož výpočetní výkon počítačů neustále roste podle Moorova zákona \cite{Schaller1997}, bude možné provádět experimenty s daleko složitějšími modely než doposud. 
+Tento výpis výhod simulací rozhodně není konečný. Je velmi pravděpodobné, že se v blízké době objeví další velká výhoda tohoto procesu. Jelikož výpočetní výkon počítačů neustále roste podle Moorova zákona \cite{Schaller1997}, časem bude možné provádět experimenty s daleko složitějšími modely než doposud. 
 
 \subsection{Nevýhody využití simulací}
 
+Stejně tak, jako simulace mohou šetřit naše zdroje, při nesprávném vymodelování modelu, případně nesprávném zavedení simulací, se mohou velmi prodražit a prodloužit časy simulací. Se simulacemi se samozřejmě pojí více problémů, než jen peníze a čas:
+
+\begin{enumerate}
+    \item Velké nároky na výpočetní výkon je běžný problém všech výpočetních operací. S~rostoucími nároky na rychlost a výsledky simulací přímo uměrně roste také nárok na výkon simulačního stroje. Nicméně díky zvětšování výkonu v závislosti na Moorovu zákonu, viz kapitola \ref{vyhody}, je možné provádět složitější výpočetní operace i na běžných osobních počítačích a ne pouze na sálových superpočítačích, jako tomu bylo dříve.
+    \item Během simulace může docházet k chybám kvůli nevhodně zvolené numerické metodě, případně kvůli její nepřesnosti řešení. Tento stav dokáže ovlivnit i relativně bezchybně namodelovaný model a znehodnotit tak výsledky z experimentů s ním. 
+    \item Velká časová náročnost v případě, že chceme simulaci provést vícekrát. Tento problém je spjatý i s nároky na výpočetní výkon -- je-li výkon dostatečný, můžeme simulaci urychlit a tím i zkrátit čas simulace.
+    \item Velmi důležitým problémem je problém ověřování validity. Pokud máme chybně namodelovaný model, pak výsledky simulace obsahují také chyby a tedy model není validní. Ověřování validity modelu by mělo proběhnout ještě před provedením simulace, tak, abychom předešli jeho následnému přemodelování.
+\end{enumerate}
+
+Stejně jako u výhod simulací v kapitole \ref{vyhody} není tento výčet konečný. Další velkou nevýhodou je například vysoká složitost vytvoření modelu. A stejně jako u výhod, i zde je pravděpodobné, že se další velké nevýhody budou objevovat s přibývajícím časem. 
 
 \chapter{Popis použitých simulačních jazyků a nástrojů}
 \label{kapitola3}
