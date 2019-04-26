@@ -168,9 +168,10 @@ Jako simulační knihovny k tomuto jazyku byla vybrána rodina knihoven SciPy \c
 Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python využity k zobrazování výsledků simulací v kapitole \ref{kapitola6}.
 
 \section{Popis použitých simulačních nástrojů}
+\label{popis-nastroju}
 Společně s jazyky byly vybrány simulační nástroje, které budou porovnávány v této bakalářské práci. V této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
 \begin{enumerate}
-    \item Založené na jazyku MATLAB:
+    \item Založené (případně podobné) na jazyku MATLAB, p:
     \begin{itemize}
         \item MATLAB
         \item Simulink
@@ -209,13 +210,12 @@ MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto si
 
 \subsection{Simulink}
 \label{simulink-desc}
-\todo{graficke prostredi, openmodelica, vyhody vyuziti}
-
 Simulink je programovatelná grafická nástavba pro nástroj MATLAB. Tento nástroj je také vyvíjen společností MathWorks. Hlavní využití nástroje je jednoduché vymodelování systému pomocí grafických programovatelných bloků, respektive blokových schemat. Pro tyto účely jsou v rámci nástroje Simulink předem vytvořeny a předdefinovány bloky pro tvorbu dynamických a spojitých modelů. Další výhodou je přímé generování kódu v jazyce C, případně v jazyce C++. Běh simulací s takto vytvořenými modely je možné sledovat v reálném čase.
 
 Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně dostupnou alternativu bychom mohli považovat nástroj OpenModelica, který je popsán v kapitole \ref{openmodelica-desc}.
 
 \subsection{GNU Octave}
+\label{octave-desc}
 Nástroj Octave je vyvíjený pod veřejnou licencí GNU General Public Licence (GPL) \cite{OctaveManual}. Syntax jazyka, který je použit k modelování v GNU Octave je velmi podobný jazyku MATLAB, dokonce je s tímto jazykem ve větší části kompatibilní. Hlavním rozdílem v syntaxi je ten, že Octave podporuje autoinkrementaci stejně, tak jako například jazyk C -- MATLAB tuto podporu bohužel nemá. 
 Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b}, zatímco v MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{OctaveManual}.
 
@@ -228,16 +228,33 @@ Podobně jako u MATLABu, i nástroj SciLab nabízí možnost využití vlastníh
 
 \subsection{Dymola}
 \label{dymola-desc}
-\todo{komercni program, zminit alternativy}
+
+Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v rozdělení v kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{obrazky-figures/dummy.png}
+    \caption{Ukázka prostředí Dymola}
+    \label{fig:dymola}
+\end{figure}
+
+Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi ???? na školním serveru Merlin.
+
 
 \subsection{jModelica}
 \todo{zadarmo, preklad do C nebo XML, python, assimulo}
+
+Jednou z možných alternativ k nástroji Dymola je jModelica. Tento nástroj je volně dostupný, open-sourcový a stejně jako GNU Octave, který byl popsán v kapitole \ref{octave-desc}, vyvíjený pod licencí GPL. Je jedním z vyhledávaných alternativ pro nástroj Dymola. Z obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v GUI jednotlivých nástrojů nejsou nijak markantní. 
+
+jModelica podporuje přímé generování ze zdrojového kódu napsaného v jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven.
+
+Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jmodelica.org/assimulo/}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v jazyce Python. 
 
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí jModelica.org}
-    \label{fig:modelica}
+    \label{fig:jmodelica}
 \end{figure}
 
 \subsection{OpenModelica}
