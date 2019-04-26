@@ -168,6 +168,28 @@ Jako simulační knihovny k tomuto jazyku byla vybrána rodina knihoven SciPy \c
 Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python využity k zobrazování výsledků simulací v kapitole \ref{kapitola6}.
 
 \section{Popis použitých simulačních nástrojů}
+Společně s jazyky byly vybrány simulační nástroje, které budou porovnávány v této bakalářské práci. V této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
+\begin{enumerate}
+    \item Založené na jazyku MATLAB:
+    \begin{itemize}
+        \item MATLAB
+        \item Simulink
+        \item GNU Octave
+        \item SciLab
+    \end{itemize}
+    \item Založené na jazyku Modelica:
+    \begin{itemize}
+        \item Dymola
+        \item jModelica
+        \item OpenModelica
+    \end{itemize}
+    \item Jiné:
+    \begin{itemize}
+        \item SciPy
+    \end{itemize}
+\end{enumerate}
+
+Všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v kapitole \ref{dymola-desc}, který je spustitelný pouze v prostředí Windows a Linux. Všechny zde zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v kapitole \ref{chapter-scipy}.
 
 \subsection{MATLAB}
 \label{matlab-desc}
@@ -175,6 +197,8 @@ Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python 
 Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Tento simulační nástroj je mateřským prostředím pro nástroj Simulink, který je popsán v kapitole \ref{simulink-desc}. 
 
 Nástroj umožňuje modelování modelů a následné simulace s nimi. Tento nástroj nabízí široký záběr možností využití, od matematických výpočtů, přes použití pro eknomii, až po využití pro genetické algoritmy ve strojírenství \cite{Zapletal2016}.
+
+MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto simulačního programu\footnote{https://www.mathworks.com/products/matlab-online.html}. Pomocí tohoto webového nástroje je možné svůj kód/model sdílet společně s dalšími uživateli a tak společně pracovat na jednom projektu. Porovnání a zhodnocení webového rozhraní nejsou v této bakalářské práci zapracovány.
 
 \begin{figure}
     \centering
@@ -189,18 +213,21 @@ Nástroj umožňuje modelování modelů a následné simulace s nimi. Tento ná
 
 Simulink je programovatelná grafická nástavba pro nástroj MATLAB. Tento nástroj je také vyvíjen společností MathWorks. Hlavní využití nástroje je jednoduché vymodelování systému pomocí grafických programovatelných bloků, respektive blokových schemat. Pro tyto účely jsou v rámci nástroje Simulink předem vytvořeny a předdefinovány bloky pro tvorbu dynamických a spojitých modelů. Další výhodou je přímé generování kódu v jazyce C, případně v jazyce C++. Běh simulací s takto vytvořenými modely je možné sledovat v reálném čase.
 
+Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně dostupnou alternativu bychom mohli považovat nástroj OpenModelica, který je popsán v kapitole \ref{openmodelica-desc}.
+
 \subsection{GNU Octave}
 Nástroj Octave je vyvíjený pod veřejnou licencí GNU General Public Licence (GPL) \cite{OctaveManual}. Syntax jazyka, který je použit k modelování v GNU Octave je velmi podobný jazyku MATLAB, dokonce je s tímto jazykem ve větší části kompatibilní. Hlavním rozdílem v syntaxi je ten, že Octave podporuje autoinkrementaci stejně, tak jako například jazyk C -- MATLAB tuto podporu bohužel nemá. 
 Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b}, zatímco v MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{OctaveManual}.
 
 Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{https://octave.sourceforge.io/packages.php}.
 
-
-
 \subsection{SciLab}
-\todo{syntax like MATLAB, zadarmo}
+Další z nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab. Syntax jeho jazyka je zase podobný syntaxu MATLABu, ovšem už ne do takové míry, jako u nástroje GNU Octave \cite{Gilberto}. Kód napsaný pro SciLab tedy není volně přenositelný do prostředí MATLABu, ale díky velké podobnosti syntaxe je možné kód snadno refaktorovat pro tento simulační nástroj.
+
+Podobně jako u MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{https://www.scilab.org/cloud/web-application}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v rámci této bakalářské práce.
 
 \subsection{Dymola}
+\label{dymola-desc}
 \todo{komercni program, zminit alternativy}
 
 \subsection{jModelica}
@@ -214,6 +241,7 @@ Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že j
 \end{figure}
 
 \subsection{OpenModelica}
+\label{openmodelica-desc}
 \todo{openmodelica -- alternativa pro simulink, zadarmo}
 
 \subsection{SciPy}
