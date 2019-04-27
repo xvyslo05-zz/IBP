@@ -171,7 +171,7 @@ Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python 
 \label{popis-nastroju}
 Společně s jazyky byly vybrány simulační nástroje, které budou porovnávány v této bakalářské práci. V této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
 \begin{enumerate}
-    \item Založené (případně podobné) na jazyku MATLAB, p:
+    \item Založené (případně podobné) na jazyku MATLAB:
     \begin{itemize}
         \item MATLAB
         \item Simulink
@@ -222,6 +222,7 @@ Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, p
 Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{https://octave.sourceforge.io/packages.php}.
 
 \subsection{SciLab}
+\label{scilab-desc}
 Další z nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab. Syntax jeho jazyka je zase podobný syntaxu MATLABu, ovšem už ne do takové míry, jako u nástroje GNU Octave \cite{Gilberto}. Kód napsaný pro SciLab tedy není volně přenositelný do prostředí MATLABu, ale díky velké podobnosti syntaxe je možné kód snadno refaktorovat pro tento simulační nástroj.
 
 Podobně jako u MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{https://www.scilab.org/cloud/web-application}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v rámci této bakalářské práce.
@@ -260,13 +261,24 @@ Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jm
 \subsection{OpenModelica}
 \label{openmodelica-desc}
 \todo{openmodelica -- alternativa pro simulink, zadarmo}
+Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{https://github.com/OpenModelica}. Tato skutečnost nahrává k vývoji vlastních modifikací a uživatelských pluginů.
+
+Obecně se nástroj OpenModelica udává jako jedna z alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v kapitole \ref{scilab-desc}.
 
 \subsection{SciPy}
 \label{chapter-scipy}
 \todo{popis knihovny + numpy, matlab graph plot, zadarmo}
+Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v pravém slova smyslu, jedná se spíše o rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{https://github.com/scipy/scipy} \cite{scipy}. V rámci této rodiny knihoven jsou knihovny:
+\begin{itemize}
+    \item SciPy -- tato knihovna obsahuje numerické algoritmy pro provádění simulací, zpracovávání signálů a následné statistické vyhodnocení simulace
+    \item NumPy -- obsahuje metody pro numerické výpočty, práci s číselnými poly a maticemi
+    \item Matplotlib -- pomocí této knihovny je možné na základě vstupních dat vykreslovat grafické výstupy ve 2D a i ve 3D
+\end{itemize}
 
+SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v běžném IDE pro vývoj kódu v jazyce Python. 
 
 \chapter{Implementace modelů}
+\todo{tahle kapitola az jako posledni v pripade zmen implementaci}
 \label{kapitola4}
 
 \section{Kruhový test}
