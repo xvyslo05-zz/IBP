@@ -30,7 +30,7 @@ V~literatuře můžeme nalézt další možné rozdělení modelů \cite{IMS-skr
 
 S~takto popsanými modely je pak možné vykonávat simulace. Během simulace se pozoruje chování modelu, vyhodnocují se výsledky simulací a případně se mění popis modelu, pokud to vyžaduje simulace, nebo pokud se přijde na nové, nečekané chování.
 
-Model je také možné vytvářet pomocí tzv. "nereálného"\space systému. Takové systémy jsou často k nalezení v počítačových hrách, případně ve vědeckých oborech, kde jsou získané poznatky o systému velmi omezené.
+Model je také možné vytvářet pomocí tzv. "nereálného"\space systému. Takové systémy jsou často k~nalezení v~počítačových hrách, případně ve vědeckých oborech, kde jsou získané poznatky o~systému velmi omezené.
 
 \subsection{Systém}
 Systém je možno definovat jako soustavu částic, které na sebe vzájemně působí. Systémy se mohou dělit na:
@@ -70,58 +70,58 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
 Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
 \section{Postup modelování a simulace}
-Jak už bylo řečeno v kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o něm. Pro účely popisu tvoření modelu budeme vycházet z předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o systému vytvoříme abstraktní model, který je vlastně zjednodušenina pozorovaného systému, díky tomu, že pracujeme pouze s daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
+Jak už bylo řečeno v~kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o~něm. Pro účely popisu tvoření modelu budeme vycházet z~předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o~systému vytvoříme abstraktní model, který je vlastně zjednodušenina pozorovaného systému, díky tomu, že pracujeme pouze s~daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
 
-Z takto popsaného abstraktního modelu dále vytvoříme simulační model. Simulační model je vlastně přepis abstraktního modelu do programovacího jazyka tak, abychom byli schopni s tímto modelem provádět měření a experimenty. Simulační model je tedy program/skript, který počítá výsledky podle zadaných vstupních hodnot, počátečního stavu, parametrů modelu a případných proměnných.
+Z~takto popsaného abstraktního modelu dále vytvoříme simulační model. Simulační model je vlastně přepis abstraktního modelu do programovacího jazyka tak, abychom byli schopni s~tímto modelem provádět měření a experimenty. Simulační model je tedy program/skript, který počítá výsledky podle zadaných vstupních hodnot, počátečního stavu, parametrů modelu a případných proměnných.
 
-S výsledky získánými ze simulačního modelu získáváme další poznatky o chování abstraktního modelu. Tyto získané výsledky můžeme využít pro upravení abstraktního modelu, následně upravení simulačního modelu podle modelu abstraktního a opětovnému provedení simulace \cite{IMS-skripta}.
+S~výsledky získánými ze simulačního modelu získáváme další poznatky o~chování abstraktního modelu. Tyto získané výsledky můžeme využít pro upravení abstraktního modelu, následně upravení simulačního modelu podle modelu abstraktního a opětovnému provedení simulace \cite{IMS-skripta}.
 
-Výsledky je vhodné vizualizovat tak, abychom mohli s nimi dále pracovat a analyzovat je. V rámci analýzy je potřeba rozlišit s jakým typem dat pracuji a podle toho zvolit metodu, pomocí které budu analýzu provádět. Mezi běžné druhy analýzy výsledků patří:
+Výsledky je vhodné vizualizovat tak, abychom mohli s~nimi dále pracovat a analyzovat je. V~rámci analýzy je potřeba rozlišit s~jakým typem dat pracuji a podle toho zvolit metodu, pomocí které budu analýzu provádět. Mezi běžné druhy analýzy výsledků patří:
 \begin{itemize}
-    \item Porovnání získaných výsledků s reálnými naměřenými daty daného systému
+    \item Porovnání získaných výsledků s~reálnými naměřenými daty daného systému
     \item Použití statistických metod pro zpracování výsledků
     \item Automatické vyhodnocení výsledků simulace podle metodiky zvoleného simulačního nástroje
 \end{itemize}
 
-V rámci simulace můžeme sledovat i hodnoty, které nepřímo souvisí s výsledkem simulace. Mezi tyto hodnoty patří například:
+V~rámci simulace můžeme sledovat i hodnoty, které nepřímo souvisí s~výsledkem simulace. Mezi tyto hodnoty patří například:
 \begin{itemize}
     \item Strojový čas -- čas po který simulace využívá výpočetní stroj
-    \item Přesnost numerické metody -- mění se v závislosti na použité numerické metodě
+    \item Přesnost numerické metody -- mění se v~závislosti na použité numerické metodě
     \item Alokace zdrojů při simulaci -- využití fyzických a virtuálních zdrojů výpočetního stroje
 \end{itemize}
 
-Část z těchto proměnných budeme sledovat v rámci této bakalářské práce. Popis sledování a následného porovnání lze nalézt v kapitole \ref{kapitola5}.
+Část z~těchto proměnných budeme sledovat v~rámci této bakalářské práce. Popis sledování a následného porovnání lze nalézt v~kapitole \ref{kapitola5}.
 
 \section{Výhody a nevýhody využití simulací}
 
-Jako všechny procesy, tak i simulace mají své pozitivní i negativní vlastnosti. V jednoduchosti se dá říct, že simulace šetří čas a peníze, ale na druhou stranu mohou stát mnoho zdrojů (peníze a čas) pro to, aby vůbec byly vytvořeny a uskutečněny podle reálného podkladu.
+Jako všechny procesy, tak i simulace mají své pozitivní i negativní vlastnosti. V~jednoduchosti se dá říct, že simulace šetří čas a peníze, ale na druhou stranu mohou stát mnoho zdrojů (peníze a čas) pro to, aby vůbec byly vytvořeny a uskutečněny podle reálného podkladu.
 
 \subsection{Výhody využití simulací}
 \label{vyhody}
 Jak už bylo zmíněno výše, hlavními výhodami jsou ušetření času a ceny experimentu. Dále to pak mohou být bezpečnost, replikovatelnost a rychlost. Bližší popis výhod:
 
 \begin{enumerate}
-    \item Cena je v dnešní době velmi důležitým faktorem pro potřeby simulací, protože experimenty s reálným systémem mohou být velmi drahé. Díky využití modelů a simulací je možné výrazně ušetřit na výrobě testovacích kusů. Toto je velmi patrné například v leteckém průmyslu - reálné systémy (letadla, jejich komponenty) se zde využívají až pro validaci výsledků předchozích simulací. 
-    \item Rychlost je dalším z kritérií pro běh simulací. V závislosti na výkonu výkonu stroje, který simulaci vykonává, můžeme simulaci zpomalovat a zrychlovat dle našich potřeb. Důležitým faktorem je zde výkon výpočetního zdroje, který nám omezuje maximální (minimální) rychlost simulace. Dobrým příkladem pro nutnost zrychlování simulace je sledování pohybu litosferických desek. Tento pohyb je v reálném systému velmi pomalý, ale pokud máme dostatečně výkonný výpočetní stroj, můžeme simulaci zrychlit a dosáhnout výsledků o mnoho dříve. 
-    \item Replikovatelnost je faktor, který velmi úzce souvisí s cenou simulace. Pomocí simulace můžeme provést výpočty na jednom modelu prakticky nekonečně mnohokrát bez potřeby využití reálného systému. Pomocí replikovatelnosti jsme schopni dosáhnout přesnějších výsledků a tím pádem i větši znalosti vlastností objektů \cite{belanger2010and}.
-    \item Bezpečnost je další faktor, který je velkou výhodou využití simulací. Některé experimenty s reálnými systémy není možné z bezpečnostních důvodů vůbec provádět - například crash testy letadel, nebo simulace chemických a jaderných reakcí, případně simulace epidemií různých nemocí.
-    \item V neposlední řadě je to možnost experimentovat se systémy, které můžeme blíže zkoumat právě jen díky provádění simulací s nimi - například kolize vesmírných těles, působení černých děr \cite{Fragile_2007}, apod.
+    \item Cena je v~dnešní době velmi důležitým faktorem pro potřeby simulací, protože experimenty s~reálným systémem mohou být velmi drahé. Díky využití modelů a simulací je možné výrazně ušetřit na výrobě testovacích kusů. Toto je velmi patrné například v~leteckém průmyslu - reálné systémy (letadla, jejich komponenty) se zde využívají až pro validaci výsledků předchozích simulací.
+    \item Rychlost je dalším z~kritérií pro běh simulací. V~závislosti na výkonu výkonu stroje, který simulaci vykonává, můžeme simulaci zpomalovat a zrychlovat dle našich potřeb. Důležitým faktorem je zde výkon výpočetního zdroje, který nám omezuje maximální (minimální) rychlost simulace. Dobrým příkladem pro nutnost zrychlování simulace je sledování pohybu litosferických desek. Tento pohyb je v~reálném systému velmi pomalý, ale pokud máme dostatečně výkonný výpočetní stroj, můžeme simulaci zrychlit a dosáhnout výsledků o~mnoho dříve.
+    \item Replikovatelnost je faktor, který velmi úzce souvisí s~cenou simulace. Pomocí simulace můžeme provést výpočty na jednom modelu prakticky nekonečně mnohokrát bez potřeby využití reálného systému. Pomocí replikovatelnosti jsme schopni dosáhnout přesnějších výsledků a tím pádem i větši znalosti vlastností objektů \cite{belanger2010and}.
+    \item Bezpečnost je další faktor, který je velkou výhodou využití simulací. Některé experimenty s~reálnými systémy není možné z~bezpečnostních důvodů vůbec provádět - například crash testy letadel, nebo simulace chemických a jaderných reakcí, případně simulace epidemií různých nemocí.
+    \item V~neposlední řadě je to možnost experimentovat se systémy, které můžeme blíže zkoumat právě jen díky provádění simulací s~nimi - například kolize vesmírných těles, působení černých děr \cite{Fragile_2007}, apod.
 \end{enumerate}
 
-Tento výpis výhod simulací rozhodně není konečný. Je velmi pravděpodobné, že se v blízké době objeví další velká výhoda tohoto procesu. Jelikož výpočetní výkon počítačů neustále roste podle Moorova zákona \cite{Schaller1997}, časem bude možné provádět experimenty s daleko složitějšími modely než doposud. Výsledky simulací se využívají mimo vědu také pro populárně naučné účely, případně pro potřeby využití ve filmovém a herním průmyslu \cite{James_2015}. 
+Tento výpis výhod simulací rozhodně není konečný. Je velmi pravděpodobné, že se v~blízké době objeví další velká výhoda tohoto procesu. Jelikož výpočetní výkon počítačů neustále roste podle Moorova zákona \cite{Schaller1997}, časem bude možné provádět experimenty s~daleko složitějšími modely než doposud. Výsledky simulací se využívají mimo vědu také pro populárně naučné účely, případně pro potřeby využití ve filmovém a herním průmyslu \cite{James_2015}.
 
 \subsection{Nevýhody využití simulací}
 
 Stejně tak, jako simulace mohou šetřit naše zdroje, při nesprávném vymodelování modelu, případně nesprávném zavedení simulací, se mohou velmi prodražit a prodloužit časy simulací. Se simulacemi se samozřejmě pojí více problémů, než jen peníze a čas:
 
 \begin{enumerate}
-    \item Velké nároky na výpočetní výkon je běžný problém všech výpočetních operací. S~rostoucími nároky na rychlost a výsledky simulací přímo uměrně roste také nárok na výkon simulačního stroje. Nicméně díky zvětšování výkonu v závislosti na Moorovu zákonu, viz kapitola \ref{vyhody}, je možné provádět složitější výpočetní operace i na běžných osobních počítačích a ne pouze na sálových superpočítačích, jako tomu bylo dříve.
-    \item Během simulace může docházet k chybám kvůli nevhodně zvolené numerické metodě, případně kvůli její nepřesnosti řešení. Tento stav dokáže ovlivnit i relativně bezchybně namodelovaný model a znehodnotit tak výsledky z experimentů s ním. 
-    \item Velká časová náročnost v případě, že chceme simulaci provést vícekrát. Tento problém je spjatý i s nároky na výpočetní výkon -- je-li výkon dostatečný, můžeme simulaci urychlit a tím i zkrátit čas simulace.
+    \item Velké nároky na výpočetní výkon je běžný problém všech výpočetních operací. S~rostoucími nároky na rychlost a výsledky simulací přímo uměrně roste také nárok na výkon simulačního stroje. Nicméně díky zvětšování výkonu v~závislosti na Moorovu zákonu, viz kapitola \ref{vyhody}, je možné provádět složitější výpočetní operace i na běžných osobních počítačích a ne pouze na sálových superpočítačích, jako tomu bylo dříve.
+    \item Během simulace může docházet k~chybám kvůli nevhodně zvolené numerické metodě, případně kvůli její nepřesnosti řešení. Tento stav dokáže ovlivnit i relativně bezchybně namodelovaný model a znehodnotit tak výsledky z~experimentů s~ním.
+    \item Velká časová náročnost v~případě, že chceme simulaci provést vícekrát. Tento problém je spjatý i s~nároky na výpočetní výkon -- je-li výkon dostatečný, můžeme simulaci urychlit a tím i zkrátit čas simulace.
     \item Velmi důležitým problémem je problém ověřování validity. Pokud máme chybně namodelovaný model, pak výsledky simulace obsahují také chyby a tedy model není validní. Ověřování validity modelu by mělo proběhnout ještě před provedením simulace, tak, abychom předešli jeho následnému přemodelování.
 \end{enumerate}
 
-Stejně jako u výhod simulací v kapitole \ref{vyhody} není tento výčet konečný. Další velkou nevýhodou je například vysoká složitost vytvoření modelu. A stejně jako u výhod, i zde je pravděpodobné, že se další velké nevýhody budou objevovat s přibývajícím časem. 
+Stejně jako u~výhod simulací v~kapitole \ref{vyhody} není tento výčet konečný. Další velkou nevýhodou je například vysoká složitost vytvoření modelu. A~stejně jako u~výhod, i zde je pravděpodobné, že se další velké nevýhody budou objevovat s~přibývajícím časem.
 
 \chapter{Popis použitých simulačních jazyků a nástrojů}
 \label{kapitola3}
@@ -131,45 +131,45 @@ Jazyků umožňujících vytváření a specifikaci modelů a provádení experi
 
 \subsection{MATLAB}
 \label{matlab-lang}
-Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k popisu analýzy dat, k návrhu a implementaci algoritmů a také k vytváření modelů a provádění operací (simulací) s nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s maticemu, v případě jednořádkové matice, vektoru, je s práce s touto maticí shodná s prací s polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v této práci, které jsou provedeny v MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s funkcemi napsanými v jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v jiných jazycích, jako jsou například Java, .NET nebo Perl.
+Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je s~práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v~této práci, které jsou provedeny v~MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v~kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl.
 
-Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s jazykem MATLAB kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v této bakalářské práci.
+Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k~dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s~jazykem MATLAB kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v~této bakalářské práci.
 
-Jazyk MATLAB bohužel není volně dostupný, nicméně v akademickém prostředí je velmi běžně k dostání, stejně jako v následné praxi. Pro účely bakalářské práce je využita studentská licence ve vlastnictví VUT FIT.
+Jazyk MATLAB bohužel není volně dostupný, nicméně v~akademickém prostředí je velmi běžně k~dostání, stejně jako v~následné praxi. Pro účely bakalářské práce je využita studentská licence ve vlastnictví VUT FIT.
 
-Popis nástroje MATLAB lze nalézt v kapitole \ref{matlab-desc}.
+Popis nástroje MATLAB lze nalézt v~kapitole \ref{matlab-desc}.
 \subsection{Modelica}
-Jazyk Modelica je objektově orientovaný, modelační a simulační jazyk, který je vyvíjen neziskovou organizací Modelca Association od roku 1997. Díky tomu, že je tento jazyk volně dostupný, je na trhu mnoho simulačních nástrojí a vývojových prostředí, které pracují právě s tímto jazykem. Pro účely této práce byly vybrány nástoje Dymola, OpenModelica a jModelica.org. Vývojové prostředí Dymola není, stejně jako MATLAB, volně dostupné. Pro účely provádění experimentů s tímto vývojovým prostředím je využita licence, pomocí které je možno spustit nástroj Dymola na školním serveru Merlin v rámci VUT FIT.
+Jazyk Modelica je objektově orientovaný, modelační a simulační jazyk, který je vyvíjen neziskovou organizací Modelca Association od roku 1997. Díky tomu, že je tento jazyk volně dostupný, je na trhu mnoho simulačních nástrojí a vývojových prostředí, které pracují právě s~tímto jazykem. Pro účely této práce byly vybrány nástoje Dymola, OpenModelica a jModelica.org. Vývojové prostředí Dymola není, stejně jako MATLAB, volně dostupné. Pro účely provádění experimentů s~tímto vývojovým prostředím je využita licence, pomocí které je možno spustit nástroj Dymola na školním serveru Merlin v~rámci VUT FIT.
 
-Modely, které jsou zapsány v jazyku Modelica, mají veškeré své chování popsané rovnicemi. Například rovnice Newtonova zákona ochlazování, který má matematický zápis:
+Modely, které jsou zapsány v~jazyku Modelica, mají veškeré své chování popsané rovnicemi. Například rovnice Newtonova zákona ochlazování, který má matematický zápis:
 
 $$
 mc_p\Dot{T} = hA(T_{\infty} - T)
 $$
-se v jazyce Modelica zapíše naprosto totožným způsobem \cite{modelica-example}. Rovnice má tedy po zapsání následující tvar:
+se v~jazyce Modelica zapíše naprosto totožným způsobem \cite{modelica-example}. Rovnice má tedy po zapsání následující tvar:
 
 \begin{verbatim}
                         m*c_p*der(T) = h*A*(T_inf-T)
 \end{verbatim}
 
-Pro to, aby byl model funkční, je nutné definovat vstupní hodnoty jednotlivých proměnných. Zapsaná rovnice se tedy chová naprosto stejně, jako když počítáme rovnici na papíře. Použítím znaku $ = $ tedy nedochází k přiřazení, jako je to běžné u jiných programovacích jazyků, ale slouží zde jako znak pro porovnání - proto tedy ona práce s rovnicemi.
+Pro to, aby byl model funkční, je nutné definovat vstupní hodnoty jednotlivých proměnných. Zapsaná rovnice se tedy chová naprosto stejně, jako když počítáme rovnici na papíře. Použítím znaku $ = $ tedy nedochází k~přiřazení, jako je to běžné u~jiných programovacích jazyků, ale slouží zde jako znak pro porovnání - proto tedy ona práce s~rovnicemi.
 
-Jazyk je v současnosti velmi využíván v oblasti proudění kapalin a termodynamiky, vzhledem k jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v elektrotechnice a strojírenství.
+Jazyk je v~současnosti velmi využíván v~oblasti proudění kapalin a termodynamiky, vzhledem k~jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v~elektrotechnice a strojírenství.
 
-Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků pomocí grafů. I v tomto případě jsou v kapitole \ref{kapitola6} grafy vytvořeny pomocí vestavěného nástroje pro tvorbu grafů v jazyce Modelica.
+Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků pomocí grafů. I~v~tomto případě jsou v~kapitole \ref{kapitola6} grafy vytvořeny pomocí vestavěného nástroje pro tvorbu grafů v~jazyce Modelica.
 
 \subsection{Python}
-Python je volně dostupný interpretovaný programovací jazyk, který má nepřeberné množství využití. Poprvé byl představen v roce 1991. Jazyk Python není v základním pojetí simulačním nebo modelačním jazykem. Tuto funkcionalitu získává teprve s dodatečnými knihovnami. V rámci využití v této bakalářské práci byla vybrána rodina knihoven SciPy. Hlavním přínosem této rodiny knihoven je možnost použití metod integrace, lineární algebry, rychlé Fourierovy transformace a řešení diferenciálních rovnic.
+Python je volně dostupný interpretovaný programovací jazyk, který má nepřeberné množství využití. Poprvé byl představen v~roce 1991. Jazyk Python není v~základním pojetí simulačním nebo modelačním jazykem. Tuto funkcionalitu získává teprve s~dodatečnými knihovnami. V~rámci využití v~této bakalářské práci byla vybrána rodina knihoven SciPy. Hlavním přínosem této rodiny knihoven je možnost použití metod integrace, lineární algebry, rychlé Fourierovy transformace a řešení diferenciálních rovnic.
 
-Tento jazyk byl zvolen z důvodu, který byl řečený výše. Python nemá primární použití jako jazyk vhodný pro modelování a simulace. Nicméně s jeho rostoucí popularitou a rostoucí uživatelskou základnou, bude jeho využití růst ještě více. Momentálně má Python velmi široký záběr pokrytí - od funkcionální, přes logické programování, až po tvorbu grafiky, databází, nebo provádění simulací. Jazyk je využíván velkými firmami na trhu, jako jsou například Google, NASA nebo Wikipedia.
+Tento jazyk byl zvolen z~důvodu, který byl řečený výše. Python nemá primární použití jako jazyk vhodný pro modelování a simulace. Nicméně s~jeho rostoucí popularitou a rostoucí uživatelskou základnou, bude jeho využití růst ještě více. Momentálně má Python velmi široký záběr pokrytí - od funkcionální, přes logické programování, až po tvorbu grafiky, databází, nebo provádění simulací. Jazyk je využíván velkými firmami na trhu, jako jsou například Google, NASA nebo Wikipedia.
 
-Jako simulační knihovny k tomuto jazyku byla vybrána rodina knihoven SciPy \cite{scipy}. Pomocí těchto knihoven je následně možné prováděť náročnější matematické operace, simulace a vizualizaci dat. Bližší popis této knihovny je k nalezení v kapitole \ref{chapter-scipy}.
+Jako simulační knihovny k~tomuto jazyku byla vybrána rodina knihoven SciPy \cite{scipy}. Pomocí těchto knihoven je následně možné prováděť náročnější matematické operace, simulace a vizualizaci dat. Bližší popis této knihovny je k~nalezení v~kapitole \ref{chapter-scipy}.
 
-Stejně jako u jazyků MATLAB a Modelica jsou grafy vykreslené v jazyce Python využity k zobrazování výsledků simulací v kapitole \ref{kapitola6}.
+Stejně jako u~jazyků MATLAB a Modelica jsou grafy vykreslené v~jazyce Python využity k~zobrazování výsledků simulací v~kapitole \ref{kapitola6}.
 
 \section{Popis použitých simulačních nástrojů}
 \label{popis-nastroju}
-Společně s jazyky byly vybrány simulační nástroje, které budou porovnávány v této bakalářské práci. V této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
+Společně s~jazyky byly vybrány simulační nástroje, které budou porovnávány v~této bakalářské práci. V~této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
 \begin{enumerate}
     \item Založené (případně podobné) na jazyku MATLAB:
     \begin{itemize}
@@ -190,16 +190,16 @@ Společně s jazyky byly vybrány simulační nástroje, které budou porovnáv�
     \end{itemize}
 \end{enumerate}
 
-Všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v kapitole \ref{dymola-desc}, který je spustitelný pouze v prostředí Windows a Linux. Všechny zde zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v kapitole \ref{chapter-scipy}.
+Všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny zde zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
 
 \subsection{MATLAB}
 \label{matlab-desc}
 
-Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Tento simulační nástroj je mateřským prostředím pro nástroj Simulink, který je popsán v kapitole \ref{simulink-desc}. 
+Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v~kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Tento simulační nástroj je mateřským prostředím pro nástroj Simulink, který je popsán v~kapitole \ref{simulink-desc}.
 
-Nástroj umožňuje modelování modelů a následné simulace s nimi. Tento nástroj nabízí široký záběr možností využití, od matematických výpočtů, přes použití pro eknomii, až po využití pro genetické algoritmy ve strojírenství \cite{Zapletal2016}.
+Nástroj umožňuje modelování modelů a následné simulace s~nimi. Tento nástroj nabízí široký záběr možností využití, od matematických výpočtů, přes použití pro eknomii, až po využití pro genetické algoritmy ve strojírenství \cite{Zapletal2016}.
 
-MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto simulačního programu\footnote{https://www.mathworks.com/products/matlab-online.html}. Pomocí tohoto webového nástroje je možné svůj kód/model sdílet společně s dalšími uživateli a tak společně pracovat na jednom projektu. Porovnání a zhodnocení webového rozhraní nejsou v této bakalářské práci zapracovány.
+MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto simulačního programu\footnote{https://www.mathworks.com/products/matlab-online.html}. Pomocí tohoto webového nástroje je možné svůj kód/model sdílet společně s~dalšími uživateli a tak společně pracovat na jednom projektu. Porovnání a zhodnocení webového rozhraní nejsou v~této bakalářské práci zapracovány.
 
 \begin{figure}
     \centering
@@ -210,27 +210,27 @@ MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto si
 
 \subsection{Simulink}
 \label{simulink-desc}
-Simulink je programovatelná grafická nástavba pro nástroj MATLAB. Tento nástroj je také vyvíjen společností MathWorks. Hlavní využití nástroje je jednoduché vymodelování systému pomocí grafických programovatelných bloků, respektive blokových schemat. Pro tyto účely jsou v rámci nástroje Simulink předem vytvořeny a předdefinovány bloky pro tvorbu dynamických a spojitých modelů. Další výhodou je přímé generování kódu v jazyce C, případně v jazyce C++. Běh simulací s takto vytvořenými modely je možné sledovat v reálném čase.
+Simulink je programovatelná grafická nástavba pro nástroj MATLAB. Tento nástroj je také vyvíjen společností MathWorks. Hlavní využití nástroje je jednoduché vymodelování systému pomocí grafických programovatelných bloků, respektive blokových schemat. Pro tyto účely jsou v~rámci nástroje Simulink předem vytvořeny a předdefinovány bloky pro tvorbu dynamických a spojitých modelů. Další výhodou je přímé generování kódu v~jazyce C, případně v~jazyce C++. Běh simulací s~takto vytvořenými modely je možné sledovat v~reálném čase.
 
-Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně dostupnou alternativu bychom mohli považovat nástroj OpenModelica, který je popsán v kapitole \ref{openmodelica-desc}.
+Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně dostupnou alternativu bychom mohli považovat nástroj OpenModelica, který je popsán v~kapitole \ref{openmodelica-desc}.
 
 \subsection{GNU Octave}
 \label{octave-desc}
-Nástroj Octave je vyvíjený pod veřejnou licencí GNU General Public Licence (GPL) \cite{OctaveManual}. Syntax jazyka, který je použit k modelování v GNU Octave je velmi podobný jazyku MATLAB, dokonce je s tímto jazykem ve větší části kompatibilní. Hlavním rozdílem v syntaxi je ten, že Octave podporuje autoinkrementaci stejně, tak jako například jazyk C -- MATLAB tuto podporu bohužel nemá. 
-Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b}, zatímco v MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{OctaveManual}.
+Nástroj Octave je vyvíjený pod veřejnou licencí GNU General Public Licence (GPL) \cite{OctaveManual}. Syntax jazyka, který je použit k~modelování v~GNU Octave je velmi podobný jazyku MATLAB, dokonce je s~tímto jazykem ve větší části kompatibilní. Hlavním rozdílem v~syntaxi je ten, že Octave podporuje autoinkrementaci stejně, tak jako například jazyk C -- MATLAB tuto podporu bohužel nemá.
+Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v~Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b}, zatímco v~MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{OctaveManual}.
 
 Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{https://octave.sourceforge.io/packages.php}.
 
 \subsection{SciLab}
 \label{scilab-desc}
-Další z nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab. Syntax jeho jazyka je zase podobný syntaxu MATLABu, ovšem už ne do takové míry, jako u nástroje GNU Octave \cite{Gilberto}. Kód napsaný pro SciLab tedy není volně přenositelný do prostředí MATLABu, ale díky velké podobnosti syntaxe je možné kód snadno refaktorovat pro tento simulační nástroj.
+Další z~nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab. Syntax jeho jazyka je zase podobný syntaxu MATLABu, ovšem už ne do takové míry, jako u~nástroje GNU Octave \cite{Gilberto}. Kód napsaný pro SciLab tedy není volně přenositelný do prostředí MATLABu, ale díky velké podobnosti syntaxe je možné kód snadno refaktorovat pro tento simulační nástroj.
 
-Podobně jako u MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{https://www.scilab.org/cloud/web-application}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v rámci této bakalářské práce.
+Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{https://www.scilab.org/cloud/web-application}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v~rámci této bakalářské práce.
 
 \subsection{Dymola}
 \label{dymola-desc}
 
-Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v rozdělení v kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}. 
+Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}.
 
 \begin{figure}
     \centering
@@ -245,11 +245,11 @@ Pro účely této bakalářské práce je využita instalace nástroje Dymola ve
 \subsection{jModelica}
 \todo{zadarmo, preklad do C nebo XML, python, assimulo}
 
-Jednou z možných alternativ k nástroji Dymola je jModelica. Tento nástroj je volně dostupný, open-sourcový a stejně jako GNU Octave, který byl popsán v kapitole \ref{octave-desc}, vyvíjený pod licencí GPL. Je jedním z vyhledávaných alternativ pro nástroj Dymola. Z obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v GUI jednotlivých nástrojů nejsou nijak markantní. 
+Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je volně dostupný, open-sourcový a stejně jako GNU Octave, který byl popsán v~kapitole \ref{octave-desc}, vyvíjený pod licencí GPL. Je jedním z~vyhledávaných alternativ pro nástroj Dymola. Z~obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v~GUI jednotlivých nástrojů nejsou nijak markantní.
 
-jModelica podporuje přímé generování ze zdrojového kódu napsaného v jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven.
+jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v~jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven.
 
-Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jmodelica.org/assimulo/}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v jazyce Python. 
+Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jmodelica.org/assimulo/}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v~jazyce Python.
 
 \begin{figure}
     \centering
@@ -261,24 +261,23 @@ Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jm
 \subsection{OpenModelica}
 \label{openmodelica-desc}
 \todo{openmodelica -- alternativa pro simulink, zadarmo}
-Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{https://github.com/OpenModelica}. Tato skutečnost nahrává k vývoji vlastních modifikací a uživatelských pluginů.
+Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{https://github.com/OpenModelica}. Tato skutečnost nahrává k~vývoji vlastních modifikací a uživatelských pluginů.
 
-Obecně se nástroj OpenModelica udává jako jedna z alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v kapitole \ref{scilab-desc}.
+Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}.
 
 \subsection{SciPy}
 \label{chapter-scipy}
-\todo{popis knihovny + numpy, matlab graph plot, zadarmo}
-Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v pravém slova smyslu, jedná se spíše o rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{https://github.com/scipy/scipy} \cite{scipy}. V rámci této rodiny knihoven jsou knihovny:
+Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v~pravém slova smyslu, jedná se spíše o~rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{https://github.com/scipy/scipy} \cite{scipy}. V~rámci této rodiny knihoven jsou knihovny:
 \begin{itemize}
     \item SciPy -- tato knihovna obsahuje numerické algoritmy pro provádění simulací, zpracovávání signálů a následné statistické vyhodnocení simulace
-    \item NumPy -- obsahuje metody pro numerické výpočty, práci s číselnými poly a maticemi
+    \item NumPy -- obsahuje metody pro numerické výpočty, práci s~číselnými poly a maticemi
     \item Matplotlib -- pomocí této knihovny je možné na základě vstupních dat vykreslovat grafické výstupy ve 2D a i ve 3D
 \end{itemize}
 
-SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v běžném IDE pro vývoj kódu v jazyce Python. 
+SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python.
 
 \chapter{Implementace modelů}
-\todo{tahle kapitola az jako posledni v pripade zmen implementaci}
+\todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
 \label{kapitola4}
 
 \section{Kruhový test}
