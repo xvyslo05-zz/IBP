@@ -5,7 +5,7 @@ Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo 
 
 Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v~různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k~pojednání o~vhodnosti použití implementovaných modelů pro zvolené nástroje.
 
-V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V~následující kapitole \ref{kapitola5} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola6} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
+V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V~následující kapitole \ref{kapitola4} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola6} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
 
 \chapter{Modelování a simulace}
 \label{kapitola2}
@@ -90,7 +90,7 @@ V~rámci simulace můžeme sledovat i hodnoty, které nepřímo souvisí s~výsl
     \item Alokace zdrojů při simulaci -- využití fyzických a virtuálních zdrojů výpočetního stroje
 \end{itemize}
 
-Část z~těchto proměnných budeme sledovat v~rámci této bakalářské práce. Popis sledování a následného porovnání lze nalézt v~kapitole \ref{kapitola5}.
+Část z~těchto proměnných budeme sledovat v~rámci této bakalářské práce. Popis sledování a následného porovnání lze nalézt v~kapitole \ref{kapitola4}.
 
 \section{Výhody a nevýhody využití simulací}
 
@@ -133,7 +133,7 @@ Jazyků umožňujících vytváření a specifikaci modelů a provádení experi
 \label{matlab-lang}
 Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je s~práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v~této práci, které jsou provedeny v~MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v~kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl.
 
-Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k~dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s~jazykem MATLAB kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v~této bakalářské práci.
+Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k~dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s~jazykem MATLAB do určité míry kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v~této bakalářské práci.
 
 Jazyk MATLAB bohužel není volně dostupný, nicméně v~akademickém prostředí je velmi běžně k~dostání, stejně jako v~následné praxi. Pro účely bakalářské práce je využita studentská licence ve vlastnictví VUT FIT.
 
@@ -243,8 +243,6 @@ Pro účely této bakalářské práce je využita instalace nástroje Dymola ve
 
 
 \subsection{jModelica}
-\todo{zadarmo, preklad do C nebo XML, python, assimulo}
-
 Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je volně dostupný, open-sourcový a stejně jako GNU Octave, který byl popsán v~kapitole \ref{octave-desc}, vyvíjený pod licencí GPL. Je jedním z~vyhledávaných alternativ pro nástroj Dymola. Z~obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v~GUI jednotlivých nástrojů nejsou nijak markantní.
 
 jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v~jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven.
@@ -260,7 +258,6 @@ Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jm
 
 \subsection{OpenModelica}
 \label{openmodelica-desc}
-\todo{openmodelica -- alternativa pro simulink, zadarmo}
 Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{https://github.com/OpenModelica}. Tato skutečnost nahrává k~vývoji vlastních modifikací a uživatelských pluginů.
 
 Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}.
@@ -276,25 +273,48 @@ Tento simulační nástroj jako jediný není založený na jazycích MATLAB, č
 
 SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python.
 
-\chapter{Implementace modelů}
-\todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
+\section{Shrnutí použitých jazyků a nástrojů}
+
+V předchozích kapitolách jsme si představili zvolené simulační jazyky a následně nástroje, které jsou s těmito jazyky spjaty. Těmito jazyky jsou MATLAB, Modelica a Python (Scipy). V kapitole \ref{popis-nastroju} bylo představeno první možné rozdělení simulačních nástrojů. Dále ale také můžeme dělit simulační nástroje podle dostupnosti, a to takto:
+\begin{enumerate}
+    \item Komerční nástroje:
+    \begin{itemize}
+        \item MATLAB + Simulink
+        \item Dymola
+    \end{itemize}
+    \item Volně dostupné nástroje:
+    \begin{itemize}
+        \item GNU Octave
+        \item SciLab
+        \item jModelica
+        \item OpenModelica
+        \item SciPy
+    \end{itemize}
+\end{enumerate}
+
+Komerční nástroje jsou v této práci zahrnuty právě kvůli srovnání s volně dostupnými nástroji. Pro účely práce jsou využity licence zakoupené v rámci VUT FIT.
+
+V kapitole \ref{kapitola6} lze nalézt následné porovnání simulačních nástrojů podle výsledků simulací s implementovanými modely popsanými v kapitole \ref{kapitola4}.
+
+\chapter{Popis modelů a použité metodiky}
 \label{kapitola4}
-
-\section{Kruhový test}
-
-\section{Skákající míček}
-
-\section{Tuhý systém}
-
-\section{Diskrétní simulace}
-
-
-\chapter{Porovnání}
-\label{kapitola5}
-
-\section{Základní problematika}
+V této kapitole bude představena použitá porovnávací metodika, kritéria hodnocení a následné způsoby jejich vyhodnocení. Tato metodika bude následně použita pro vyhodnocení výsledků získaných z běhu simulací s modely, které jsou také popsány v této kapitole. Zároveň s popisem modelů lze v této kapitole najít i popis jejich implementace.
 
 \section{Popis použité metodiky}
+K vyhodnocování výsledků simulací je použita metodika k hodnocení nástrojů k simulování dopravy \cite{jones2004traffic}.
+
+\section{Implementované modely}
+\todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
+
+
+\subsection{Kruhový test}
+
+\subsection{Skákající míček}
+
+\subsection{Tuhý systém}
+
+\subsection{Diskrétní simulace}
+
 
 
 \chapter{Výsledky simulací a porovnání výsledků}
