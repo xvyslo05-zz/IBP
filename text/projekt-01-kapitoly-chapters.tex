@@ -5,7 +5,7 @@ Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo 
 
 Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v~různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k~pojednání o~vhodnosti použití implementovaných modelů pro zvolené nástroje.
 
-V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V~následující kapitole \ref{kapitola4} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola6} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
+V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V~následující kapitole \ref{kapitola4} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola5} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
 
 \chapter{Modelování a simulace}
 \label{kapitola2}
@@ -131,7 +131,7 @@ Jazyků umožňujících vytváření a specifikaci modelů a provádení experi
 
 \subsection{MATLAB}
 \label{matlab-lang}
-Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je s~práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v~této práci, které jsou provedeny v~MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v~kapitole \ref{kapitola6}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl.
+Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je s~práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v~této práci, které jsou provedeny v~MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v~kapitole \ref{kapitola5}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl.
 
 Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k~dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s~jazykem MATLAB do určité míry kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v~této bakalářské práci.
 
@@ -156,7 +156,7 @@ Pro to, aby byl model funkční, je nutné definovat vstupní hodnoty jednotliv�
 
 Jazyk je v~současnosti velmi využíván v~oblasti proudění kapalin a termodynamiky, vzhledem k~jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v~elektrotechnice a strojírenství.
 
-Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků pomocí grafů. I~v~tomto případě jsou v~kapitole \ref{kapitola6} grafy vytvořeny pomocí vestavěného nástroje pro tvorbu grafů v~jazyce Modelica.
+Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků pomocí grafů. I~v~tomto případě jsou v~kapitole \ref{kapitola5} grafy vytvořeny pomocí vestavěného nástroje pro tvorbu grafů v~jazyce Modelica.
 
 \subsection{Python}
 Python je volně dostupný interpretovaný programovací jazyk, který má nepřeberné množství využití. Poprvé byl představen v~roce 1991. Jazyk Python není v~základním pojetí simulačním nebo modelačním jazykem. Tuto funkcionalitu získává teprve s~dodatečnými knihovnami. V~rámci využití v~této bakalářské práci byla vybrána rodina knihoven SciPy. Hlavním přínosem této rodiny knihoven je možnost použití metod integrace, lineární algebry, rychlé Fourierovy transformace a řešení diferenciálních rovnic.
@@ -165,7 +165,7 @@ Tento jazyk byl zvolen z~důvodu, který byl řečený výše. Python nemá prim
 
 Jako simulační knihovny k~tomuto jazyku byla vybrána rodina knihoven SciPy \cite{scipy}. Pomocí těchto knihoven je následně možné prováděť náročnější matematické operace, simulace a vizualizaci dat. Bližší popis této knihovny je k~nalezení v~kapitole \ref{chapter-scipy}.
 
-Stejně jako u~jazyků MATLAB a Modelica jsou grafy vykreslené v~jazyce Python využity k~zobrazování výsledků simulací v~kapitole \ref{kapitola6}.
+Stejně jako u~jazyků MATLAB a Modelica jsou grafy vykreslené v~jazyce Python využity k~zobrazování výsledků simulací v~kapitole \ref{kapitola5}.
 
 \section{Popis použitých simulačních nástrojů}
 \label{popis-nastroju}
@@ -294,14 +294,29 @@ V předchozích kapitolách jsme si představili zvolené simulační jazyky a n
 
 Komerční nástroje jsou v této práci zahrnuty právě kvůli srovnání s volně dostupnými nástroji. Pro účely práce jsou využity licence zakoupené v rámci VUT FIT.
 
-V kapitole \ref{kapitola6} lze nalézt následné porovnání simulačních nástrojů podle výsledků simulací s implementovanými modely popsanými v kapitole \ref{kapitola4}.
+V kapitole \ref{kapitola5} lze nalézt následné porovnání simulačních nástrojů podle výsledků simulací s implementovanými modely popsanými v kapitole \ref{kapitola4}.
 
 \chapter{Popis modelů a použité metodiky}
 \label{kapitola4}
 V této kapitole bude představena použitá porovnávací metodika, kritéria hodnocení a následné způsoby jejich vyhodnocení. Tato metodika bude následně použita pro vyhodnocení výsledků získaných z běhu simulací s modely, které jsou také popsány v této kapitole. Zároveň s popisem modelů lze v této kapitole najít i popis jejich implementace.
 
 \section{Popis použité metodiky}
-K vyhodnocování výsledků simulací je použita metodika k hodnocení nástrojů k simulování dopravy \cite{jones2004traffic}.
+K vyhodnocování výsledků simulací je použita metodika k hodnocení nástrojů k simulování dopravy \cite{jones2004traffic}.  Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání. Byla vybrána tato kritéria:
+\begin{itemize}
+    \item Strojový čas
+    \item Přesnost zvolené numerické metody
+    \item Hardwarové a softwarové požadavky
+    \item Obtížnost implementace modelu
+    \item Obtížnost instalace
+\end{itemize}
+
+V rámci hodnocení nebudeme používat žádnou škálu, nebo číselnou hodnotu k hodnocení "úspěšnosti" simulačního nástroje. Výsledek hodnocení bude spíše doporučení, jestli je daný simulační nástroj, případně jazyk, vhodný pro daný typ úloh.
+
+V případě hodnocení obtížnosti implementace lze namítat, že je toto kritérium velmi subjektivní. Obecně lze předpokládat, že pokud budou vybrány základní typy modely pro různé druhy simulací, bude obtížnost implementace nízká, pokud bude jazyk, nebo nástroj, vhodný pro tuto implementaci. V opačném případě bude obtížnost implementace označena jako vysoká.
+
+V rámci kritéria o hardwarových a softwarových požadavcích bude hodnocena kompatibilita nástrojů napříč standardními platformami (Windows, Linux, MacOS), případně zde budou uvedeny omezení, která vyplynou z instalace a běhu experimentu.
+
+Všechny nástroje byly nainstalovány pomocí návodů v oficiálních dokumentacích. Nebylo-li tomu tak, pak v rámci hodnocení obtížnosti instalace jsou uvedena úskalí vyvstalá během instalace.
 
 \section{Implementované modely}
 \todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
@@ -318,7 +333,7 @@ K vyhodnocování výsledků simulací je použita metodika k hodnocení nástro
 
 
 \chapter{Výsledky simulací a porovnání výsledků}
-\label{kapitola6}
+\label{kapitola5}
 
 \section{Model 1}
 
@@ -334,7 +349,7 @@ K vyhodnocování výsledků simulací je použita metodika k hodnocení nástro
 
 
 \chapter{Závěr}
-\label{kapitola7}
+\label{kapitola6}
 
 
 %===============================================================================
