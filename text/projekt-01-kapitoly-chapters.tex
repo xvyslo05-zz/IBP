@@ -201,7 +201,7 @@ Nástroj umožňuje modelování modelů a následné simulace s~nimi. Tento ná
 
 MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto simulačního programu\footnote{https://www.mathworks.com/products/matlab-online.html}. Pomocí tohoto webového nástroje je možné svůj kód/model sdílet společně s~dalšími uživateli a tak společně pracovat na jednom projektu. Porovnání a zhodnocení webového rozhraní nejsou v~této bakalářské práci zapracovány.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí MATLAB}
@@ -232,7 +232,7 @@ Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastníh
 
 Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí Dymola}
@@ -249,7 +249,7 @@ jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazy
 
 Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jmodelica.org/assimulo/}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v~jazyce Python.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí jModelica.org}
@@ -301,7 +301,7 @@ V kapitole \ref{kapitola5} lze nalézt následné porovnání simulačních nás
 V této kapitole bude představena použitá porovnávací metodika, kritéria hodnocení a následné způsoby jejich vyhodnocení. Tato metodika bude následně použita pro vyhodnocení výsledků získaných z běhu simulací s modely, které jsou také popsány v této kapitole. Zároveň s popisem modelů lze v této kapitole najít i popis jejich implementace.
 
 \section{Popis použité metodiky}
-K vyhodnocování výsledků simulací je použita metodika k hodnocení nástrojů k simulování dopravy \cite{jones2004traffic}.  Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání. Byla vybrána tato kritéria:
+K vyhodnocování výsledků simulací je použita metodika k hodnocení nástrojů k simulování dopravy \cite{jones2004traffic}.  Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání a následně byla vytvořena tato kritéria:
 \begin{itemize}
     \item Strojový čas
     \item Přesnost zvolené numerické metody
@@ -319,23 +319,58 @@ V rámci kritéria o hardwarových a softwarových požadavcích bude hodnocena 
 Všechny nástroje byly nainstalovány pomocí návodů v oficiálních dokumentacích. Nebylo-li tomu tak, pak v rámci hodnocení obtížnosti instalace jsou uvedena úskalí vyvstalá během instalace.
 
 \section{Implementované modely}
+\label{implementace}
 \todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
 
+V následující kapitole bude popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Modely byly 
 
-\subsection{Kruhový test}
 
 \subsection{Skákající míček}
+V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere maximální rychlost $v_p$ a narazí do země rychlostí $v$, kterou lze popsat rovnicí:
+
+$$
+v = v_p \sqrt{1 - \exp(-2gh/v^2_p)}
+$$
+a následně vyletí do nové výšky $h$, která je definována rovnicí:
+
+$$
+h = -(v^2_p / g)\ln({\cos({\arctan({v_o / v_p})})})
+$$
+Parametr $v_o$ se vypočítá jako $v_o = C_r * v$, kde $C_r$ je zadaná hodnota parametru pružnosti. Pro účely experimentu jsou počáteční hodnoty nastaveny takto:
+
+\todo{doplnit hodnoty!!}
+\begin{center}
+\begin{table}[h]
+    \centering
+\begin{tabular}{|l|l|l|}
+\hline
+Proměnná             & Hodnota & Jednotka    \\ \hline
+$h$                    &        & $m$     \\ \hline
+$g$                    &      & $m.s^{-2}$ \\ \hline
+$v_p$                   &       & $m.s^{-1}$ \\ \hline
+koeficient pružnosti &      &             \\ \hline
+\end{tabular}
+    \caption{Vstupní hodnoty modelu skákajícího míčku}
+    \label{tab:my_label}
+\end{table}
+\end{center}
+
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ????. 
+
+Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiálního repozitáře společnosti MathWorks pro sdílení zdrojových kódů jazyka MATLAB\footnote{https://www.mathworks.com/matlabcentral/fileexchange/60525-experiments-with-a-bouncing-ball}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
+Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
+\subsection{Kruhový test}
 
 \subsection{Tuhý systém}
 
 \subsection{Diskrétní simulace}
 
-
-
 \chapter{Výsledky simulací a porovnání výsledků}
 \label{kapitola5}
+V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení porovnání simulačních nástrojů. Každý z modelů, které byly popsány v kapitole \ref{implementace}, byl postupně implementován ve všech nástrojích uvedených v kapitole \ref{popis-nastroju}. Pokud tomu tak nebylo, pak je to zohledněno v jeho hodnocení obtížnosti implementace.
 
 \section{Model 1}
+\label{srovnani-micek}
 
 \section{Model 2}
 
@@ -344,6 +379,8 @@ Všechny nástroje byly nainstalovány pomocí návodů v oficiálních dokument
 \section{Model 4}
 
 \section{Model 5}
+
+\section{Shrnutí}
 
 
 
