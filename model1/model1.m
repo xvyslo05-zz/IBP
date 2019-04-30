@@ -1,3 +1,6 @@
+% Copyright (c) 2016, Daniel Frey
+% All rights reserved.
+
 % This is the problem regarding a ball bouncing including air drag
 % These variables were to be set in the workspace
 % Youd want to comment these out before submission
