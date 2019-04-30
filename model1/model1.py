@@ -3,6 +3,7 @@
 
 import math
 import random
+import pprint
 
 height      = 2     # in meters
 velocity    = 10    # in m/s
@@ -10,22 +11,19 @@ g           = 9.8   # acceleration in m/s^2
 cr          = 0.9   # coeficient of restitution, from 0 to 1, where 1 equals perfect elastic collision
 
 
-for j in range(900):
+
+pprint.pprint(['#', 'velocity', 'restitution_velocity', 'height'])
+for j in range(20):
     velocity = velocity * math.sqrt(1 - math.exp(-2 * g * height / (velocity ** 2)))
 
     restitution_velocity = cr * velocity * (1 - 0.01 * random.random())
 
     height =- ((velocity ** 2)/g) * math.log((math.cos(math.atan(restitution_velocity/velocity))))
 
-    prettyPrint(velocity, restitution_velocity, height, j)
+    result = [j, velocity, restitution_velocity, height]
 
+    pprint.pprint(result)
 
-def prettyPrint(velocity, restitution_velocity, height, numberOfIteration):
-
-    print("#############################")
-
-    print(velocity, restitution_velocity)
-
-    print(height)
-
-    print(numberOfIteration)
+    if height < 0.0000000001 :
+      print("END OF SIMULATION")
+      break
