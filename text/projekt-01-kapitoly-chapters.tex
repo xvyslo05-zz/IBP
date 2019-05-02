@@ -232,7 +232,7 @@ Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastníh
 
 Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí Dymola}
@@ -322,11 +322,11 @@ Všechny nástroje byly nainstalovány pomocí návodů v oficiálních dokument
 \label{implementace}
 \todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
 
-V následující kapitole bude popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Modely byly 
+V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích.
 
 
 \subsection{Skákající míček}
-V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere maximální rychlost $v_p$ a narazí do země rychlostí $v$, kterou lze popsat rovnicí:
+V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere maximální rychlost $v_p$ a odrazí se od země rychlostí $v$, kterou lze popsat rovnicí:
 
 $$
 v = v_p \sqrt{1 - \exp(-2gh/v^2_p)}
@@ -340,7 +340,7 @@ Parametr $v_o$ se vypočítá jako $v_o = C_r * v$, kde $C_r$ je zadaná hodnota
 
 \todo{doplnit hodnoty!!}
 \begin{center}
-\begin{table}[h]
+\begin{table}[ht]
     \centering
 \begin{tabular}{|l|l|l|}
 \hline
@@ -355,13 +355,57 @@ koeficient pružnosti &      &             \\ \hline
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ????. 
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ????.
 
 Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiálního repozitáře společnosti MathWorks pro sdílení zdrojových kódů jazyka MATLAB\footnote{https://www.mathworks.com/matlabcentral/fileexchange/60525-experiments-with-a-bouncing-ball}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
+
 \subsection{Kruhový test}
 
+Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci jednokrokové Eulerovy metody. Tato metoda je nejjednodušší metodou pro řešení obyčejných diferenciálních rovnic. Systém, který byl modelován je zadán rovnicí:
+
+$$
+y'' - y = 0
+$$ a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
+
+Během běhu simulace se výsledky postupně přibližují analytickému řešení, které je definováno jako:
+
+$$
+y(t) = \cos(t)
+$$
+
+V rámci implementací pro různé nástroje se může lišit přesnost a rychlost výpočtu a postupného přibližování se výsledku analytického řešení. V pseudokódu zní zápis implementace takto:
+
+\begin{lstlisting}
+inicializace_vstupnich_podminek;
+inicializace_casu_a_delky_kroku;
+
+vypocet_vstupu_integratoru(){...}
+
+vypocet_Euler(){
+  vypocet_vstupu_integratoru();
+  vypocet_novych_stavu_integratoru;
+  posun_casu_o_krok_h;
+}
+
+main(){
+  while(aktualni_cas < konecny_cas){
+    vypocet_Euler();
+  }
+}
+\end{lstlisting}
+
+
+
 \subsection{Tuhý systém}
+Tuhý systém \footnote{Z anglického "stiff system"} je systém, který je popsán matematickou rovnicí, kterou lze označit za tuhou \cite{hairer}. Tuhá rovnice je diferenciální rovnice, která má při řešení určitými numerickými metodami numericky nestabilní řešení. Systémy, které můžeme označit za tuhé, můžeme najít například v rámci chemických reakcí. Tato nestabilita je způsobena vysokou hodnotou délky kroku při řešení rovnice. Pro řešení se většinou používají jednokrokové metody pro výpočty diferenciálních rovnic. Obvykle je k řešení využita některá z varianty metod Runge-Kutta, nebo i jednoduchá Eulerova metoda \cite{IMS-skripta}. Při výpočtu vícekrokovou metodou se využívají například metody Adamsovy, nebo Nyströmovy. Využití vícekrokových metod je ale velmi vzácné a podle literatury popisováno jako méně stabilní, než jednokrokové metody \cite{hairer}.
+
+Pro účely experimentu byla vybrána rovnice:
+
+\begin{equation}
+    y' = -50(y - \cos{(x)})
+\end{equation}
+s délkou kroku $h = \frac{1.875}{50}$ a počáteční podmínkou $y(0) = 1$.
 
 \subsection{Diskrétní simulace}
 
@@ -373,6 +417,7 @@ V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení 
 \label{srovnani-micek}
 
 \section{Model 2}
+\label{srovnani-kruh}
 
 \section{Model 3}
 
