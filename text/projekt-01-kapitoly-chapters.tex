@@ -1,11 +1,11 @@
 %===============================================================================
 \chapter{Úvod}
 
-Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci. Z~takto provedené simulace získáme představu o~tom, jak se náš produkt chová. A~pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými simulačními jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB a Modelica, případně jazyky jim podobné. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními Scipy a Numpy, který není příbuzný s~výše uvedenými jazyky.
+Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci. Z~takto provedené simulace získáme představu o~tom, jak se náš produkt chová. A~pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB a Modelica, případně jazyky jim podobné. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními Scipy a Numpy, který není příbuzný s~výše uvedenými jazyky.
 
 Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v~různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k~pojednání o~vhodnosti použití implementovaných modelů pro zvolené nástroje.
 
-V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. V~následující kapitole \ref{kapitola4} bude popsán průběh porovnání nástrojů. Poslední kapitola \ref{kapitola5} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
+V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. Společně s implementací bude v této kapitole popsána porovnávací metodika. Poslední kapitola \ref{kapitola5} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
 
 \chapter{Modelování a simulace}
 \label{kapitola2}
@@ -123,10 +123,7 @@ Stejně tak, jako simulace mohou šetřit naše zdroje, při nesprávném vymode
 
 Stejně jako u~výhod simulací v~kapitole \ref{vyhody} není tento výčet konečný. Další velkou nevýhodou je například vysoká složitost vytvoření modelu. A~stejně jako u~výhod, i zde je pravděpodobné, že se další velké nevýhody budou objevovat s~přibývajícím časem.
 
-\chapter{Popis použitých simulačních jazyků a nástrojů}
-\label{kapitola3}
-
-\section{Použité simulační jazyky}
+\section{Popis použitých jazyků}
 Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie simulačních jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze s~použitím podpůrných knihoven. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}.
 
 \subsection{MATLAB}
@@ -143,9 +140,10 @@ Jazyk Modelica je objektově orientovaný, modelační a simulační jazyk, kter
 
 Modely, které jsou zapsány v~jazyku Modelica, mají veškeré své chování popsané rovnicemi. Například rovnice Newtonova zákona ochlazování, který má matematický zápis:
 
-$$
-mc_p\Dot{T} = hA(T_{\infty} - T)
-$$
+\begin{equation}
+    mc_p\Dot{T} = hA(T_{\infty} - T)
+\end{equation}
+
 se v~jazyce Modelica zapíše naprosto totožným způsobem \cite{modelica-example}. Rovnice má tedy po zapsání následující tvar:
 
 \begin{verbatim}
@@ -167,49 +165,55 @@ Jako simulační knihovny k~tomuto jazyku byla vybrána rodina knihoven SciPy \c
 
 Stejně jako u~jazyků MATLAB a Modelica jsou grafy vykreslené v~jazyce Python využity k~zobrazování výsledků simulací v~kapitole \ref{kapitola5}.
 
-\section{Popis použitých simulačních nástrojů}
-\label{popis-nastroju}
+\chapter{Popis použitých simulačních nástrojů}
+\label{kapitola3}
+\todo{uvodni text}
+Tato kapitola obsahuje rozdělení nástrojů na základě různých kritérií v kapitole \ref{rozdeleni-nastroju} a následně jejich detailní popis v kapitole \ref{popis-nastroju}.
+
+\section{Rozdělení použitých simulačních nástrojů}
+\label{rozdeleni-nastroju}
 Společně s~jazyky byly vybrány simulační nástroje, které budou porovnávány v~této bakalářské práci. V~této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
-\begin{enumerate}
-    \item Založené (případně podobné) na jazyku MATLAB:
-    \begin{itemize}
-        \item MATLAB
-        \item Simulink
-        \item GNU Octave
-        \item SciLab
-    \end{itemize}
-    \item Založené na jazyku Modelica:
-    \begin{itemize}
-        \item Dymola
-        \item jModelica
-        \item OpenModelica
-    \end{itemize}
-    \item Jiné:
-    \begin{itemize}
-        \item SciPy
-    \end{itemize}
-\end{enumerate}
+\todo{zmenit text a fit tabulky na stranku}
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+                      & MATLAB           & GNU Octave & SciLab & Dymola           & OpenModelica & jModelica & Python + SciPy \\ \hline
+Jazyk                 & MATLAB           & MATLAB     & MATLAB & Modelica         & Modelica     & Modelica  & Python         \\ \hline
+Grafické prostředí    & Ano              & Ano        & Ano    & Ano              & Ano          & Ano       & Ne             \\ \hline
+Platforma             & Vše              & Vše        & Vše    & Windows, Linux   & Vše          & Vše       & Vše            \\ \hline
+Podpora jiných jazyků & Ano              & Ano        & Ano    & Ano              & Ano          & Ano       & Ano            \\ \hline
+Webová aplikace       & Ano              & Ano        & Ano    & Ne               & Ne           & Ne        & Ano            \\ \hline
+Dostupnost            & Komerční licence & Zdarma     & Zdarma & Komerční licence & Zdarma       & Zdarma    & Zdarma         \\ \hline
+Opensource            & Ne               & ?          & Ano    & Ne               & Ano          & Ne        & Ano            \\ \hline
+\end{tabular}%
+}
+\caption{Přehled základních vlastností simulačních nástrojů}
+\label{tab:rozdeleni-nastroju}
+\end{table}
 
 Všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny zde zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
 
-\subsection{MATLAB}
+\section{Popis použitých nástrojů}
+\label{popis-nastroju}
+V následující kapitole jsou podrobně popsány simulační nástroje využité v rámci bakalářské práce.
+\subsection{MATLAB a Simulink}
 \label{matlab-desc}
 
-Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v~kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Tento simulační nástroj je mateřským prostředím pro nástroj Simulink, který je popsán v~kapitole \ref{simulink-desc}.
+Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v~kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Tento simulační nástroj je mateřským prostředím pro nástroj Simulink, který je také součástí této kapitoly.
 
 Nástroj umožňuje modelování modelů a následné simulace s~nimi. Tento nástroj nabízí široký záběr možností využití, od matematických výpočtů, přes použití pro eknomii, až po využití pro genetické algoritmy ve strojírenství \cite{Zapletal2016}.
 
-MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto simulačního programu\footnote{https://www.mathworks.com/products/matlab-online.html}. Pomocí tohoto webového nástroje je možné svůj kód/model sdílet společně s~dalšími uživateli a tak společně pracovat na jednom projektu. Porovnání a zhodnocení webového rozhraní nejsou v~této bakalářské práci zapracovány.
+MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto simulačního programu\footnote{\url{https://www.mathworks.com/products/matlab-online.html}}. Pomocí tohoto webového nástroje je možné svůj kód/model sdílet společně s~dalšími uživateli a tak společně pracovat na jednom projektu. Porovnání a zhodnocení webového rozhraní nejsou v~této bakalářské práci zapracovány.
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí MATLAB}
     \label{fig:matlab}
 \end{figure}
 
-\subsection{Simulink}
-\label{simulink-desc}
 Simulink je programovatelná grafická nástavba pro nástroj MATLAB. Tento nástroj je také vyvíjen společností MathWorks. Hlavní využití nástroje je jednoduché vymodelování systému pomocí grafických programovatelných bloků, respektive blokových schemat. Pro tyto účely jsou v~rámci nástroje Simulink předem vytvořeny a předdefinovány bloky pro tvorbu dynamických a spojitých modelů. Další výhodou je přímé generování kódu v~jazyce C, případně v~jazyce C++. Běh simulací s~takto vytvořenými modely je možné sledovat v~reálném čase.
 
 Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně dostupnou alternativu bychom mohli považovat nástroj OpenModelica, který je popsán v~kapitole \ref{openmodelica-desc}.
@@ -219,20 +223,20 @@ Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně 
 Nástroj Octave je vyvíjený pod veřejnou licencí GNU General Public Licence (GPL) \cite{OctaveManual}. Syntax jazyka, který je použit k~modelování v~GNU Octave je velmi podobný jazyku MATLAB, dokonce je s~tímto jazykem ve větší části kompatibilní. Hlavním rozdílem v~syntaxi je ten, že Octave podporuje autoinkrementaci stejně, tak jako například jazyk C -- MATLAB tuto podporu bohužel nemá.
 Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v~Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b}, zatímco v~MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{OctaveManual}.
 
-Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{https://octave.sourceforge.io/packages.php}.
+Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{\url{https://octave.sourceforge.io/packages.php}}.
 
 \subsection{SciLab}
 \label{scilab-desc}
 Další z~nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab. Syntax jeho jazyka je zase podobný syntaxu MATLABu, ovšem už ne do takové míry, jako u~nástroje GNU Octave \cite{Gilberto}. Kód napsaný pro SciLab tedy není volně přenositelný do prostředí MATLABu, ale díky velké podobnosti syntaxe je možné kód snadno refaktorovat pro tento simulační nástroj.
 
-Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{https://www.scilab.org/cloud/web-application}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v~rámci této bakalářské práce.
+Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{\url{https://www.scilab.org/cloud/web-application}}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v~rámci této bakalářské práce.
 
 \subsection{Dymola}
 \label{dymola-desc}
 
 Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}.
 
-\begin{figure}[ht]
+\begin{figure}
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí Dymola}
@@ -243,13 +247,13 @@ Pro účely této bakalářské práce je využita instalace nástroje Dymola ve
 
 
 \subsection{jModelica}
-Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je volně dostupný, open-sourcový a stejně jako GNU Octave, který byl popsán v~kapitole \ref{octave-desc}, vyvíjený pod licencí GPL. Je jedním z~vyhledávaných alternativ pro nástroj Dymola. Z~obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v~GUI jednotlivých nástrojů nejsou nijak markantní.
+Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je volně dostupný, otevřený a stejně jako GNU Octave, který byl popsán v~kapitole \ref{octave-desc}, vyvíjený pod licencí GPL. Je jedním z~vyhledávaných alternativ pro nástroj Dymola. Z~obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v~GUI jednotlivých nástrojů nejsou nijak markantní.
 
 jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v~jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven.
 
-Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jmodelica.org/assimulo/}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v~jazyce Python.
+Pro potřeby bakalářské práce je využit balík Assimulo\footnote{\url{https://jmodelica.org/assimulo/}}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v~jazyce Python.
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí jModelica.org}
@@ -258,13 +262,13 @@ Pro potřeby bakalářské práce je využit balík Assimulo\footnote{https://jm
 
 \subsection{OpenModelica}
 \label{openmodelica-desc}
-Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{https://github.com/OpenModelica}. Tato skutečnost nahrává k~vývoji vlastních modifikací a uživatelských pluginů.
+Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{\url{https://github.com/OpenModelica}}. Tato skutečnost nahrává k~vývoji vlastních modifikací a uživatelských pluginů.
 
 Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}.
 
 \subsection{SciPy}
 \label{chapter-scipy}
-Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v~pravém slova smyslu, jedná se spíše o~rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{https://github.com/scipy/scipy} \cite{scipy}. V~rámci této rodiny knihoven jsou knihovny:
+Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v~pravém slova smyslu, jedná se spíše o~rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{\url{https://github.com/scipy/scipy}} \cite{scipy}. V~rámci této rodiny knihoven jsou knihovny:
 \begin{itemize}
     \item SciPy -- tato knihovna obsahuje numerické algoritmy pro provádění simulací, zpracovávání signálů a následné statistické vyhodnocení simulace
     \item NumPy -- obsahuje metody pro numerické výpočty, práci s~číselnými poly a maticemi
@@ -273,39 +277,17 @@ Tento simulační nástroj jako jediný není založený na jazycích MATLAB, č
 
 SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python.
 
-\section{Shrnutí použitých jazyků a nástrojů}
-
-V předchozích kapitolách jsme si představili zvolené simulační jazyky a následně nástroje, které jsou s těmito jazyky spjaty. Těmito jazyky jsou MATLAB, Modelica a Python (Scipy). V kapitole \ref{popis-nastroju} bylo představeno první možné rozdělení simulačních nástrojů. Dále ale také můžeme dělit simulační nástroje podle dostupnosti, a to takto:
-\begin{enumerate}
-    \item Komerční nástroje:
-    \begin{itemize}
-        \item MATLAB + Simulink
-        \item Dymola
-    \end{itemize}
-    \item Volně dostupné nástroje:
-    \begin{itemize}
-        \item GNU Octave
-        \item SciLab
-        \item jModelica
-        \item OpenModelica
-        \item SciPy
-    \end{itemize}
-\end{enumerate}
-
-Komerční nástroje jsou v této práci zahrnuty právě kvůli srovnání s volně dostupnými nástroji. Pro účely práce jsou využity licence zakoupené v rámci VUT FIT.
-
-V kapitole \ref{kapitola5} lze nalézt následné porovnání simulačních nástrojů podle výsledků simulací s implementovanými modely popsanými v kapitole \ref{kapitola4}.
-
 \chapter{Popis modelů a použité metodiky}
 \label{kapitola4}
 V této kapitole bude představena použitá porovnávací metodika, kritéria hodnocení a následné způsoby jejich vyhodnocení. Tato metodika bude následně použita pro vyhodnocení výsledků získaných z běhu simulací s modely, které jsou také popsány v této kapitole. Zároveň s popisem modelů lze v této kapitole najít i popis jejich implementace.
 
 \section{Popis použité metodiky}
-K vyhodnocování výsledků simulací je použita metodika k hodnocení nástrojů k simulování dopravy \cite{jones2004traffic}.  Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání a následně byla vytvořena tato kritéria:
+
+Předlohou k tvorbě vyhodnocovací metodiky sloužila metodika ke srovnávání nástrojů simulujících dopravní situace na pozemních komunikacích \cite{jones2004traffic}.  Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání a následně byla vytvořena tato kritéria:
 \begin{itemize}
-    \item Strojový čas
-    \item Přesnost zvolené numerické metody
-    \item Hardwarové a softwarové požadavky
+    \item Strojový čas -- čas, po který simulace běží na výpočetním stroji.
+    \item Přesnost zvolené numerické metody -- k určené přesnosti výpočtu se bude sledovat počet kroků výpočtu. Tyto hodnoty se budou následně porovnávat a hodnotit.
+    \item Hardwarové a softwarové požadavky -- toto a následující kritéria jsou popsány níže
     \item Obtížnost implementace modelu
     \item Obtížnost instalace
 \end{itemize}
@@ -318,25 +300,22 @@ V rámci kritéria o hardwarových a softwarových požadavcích bude hodnocena 
 
 Všechny nástroje byly nainstalovány pomocí návodů v oficiálních dokumentacích. Nebylo-li tomu tak, pak v rámci hodnocení obtížnosti instalace jsou uvedena úskalí vyvstalá během instalace.
 
+
 \section{Implementované modely}
 \label{implementace}
-\todo{tahle kapitola az jako posledni v~pripade zmen implementaci}
-
 V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích.
 
-
 \subsection{Skákající míček}
-V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere maximální rychlost $v_p$ a odrazí se od země rychlostí $v$, kterou lze popsat rovnicí:
+V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere rychlost $v_p$ a narazí do země. Takový model lze popsat jednoduchou diferenciální rovnicí, která má znění:
 
-$$
-v = v_p \sqrt{1 - \exp(-2gh/v^2_p)}
-$$
-a následně vyletí do nové výšky $h$, která je definována rovnicí:
+\begin{equation}
+    h' = v_p
+\end{equation}
+\begin{equation}
+    v_p ' = -9.81
+\end{equation}
 
-$$
-h = -(v^2_p / g)\ln({\cos({\arctan({v_o / v_p})})})
-$$
-Parametr $v_o$ se vypočítá jako $v_o = C_r * v$, kde $C_r$ je zadaná hodnota parametru pružnosti. Pro účely experimentu jsou počáteční hodnoty nastaveny takto:
+s počáteční podmínkou v čase 0 $h(0) = 10$. Pro účely experimentu jsou další počáteční hodnoty nastaveny takto:
 
 \todo{doplnit hodnoty!!}
 \begin{center}
@@ -345,34 +324,37 @@ Parametr $v_o$ se vypočítá jako $v_o = C_r * v$, kde $C_r$ je zadaná hodnota
 \begin{tabular}{|l|l|l|}
 \hline
 Proměnná             & Hodnota & Jednotka    \\ \hline
-$h$                    &        & $m$     \\ \hline
-$g$                    &      & $m.s^{-2}$ \\ \hline
-$v_p$                   &       & $m.s^{-1}$ \\ \hline
-koeficient pružnosti &      &             \\ \hline
+$h$                    &   10     & $m$     \\ \hline
+$g$                    &    9.81  & $m.s^{-2}$ \\ \hline
+$v_p$                   &    -9.81   & $m.s^{-1}$ \\ \hline
+koeficient pružnosti &  -0.8    &             \\ \hline
 \end{tabular}
     \caption{Vstupní hodnoty modelu skákajícího míčku}
-    \label{tab:my_label}
+    \label{tab:micek-hodnoty}
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ????.
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}.
 
-Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiálního repozitáře společnosti MathWorks pro sdílení zdrojových kódů jazyka MATLAB\footnote{https://www.mathworks.com/matlabcentral/fileexchange/60525-experiments-with-a-bouncing-ball}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
+Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
 
 \subsection{Kruhový test}
+\label{kruhovy-test}
 
 Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci jednokrokové Eulerovy metody. Tato metoda je nejjednodušší metodou pro řešení obyčejných diferenciálních rovnic. Systém, který byl modelován je zadán rovnicí:
 
-$$
-y'' - y = 0
-$$ a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
+\begin{equation}
+   y'' - y = 0
+\end{equation}
+a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
 
 Během běhu simulace se výsledky postupně přibližují analytickému řešení, které je definováno jako:
 
-$$
-y(t) = \cos(t)
-$$
+\begin{equation}
+    y(t) = \cos(t)
+\end{equation}
+
 
 V rámci implementací pro různé nástroje se může lišit přesnost a rychlost výpočtu a postupného přibližování se výsledku analytického řešení. V pseudokódu zní zápis implementace takto:
 
@@ -398,14 +380,16 @@ main(){
 
 
 \subsection{Tuhý systém}
-Tuhý systém \footnote{Z anglického "stiff system"} je systém, který je popsán matematickou rovnicí, kterou lze označit za tuhou \cite{hairer}. Tuhá rovnice je diferenciální rovnice, která má při řešení určitými numerickými metodami numericky nestabilní řešení. Systémy, které můžeme označit za tuhé, můžeme najít například v rámci chemických reakcí. Tato nestabilita je způsobena vysokou hodnotou délky kroku při řešení rovnice. Pro řešení se většinou používají jednokrokové metody pro výpočty diferenciálních rovnic. Obvykle je k řešení využita některá z varianty metod Runge-Kutta, nebo i jednoduchá Eulerova metoda \cite{IMS-skripta}. Při výpočtu vícekrokovou metodou se využívají například metody Adamsovy, nebo Nyströmovy. Využití vícekrokových metod je ale velmi vzácné a podle literatury popisováno jako méně stabilní, než jednokrokové metody \cite{hairer}.
-
-Pro účely experimentu byla vybrána rovnice:
+Tuhý systém\footnote{Z anglického "stiff system"} je systém, který je popsán matematickou rovnicí, kterou lze označit za tuhou \cite{hairer}. Tuhá rovnice je diferenciální rovnice, která má při řešení určitými numerickými metodami numericky nestabilní řešení. Systémy, které můžeme označit za tuhé, můžeme najít například v rámci chemických reakcí. Tato nestabilita je způsobena vysokou hodnotou délky kroku při řešení rovnice. Pro řešení se většinou používají jednokrokové metody pro výpočty diferenciálních rovnic. Obvykle je k řešení využita některá z varianty metod Runge-Kutta, nebo i jednoduchá Eulerova metoda \cite{IMS-skripta}. Při výpočtu vícekrokovou metodou se využívají například metody Adamsovy, nebo Nyströmovy. Využití vícekrokových metod je ale velmi vzácné a podle literatury popisováno jako méně stabilní, než jednokrokové metody \cite{hairer}. Pro účely experimentu byla vybrána rovnice:
 
 \begin{equation}
     y' = -50(y - \cos{(x)})
 \end{equation}
-s délkou kroku $h = \frac{1.875}{50}$ a počáteční podmínkou $y(0) = 1$.
+s délkou kroku $h = \frac{1.875}{50}$ a počáteční podmínkou $y(0) = 0$. Pokud by byla délka kroku $h$ větší než $\frac{2}{50}$, pak by došlo k nestabilitě a k oscilování okolo kýženého výsledku \cite{hairer}.
+
+\todo{graf s nestabilitou ?}
+
+Tento tuhý systém je řešen běžnou Eulerovou metodou popsanou v kapitole \ref{kruhovy-test}. Výsledky řešení lze nalézt v kapitole \ref{srovnani-tuhy}. Model byl implementován pro všechny zvolené simulační nástroje.
 
 \subsection{Diskrétní simulace}
 
@@ -420,6 +404,7 @@ V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení 
 \label{srovnani-kruh}
 
 \section{Model 3}
+\label{srovnani-tuhy}
 
 \section{Model 4}
 
