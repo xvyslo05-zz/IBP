@@ -172,26 +172,28 @@ Tato kapitola obsahuje rozdělení nástrojů na základě různých kritérií 
 
 \section{Rozdělení použitých simulačních nástrojů}
 \label{rozdeleni-nastroju}
-Společně s~jazyky byly vybrány simulační nástroje, které budou porovnávány v~této bakalářské práci. V~této podkapitole najdete jejich popis, základní výhody a případné nevýhody. Stručně by se daly níže zmíněné nástroje rozdělit takto:
-\todo{zmenit text a fit tabulky na stranku}
+
+\todo{zmenit text above}
+\begin{savenotes}
 \begin{table}[ht]
 \centering
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
-                      & MATLAB           & GNU Octave & SciLab & Dymola           & OpenModelica & jModelica & Python + SciPy \\ \hline
-Jazyk                 & MATLAB           & MATLAB     & MATLAB & Modelica         & Modelica     & Modelica  & Python         \\ \hline
-Grafické prostředí    & Ano              & Ano        & Ano    & Ano              & Ano          & Ano       & Ne             \\ \hline
-Platforma             & Vše              & Vše        & Vše    & Windows, Linux   & Vše          & Vše       & Vše            \\ \hline
-Podpora jiných jazyků & Ano              & Ano        & Ano    & Ano              & Ano          & Ano       & Ano            \\ \hline
-Webová aplikace       & Ano              & Ano        & Ano    & Ne               & Ne           & Ne        & Ano            \\ \hline
-Dostupnost            & Komerční licence & Zdarma     & Zdarma & Komerční licence & Zdarma       & Zdarma    & Zdarma         \\ \hline
-Opensource            & Ne               & ?          & Ano    & Ne               & Ano          & Ne        & Ano            \\ \hline
+                                                                                                    & MATLAB           & GNU Octave & SciLab & Dymola           & OpenModelica                                       & jModelica & Python + SciPy \\ \hline
+Jazyk                                                                                               & MATLAB           & MATLAB     & MATLAB & Modelica         & Modelica                                           & Modelica  & Python         \\ \hline
+Grafické prostředí                                                                                  & Ano              & Ano        & Ano    & Ano              & Ano                                                & Ano       & Ne             \\ \hline
+Platforma                                                                                           & Vše              & Vše        & Vše    & Windows, Linux   & Vše\footnote{Často nestabilní na MacOS} & Vše       & Vše            \\ \hline
+Podpora jiných jazyků                                                                               & Ano              & Ano        & Ano    & Ano              & Ano                                                & Ano       & Ano            \\ \hline
+Webová aplikace                                                                                     & Ano              & Ano        & Ano    & Ne               & Ne                                                 & Ne        & Ano            \\ \hline
+Dostupnost                                                                                          & Komerční licence & Zdarma     & Zdarma & Komerční licence & Zdarma                                             & Zdarma    & Zdarma         \\ \hline
+Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru github.com} & Ne               & ?          & Ano    & Ne               & Ano                                                & Ne        & Ano            \\ \hline
 \end{tabular}%
 }
 \caption{Přehled základních vlastností simulačních nástrojů}
 \label{tab:rozdeleni-nastroju}
 \end{table}
+\end{savenotes}
 
 Všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny zde zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
 
@@ -334,7 +336,7 @@ koeficient pružnosti &  -0.8    &             \\ \hline
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}.
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}. 
 
 Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
@@ -345,7 +347,7 @@ Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\re
 Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci jednokrokové Eulerovy metody. Tato metoda je nejjednodušší metodou pro řešení obyčejných diferenciálních rovnic. Systém, který byl modelován je zadán rovnicí:
 
 \begin{equation}
-   y'' - y = 0
+   y'' - y = 0 
 \end{equation}
 a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
 
