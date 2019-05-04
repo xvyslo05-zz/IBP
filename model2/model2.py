@@ -15,7 +15,7 @@ def model2(y, t):
 
 y0 = [1, 0]
 
-t = numpy.linspace(0, 100, 300)
+t = numpy.linspace(0, 20, 5000)
 
 y = odeint(model2, y0, t)
 
