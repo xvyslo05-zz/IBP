@@ -1,45 +1,44 @@
-# @TODO: scipy zakomponovat!!
+from scipy.misc import derivative
+from scipy.integrate import odeint
+import matplotlib.pyplot as pyplot
+import numpy as np
+import time
+
+start_time = time.time()
+
+position = 10
+velocity = 15
+cr = -0.8
+
+down = True
+
+def bounce(y, t, down):
+
+    # print(y)
+
+    dydt0 = y[1]
+    dydt1 = -9.81
+
+    if(y[0] <= 2 and down):
+      dydt0 = -dydt0
+      dydt1 = -dydt1 * cr
+      down = False
 
 
-import math
-import random
-import pprint
-import matplotlib.pyplot as plt
-
-height      = 2     # in meters
-velocity    = 10    # in m/s
-g           = 9.8   # acceleration in m/s^2
-cr          = 0.9   # coeficient of restitution, from 0 to 1, where 1 equals perfect elastic collision
-
-velocity_array = [velocity]
-height_array = [height]
+    dydt = [dydt0, dydt1, down]
+    return dydt
 
 
-pprint.pprint(['#', 'velocity', 'restitution_velocity', 'height'])
-for j in range(20):
-    velocity = velocity * math.sqrt(1 - math.exp(-2 * g * height / (velocity ** 2)))
+t = np.linspace(0, 10)
 
-    restitution_velocity = cr * velocity * (1 - 0.01 * random.random())
+y0 = [position, velocity]
 
-    height =- ((velocity ** 2)/g) * math.log((math.cos(math.atan(restitution_velocity/velocity))))
+z = odeint(bounce, y0, t, args=(down,))
 
-    result = [j, velocity, restitution_velocity, height]
+print(position)
 
-    velocity_array.append(velocity)
-    height_array.append(height)
+print("--- %s seconds ---" % (time.time() - start_time))
 
-    pprint.pprint(result)
+pyplot.plot(t, z[:,0])
 
-    if height < 0.0000000001 :
-      print("END OF SIMULATION")
-      break
-
-print(velocity_array)
-print(height_array)
-
-plt.plot(height_array, velocity_array)
-
-plt.ylabel('rychlost')
-plt.xlabel('vyska')
-
-plt.show()
+pyplot.show()
