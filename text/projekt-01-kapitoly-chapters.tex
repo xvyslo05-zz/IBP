@@ -1,7 +1,7 @@
 %===============================================================================
 \chapter{Úvod}
 
-Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci. Z~takto provedené simulace získáme představu o~tom, jak se náš produkt chová. A~pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB a Modelica, případně jazyky jim podobné. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními Scipy a Numpy, který není příbuzný s~výše uvedenými jazyky.
+Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, namodelovat a provést na tomto modelu simulaci \cite{NEGRAO20113051}. Z~takto provedené simulace získáme představu o~tom, jak se náš produkt chová. A~pro tyto simulace je potřeba zvolit vhodný simulační nástroj. Vhodně zvolený simulační nástroj může totiž ušetřit nemalé prostředky při uvedení produktu na trh právě díky proběhnutí simulací a odlazením celého procesu chodu produktu \cite{cohen2010cost}. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB a Modelica, případně jazyky, které jsou na nich založené a jsou většinově kompatibilní. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními SciPy a NumPy, který není příbuzný s~výše uvedenými jazyky.
 
 Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v~různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k~pojednání o~vhodnosti použití implementovaných modelů pro zvolené nástroje.
 
@@ -159,9 +159,9 @@ Stejně jako jazyk MATLAB, i Modelica podporuje grafický přehled výsledků po
 \subsection{Python}
 Python je volně dostupný interpretovaný programovací jazyk, který má nepřeberné množství využití. Poprvé byl představen v~roce 1991. Jazyk Python není v~základním pojetí simulačním nebo modelačním jazykem. Tuto funkcionalitu získává teprve s~dodatečnými knihovnami. V~rámci využití v~této bakalářské práci byla vybrána rodina knihoven SciPy. Hlavním přínosem této rodiny knihoven je možnost použití metod integrace, lineární algebry, rychlé Fourierovy transformace a řešení diferenciálních rovnic.
 
-Tento jazyk byl zvolen z~důvodu, který byl řečený výše. Python nemá primární použití jako jazyk vhodný pro modelování a simulace. Nicméně s~jeho rostoucí popularitou a rostoucí uživatelskou základnou, bude jeho využití růst ještě více. Momentálně má Python velmi široký záběr pokrytí - od funkcionální, přes logické programování, až po tvorbu grafiky, databází, nebo provádění simulací. Jazyk je využíván velkými firmami na trhu, jako jsou například Google, NASA nebo Wikipedia.
+Tento jazyk byl zvolen z~důvodu, který byl řečený výše. Python nemá primární použití jako jazyk vhodný pro modelování a simulace. Nicméně s~jeho rostoucí popularitou a rostoucí uživatelskou základnou, bude jeho využití růst ještě více. Momentálně má Python velmi široký záběr pokrytí - od funkcionální, přes logické programování, až po tvorbu grafiky, databází, nebo provádění simulací. Jazyk je využíván velkými firmami na trhu, jako jsou například Google, NASA nebo Wikipedia. Velmi často je v dnešní době využíván k implementaci strojového učení \cite{kirk2017thoughtful}.
 
-Jako simulační knihovny k~tomuto jazyku byla vybrána rodina knihoven SciPy \cite{scipy}. Pomocí těchto knihoven je následně možné prováděť náročnější matematické operace, simulace a vizualizaci dat. Bližší popis této knihovny je k~nalezení v~kapitole \ref{chapter-scipy}.
+Jako simulační knihovny k~tomuto jazyku byla vybrána rodina knihoven SciPy \cite{scipy} \cite{Nunez-Iglesias:2017:ESA:3169538}. Pomocí těchto knihoven je následně možné prováděť náročnější matematické operace, simulace a vizualizaci dat. Bližší popis této knihovny je k~nalezení v~kapitole \ref{chapter-scipy}.
 
 Stejně jako u~jazyků MATLAB a Modelica jsou grafy vykreslené v~jazyce Python využity k~zobrazování výsledků simulací v~kapitole \ref{kapitola5}.
 
@@ -327,8 +327,7 @@ s počáteční podmínkou v čase 0 $h(0) = 10$. Pro účely experimentu jsou d
 \hline
 Proměnná             & Hodnota & Jednotka    \\ \hline
 $h$                    &   10     & $m$     \\ \hline
-$g$                    &    9.81  & $m.s^{-2}$ \\ \hline
-$v_p$                   &    -9.81   & $m.s^{-1}$ \\ \hline
+$v_p$                   &    15   & $m.s^{-1}$ \\ \hline
 koeficient pružnosti &  -0.8    &             \\ \hline
 \end{tabular}
     \caption{Vstupní hodnoty modelu skákajícího míčku}
@@ -336,7 +335,7 @@ koeficient pružnosti &  -0.8    &             \\ \hline
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}. 
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}.
 
 Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
@@ -347,7 +346,7 @@ Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\re
 Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci jednokrokové Eulerovy metody. Tato metoda je nejjednodušší metodou pro řešení obyčejných diferenciálních rovnic. Systém, který byl modelován je zadán rovnicí:
 
 \begin{equation}
-   y'' - y = 0 
+   y'' - y = 0
 \end{equation}
 a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
 
@@ -404,6 +403,10 @@ V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení 
 
 \section{Model 2}
 \label{srovnani-kruh}
+\subsection{MATLAB}
+\subsection{Modelica}
+\subsection{Python}
+\subsection{Shrnutí}
 
 \section{Model 3}
 \label{srovnani-tuhy}
