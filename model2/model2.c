@@ -6,13 +6,13 @@ double y[2] = { 1.0, 0.0 }; // počáteční podmínky
 double time = 0; // modelový čas
 double h = 0.01; // krok
 
-void update() {
+void updateInput() {
 // Popis systému: výpočet VSTUPŮ integrátorů
   yin[0] = y[1]; // y’
   yin[1] = -y[0]; // y’’ = -y
 }
 void integrate_euler() { // krok integrace:
-  update(); // výpočet aktuálních vstupů
+  updateInput(); // výpočet aktuálních vstupů
   for (int i = 0; i < 2; i++) // postupně pro všechny integrátory
   y[i] += h * yin[i]; // výpočet nového stavu
   time += h; // posun času
