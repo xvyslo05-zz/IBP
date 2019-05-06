@@ -338,18 +338,28 @@ koeficient pružnosti &  -0.8    &             \\ \hline
 
 Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}. 
 
-Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
+Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}. 
+
+\todo{matlab, modelica, python}
+
+V případě implementace v Pythonu jsem narazil na problém s výpočtem hodnoty derivace v bodě odrazu a vykreslením následného odrazu. K odrazu dochází tehdy, kdy je výška $h$ menší nebo rovna nule -- žáleží na délce kroku výpočtu a následné detekci této hodnoty.
+
+
+Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
 
 \subsection{Kruhový test}
 \label{kruhovy-test}
 
-Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci jednokrokové Eulerovy metody. Tato metoda je nejjednodušší metodou pro řešení obyčejných diferenciálních rovnic. Systém, který byl modelován je zadán rovnicí:
+Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci řešení jednoduché soustavy diferenciálních rovnic. Systém, který byl modelován je zadán soustavou diferenciálních rovnic:
 
 \begin{equation}
-   y'' - y = 0 
+   x' = y
 \end{equation}
-a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
+\begin{equation}
+    y' = -x
+\end{equation}
+a počáteční podmínka rovnice je zadána jako $y(0) = 1$ a $x(0) = 0$.
 
 Během běhu simulace se výsledky postupně přibližují analytickému řešení, které je definováno jako:
 
@@ -358,32 +368,11 @@ Během běhu simulace se výsledky postupně přibližují analytickému řešen
 \end{equation}
 
 
-V rámci implementací pro různé nástroje se může lišit přesnost a rychlost výpočtu a postupného přibližování se výsledku analytického řešení. V pseudokódu zní zápis implementace takto:
-
-\begin{lstlisting}
-inicializace_vstupnich_podminek;
-inicializace_casu_a_delky_kroku;
-
-vypocet_vstupu_integratoru(){...}
-
-vypocet_Euler(){
-  vypocet_vstupu_integratoru();
-  vypocet_novych_stavu_integratoru;
-  posun_casu_o_krok_h;
-}
-
-main(){
-  while(aktualni_cas < konecny_cas){
-    vypocet_Euler();
-  }
-}
-\end{lstlisting}
-
 Implementace v jazyce Modelica proběhla velmi snadno. Jak bylo popsáno v kapitole \ref{modelica-lang}, zápis v tomto jazyce připomíná zápis výpočtu na papír. \todo{odlisnosti pro jednotlive nastroje}
 
 Co se týče implementace v Pythonu, zde byla využita funkce \texttt{odeint()} z knihovny \texttt{scipy.integrate}\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html}}, která je vytvořena pro řešení diferenciálních rovnic\footnote{ODE - Ordinary Differential Equations} a jejich soustav. Pro účely využití této metody je potřeba si definovat obslužnou funkci pro výpočet nových stavů integrátorů. Pro implementaci v tomto případě nebyla využita Eulerova metoda, neboť rodina knihoven SciPy nemá tuto metodu implementovanou a je doporučeno využívat metodu \texttt{odeint()}, případně metodu \texttt{solve\_ivp()} ze stejné rodiny knihoven.
 
-Tento model byl implementován také v jazyce MATLAB. Zápis implementace je velmi podobný popsanému pseudokódu výše. Nicméně ani jazyk MATLAB neobsahuje vestavěnou funkci pro řešení \todo{odlisnosti pro jednotlive nastroje}
+Tento model byl implementován také v jazyce MATLAB. Pro účely výpočtu zde byla použita základní funkce pro řešení diferenciálních rovnic času pomocí voláním funkce \texttt{clock} na začátku a na konci běhu skriptu. Výsledkem rozdílu hodnot je pak čas strávený výpočtem. \todo{odlisnosti pro jednotlive nastroje}
 
 
 \subsection{Tuhý systém}
