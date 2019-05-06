@@ -1,27 +1,24 @@
-inittime = cputime;
+inittime = clock;
 
-syms u(t) v(t)
+syms x(t) y(t)
 
-ode1 = diff(u) == v;
-ode2 = diff(v) == -u;
+ode1 = diff(x) == y;
+ode2 = diff(y) == -x;
 
 odes=[ode1; ode2]
 
 S = dsolve(odes)
 
-uSol(t) = S.u
-vSol(t) = S.v
+xSol(t) = S.x
+ySol(t) = S.y
 
-cond1 = u(0) == 0;
-cond2 = v(0) == 1;
+cond1 = x(0) == 0;
+cond2 = y(0) == 1;
 conds = [cond1; cond2];
-[uSol(t), vSol(t)] = dsolve(odes,conds)
+[xSol(t), ySol(t)] = dsolve(odes,conds)
 
-fplot(uSol)
-hold on
-fplot(vSol)
-grid on
-legend('uSol','vSol','Location','best')
+fplot(ySol)
+legend('ySol','Location','best')
 
-endtime = cputime - inittime;
+endtime = clock - inittime;
 disp(endtime);

@@ -22,8 +22,6 @@ def bounce(y, t):
       dydt1 += force / (1 + np.exp(y[0]/0.001))
 
 
-
-
     dydt = [dydt0, -dydt1*cr]
     return dydt
 
