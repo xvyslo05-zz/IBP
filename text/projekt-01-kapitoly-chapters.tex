@@ -5,7 +5,7 @@ Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo 
 
 Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání budou implementovány simulační modely v~různých simulačních jazycích. Tyto modely budou následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání budou použity k~pojednání o~vhodnosti použití implementovaných modelů pro zvolené nástroje.
 
-V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazicích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. Společně s implementací bude v této kapitole popsána porovnávací metodika. Poslední kapitola \ref{kapitola5} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
+V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Zároveň v~této kapitole bude vysvětlena problematiky porovnání a popsána zvolená porovnávací metodika. Dále bude kapitola pojednávat o~použitých simulačních nástrojích a jejich jazycích. Kapitola \ref{kapitola4} bude obsahovat popis implementovaných simulačních modelů pro simulační nástroje. Společně s implementací bude v této kapitole popsána porovnávací metodika. Poslední kapitola \ref{kapitola5} bude obsahovat výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje.
 
 \chapter{Modelování a simulace}
 \label{kapitola2}
@@ -40,10 +40,10 @@ Systém je možno definovat jako soustavu částic, které na sebe vzájemně p�
     \item Spojité a diskrétní -- podle toho, zda se hodnoty systému mění spojitě, nebo skokově
     \item Statické a dynamické -- podle toho, zda se systém vyvíjí v~čase
 \end{itemize}
-Pro potřeby simulací jsou využívány především dynamické systémy, u~kterých můžeme sledovat jejich vývoj v~průbehu simulace.
+Pro potřeby simulací jsou využívány především dynamické systémy, u~kterých můžeme sledovat jejich vývoj v~průběhu simulace.
 
 \subsection{Simulace}
-Simulace je disciplína zabývající se získáváním informací z~modelů pomocí provádení experimentů s~nimi. Pro získání validních informací o~modelu je potřeba provést simulaci vícekrát a následně porovnat a vyhodnotit výsledné hodnoty.
+Simulace je disciplína zabývající se získáváním informací z~modelů pomocí provádění experimentů s~nimi. Pro získání validních informací o~modelu je potřeba provést simulaci vícekrát a následně porovnat a vyhodnotit výsledné hodnoty.
 
 Před během simulace a po vyhodnocení výsledků je vhodné provést analýzu vhodnosti modelu pro simulaci. Pokud shledáme model nevalidním, není vhodný pro náš záměr a je záhodno jej z~dalších simulací vyřadit.
 
@@ -64,17 +64,17 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
     \item Podle rozložení výpočtů:
         \begin{itemize}
             \item Simulace na jednom stroji -- pro účely výpočtu je využit jen jeden výpočetní stroj (procesor, cluster). Toto využití je vhodné pro simulace jednoduššího rázu.
-            \item Paralelní a distribuovaná simulace -- simulace probíhá na více strojích zároveň. Pomocí dilčího rozdělení výpočtů můžeme dosáhnout značného zrychlení v~případě složitých simulací, např. lety do kosmu.
+            \item Paralelní a distribuovaná simulace -- simulace probíhá na více strojích zároveň. Pomocí dílčího rozdělení výpočtů můžeme dosáhnout značného zrychlení v~případě složitých simulací, např. lety do kosmu.
         \end{itemize}
 \end{enumerate}
 Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
 \section{Postup modelování a simulace}
-Jak už bylo řečeno v~kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o~něm. Pro účely popisu tvoření modelu budeme vycházet z~předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o~systému vytvoříme abstraktní model, který je vlastně zjednodušenina pozorovaného systému, díky tomu, že pracujeme pouze s~daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
+Jak už bylo řečeno v~kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o~něm. Pro účely popisu tvoření modelu budeme vycházet z~předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o~systému vytvoříme abstraktní model, který je vlastně "zjednodušenina" pozorovaného systému, díky tomu, že pracujeme pouze s~daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
 
 Z~takto popsaného abstraktního modelu dále vytvoříme simulační model. Simulační model je vlastně přepis abstraktního modelu do programovacího jazyka tak, abychom byli schopni s~tímto modelem provádět měření a experimenty. Simulační model je tedy program/skript, který počítá výsledky podle zadaných vstupních hodnot, počátečního stavu, parametrů modelu a případných proměnných.
 
-S~výsledky získánými ze simulačního modelu získáváme další poznatky o~chování abstraktního modelu. Tyto získané výsledky můžeme využít pro upravení abstraktního modelu, následně upravení simulačního modelu podle modelu abstraktního a opětovnému provedení simulace \cite{IMS-skripta}.
+S~výsledky získanými ze simulačního modelu získáváme další poznatky o~chování abstraktního modelu. Tyto získané výsledky můžeme využít pro upravení abstraktního modelu, následně upravení simulačního modelu podle modelu abstraktního a opětovnému provedení simulace \cite{IMS-skripta}.
 
 Výsledky je vhodné vizualizovat tak, abychom mohli s~nimi dále pracovat a analyzovat je. V~rámci analýzy je potřeba rozlišit s~jakým typem dat pracuji a podle toho zvolit metodu, pomocí které budu analýzu provádět. Mezi běžné druhy analýzy výsledků patří:
 \begin{itemize}
@@ -136,6 +136,7 @@ Jazyk MATLAB bohužel není volně dostupný, nicméně v~akademickém prostřed
 
 Popis nástroje MATLAB lze nalézt v~kapitole \ref{matlab-desc}.
 \subsection{Modelica}
+\label{modelica-lang}
 Jazyk Modelica je objektově orientovaný, modelační a simulační jazyk, který je vyvíjen neziskovou organizací Modelca Association od roku 1997. Díky tomu, že je tento jazyk volně dostupný, je na trhu mnoho simulačních nástrojí a vývojových prostředí, které pracují právě s~tímto jazykem. Pro účely této práce byly vybrány nástoje Dymola, OpenModelica a jModelica.org. Vývojové prostředí Dymola není, stejně jako MATLAB, volně dostupné. Pro účely provádění experimentů s~tímto vývojovým prostředím je využita licence, pomocí které je možno spustit nástroj Dymola na školním serveru Merlin v~rámci VUT FIT.
 
 Modely, které jsou zapsány v~jazyku Modelica, mají veškeré své chování popsané rovnicemi. Například rovnice Newtonova zákona ochlazování, který má matematický zápis:
@@ -335,7 +336,7 @@ koeficient pružnosti &  -0.8    &             \\ \hline
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}.
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. Výpočet končí tehdy, když výška, do které se míček odrazí, je menší než ???? \todo{presnost}. 
 
 Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}. Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
@@ -346,7 +347,7 @@ Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\re
 Kruhový test je implementován podle návodu ze skript pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci jednokrokové Eulerovy metody. Tato metoda je nejjednodušší metodou pro řešení obyčejných diferenciálních rovnic. Systém, který byl modelován je zadán rovnicí:
 
 \begin{equation}
-   y'' - y = 0
+   y'' - y = 0 
 \end{equation}
 a počáteční podmínka rovnice je zadána jako $y(0) = 1$, délka kroku $h$ je 0,01.
 
@@ -378,6 +379,11 @@ main(){
 }
 \end{lstlisting}
 
+Implementace v jazyce Modelica proběhla velmi snadno. Jak bylo popsáno v kapitole \ref{modelica-lang}, zápis v tomto jazyce připomíná zápis výpočtu na papír. \todo{odlisnosti pro jednotlive nastroje}
+
+Co se týče implementace v Pythonu, zde byla využita funkce \texttt{odeint()} z knihovny \texttt{scipy.integrate}\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html}}, která je vytvořena pro řešení diferenciálních rovnic\footnote{ODE - Ordinary Differential Equations} a jejich soustav. Pro účely využití této metody je potřeba si definovat obslužnou funkci pro výpočet nových stavů integrátorů. Pro implementaci v tomto případě nebyla využita Eulerova metoda, neboť rodina knihoven SciPy nemá tuto metodu implementovanou a je doporučeno využívat metodu \texttt{odeint()}, případně metodu \texttt{solve\_ivp()} ze stejné rodiny knihoven.
+
+Tento model byl implementován také v jazyce MATLAB. Zápis implementace je velmi podobný popsanému pseudokódu výše. Nicméně ani jazyk MATLAB neobsahuje vestavěnou funkci pro řešení \todo{odlisnosti pro jednotlive nastroje}
 
 
 \subsection{Tuhý systém}
