@@ -10,7 +10,7 @@ V~kapitole \ref{kapitola2} budou popsány a vysvětleny důležité pojmy potře
 \chapter{Modelování a simulace}
 \label{kapitola2}
 
-Modelování a simulace jsou dnes již nedílnou součástí vědy a výzkumu. V~této kapitole se věnuji popisu pojmů nutných k~pochopení základní problematiky modelování. Dále je zde možné najít popis problematiky porovnávání a porovnávací metodiku.
+Modelování a simulace jsou dnes již nedílnou součástí vědy a výzkumu. Tato kapitola se věnuje vysvětlení pojmů nutných k pochopení základní problematiky modelování a simulací. Dále lze v kapitole nalézt popis výhod a nevýhod použití simulací. Poslední podkapitola se věnuje popisu programovacích jazyků využitých pro účely bakalářské práce.
 
 \section{Problematika modelování a simulací}
 Jelikož jsou modelování a simulace velmi komplexní disciplíny, je nutné si stanovit, alespoň v~jednoduchosti, základní pojmy, které jsou v~rámci této práce využívány.
@@ -69,6 +69,8 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
 \end{enumerate}
 Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
+V této bakalářské práci se věnuji pouze simulacím spojitým a kombinovaným. Diskrétní simulace, které simulují například systémy hromadné obsluhy, výrobní linky a obchody, v této bakalářské práci řešeny nebudou.
+
 \section{Postup modelování a simulace}
 Jak už bylo řečeno v~kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o~něm. Pro účely popisu tvoření modelu budeme vycházet z~předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o~systému vytvoříme abstraktní model, který je vlastně "zjednodušenina" pozorovaného systému, díky tomu, že pracujeme pouze s~daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
 
@@ -121,14 +123,17 @@ Stejně tak, jako simulace mohou šetřit naše zdroje, při nesprávném vymode
     \item Velmi důležitým problémem je problém ověřování validity. Pokud máme chybně namodelovaný model, pak výsledky simulace obsahují také chyby a tedy model není validní. Ověřování validity modelu by mělo proběhnout ještě před provedením simulace, tak, abychom předešli jeho následnému přemodelování.
 \end{enumerate}
 
-Stejně jako u~výhod simulací v~kapitole \ref{vyhody} není tento výčet konečný. Další velkou nevýhodou je například vysoká složitost vytvoření modelu. A~stejně jako u~výhod, i zde je pravděpodobné, že se další velké nevýhody budou objevovat s~přibývajícím časem.
+Stejně jako u~výhod simulací v~kapitole \ref{vyhody} není tento výčet konečný. Další velkou nevýhodou je například vysoká složitost vytvoření modelu. A~stejně jako u~výhod, i zde je velmi pravděpodobné, že se další velké nevýhody budou objevovat s~přibývajícím časem.
 
 \section{Popis použitých jazyků}
-Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie simulačních jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze s~použitím podpůrných knihoven. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}. \todo{přepracovat}
+\label{popis-jazyky}
+Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze určené pro konkrétní nástroj. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}.
+
+Simulačních jazyků, jejich modifikací a nástrojů, které je následně využívají, je nespočet \cite{list}. Z těch nejznámějších to je například FORTRAN, který posloužil jako základ pro jazyk MATLAB, dále pak třeba SIMULA a Smile. Výše zvolené jazyky (MATLAB, Modelica, Python) byly zvoleny kvůli jejich rozšířenosti, díky které existuje mnoho nástrojů, které tuto trojici jazyků využívají.
 
 \subsection{MATLAB}
 \label{matlab-lang}
-Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným simulačním nástrojem MATLAB. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je s~práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v~této práci, které jsou provedeny v~MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v~kapitole \ref{kapitola5}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl.
+Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným nástrojem MATLAB. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je s~práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Všechny výsledky simulací v~této práci, které jsou provedeny v~MATLABu, mají vykreslené grafy právě tímto nástrojem. Výsledky můžete nalézt v~kapitole \ref{kapitola5}. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl.
 
 Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k~dostání volně dostupné nástroje, jako například GNU Octave a SciLab, které jsou s~jazykem MATLAB do určité míry kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v~této bakalářské práci.
 
@@ -166,27 +171,39 @@ Stejně jako u~jazyků MATLAB a Modelica jsou grafy vykreslené v~jazyce Python 
 
 \chapter{Popis použitých simulačních nástrojů}
 \label{kapitola3}
-\todo{uvodni text}
-Tato kapitola obsahuje rozdělení nástrojů na základě různých kritérií v kapitole \ref{rozdeleni-nastroju} a následně jejich detailní popis v kapitole \ref{popis-nastroju}.
+
+Obsahem této kapitoly je rozdělení zvolených simulačních nástrojů, které lze nalézt v kapitole \ref{rozdeleni-nastroju}. Následující podkapitola \ref{popis-nastroju} obsahuje bližší popis jednotlivých nástrojů společně s jejich výhodami a zajímavostmi. Vybranými nástroji pro porovnání v rámci bakalářské práce jsou:
+\begin{itemize}
+    \item MATLAB
+    \item GNU Octave
+    \item SciLab
+    \item Freemat
+    \item Dymola
+    \item OpenModelica
+    \item jModelica
+    \item Python + SciPy
+\end{itemize}
+
+Nástroje byly vybrány tak, aby všechny byly volně dostupné a zároveň podporovaly alespoň jeden jazyk ze zvolených v kapitole \ref{popis-jazyky}. Nicméně dva nástroje z výběru nejsou primárně volně dostupné. Prvním z nich je MATLAB, u kterého je volná dostupnost zaručena využitím 30 denní zkušební verze, která je zdarma ke stažení. Druhým takovým nástrojem je Dymola, u které je dostupnost zaručena díky školní licenci VUT FIT a je dostupná na serveru Merlin. I zde je dostupná zkušební verze zdarma po omezenou dobu.
 
 \section{Rozdělení použitých simulačních nástrojů}
 \label{rozdeleni-nastroju}
 
-\todo{zmenit text above}
+Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V tabulce \ref{tab:rozdeleni-nastroju} lze nalézt dělení podle základních vlastností, jako jsou jazyk, dostupnost, nebo podporované platformy. Jak je z tabulky patrné, všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny v tabulce zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
 \begin{savenotes}
-\begin{table}[ht]
+\begin{table}[]
 \centering
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 \hline
-& MATLAB           & GNU Octave & SciLab & Dymola           & OpenModelica                                       & jModelica & Python + SciPy \\ \hline
-Jazyk                                                                                               & MATLAB           & MATLAB     & MATLAB & Modelica         & Modelica                                           & Modelica  & Python         \\ \hline
-Grafické prostředí                                                                                  & Ano              & Ano        & Ano    & Ano              & Ano                                                & Ano       & Ne             \\ \hline
-Platforma                                                                                           & Vše              & Vše        & Vše    & Windows, Linux   & Vše\footnote{Často nestabilní na MacOS} & Vše       & Vše            \\ \hline
-Podpora jiných jazyků                                                                               & Ano              & Ano        & Ano    & Ano              & Ano                                                & Ano       & Ano            \\ \hline
-Webová aplikace                                                                                     & Ano              & Ano        & Ano    & Ne               & Ne                                                 & Ne        & Ano            \\ \hline
-Dostupnost                                                                                          & Komerční licence & Zdarma     & Zdarma & Komerční licence & Zdarma                                             & Zdarma    & Zdarma         \\ \hline
-Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru github.com} & Ne               & ?          & Ano    & Ne               & Ano                                                & Ne        & Ano            \\ \hline
+                                                                                                    & MATLAB                                                                                                          & GNU Octave & SciLab & Freemat & Dymola           & OpenModelica                                             & jModelica & Python + SciPy \\ \hline
+Jazyk                                                                                               & MATLAB                                                                                                          & MATLAB     & MATLAB & MATLAB  & Modelica         & Modelica                                                 & Modelica  & Python         \\ \hline
+Grafické prostředí                                                                                  & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano       & Ne             \\ \hline
+Platforma                                                                                           & Vše                                                                                                             & Vše        & Vše    & Vše     & Windows, Linux   & Vše\footnote{Často nestabilní na MacOS} & Vše       & Vše            \\ \hline
+Podpora jiných jazyků                                                                               & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano       & Ano            \\ \hline
+Možnost online aplikace                                                                                     & Ano                                                                                                             & Ano        & Ano    & Ne      & Ne               & Ne                                                       & Ne        & Ano            \\ \hline
+Dostupnost                                                                                          & Komerční licence\footnote{Pro účely bakalářské práce použita 30 denní zkušební licence zdarma} & Zdarma     & Zdarma & Zdarma  & Komerční licence & Zdarma                                                   & Zdarma    & Zdarma         \\ \hline
+Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru github.com} & Ne                                                                                                              & Ne         & Ano    & Ano     & Ne               & Ano                                                      & Ne        & Ano            \\ \hline
 \end{tabular}%
 }
 \caption{Přehled základních vlastností simulačních nástrojů}
@@ -194,7 +211,7 @@ Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru git
 \end{table}
 \end{savenotes}
 
-Všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny zde zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
+
 
 \section{Popis použitých nástrojů}
 \label{popis-nastroju}
@@ -237,6 +254,10 @@ Další z~nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab
 Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{\url{https://www.scilab.org/cloud/web-application}}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v~rámci této bakalářské práce.
 
 \todo{instalace, pouzita verze}
+
+\subsection{Freemat}
+\label{freemat-desc}
+\todo{freemat here}
 
 \subsection{Dymola}
 \label{dymola-desc}
@@ -310,7 +331,7 @@ V rámci hodnocení nebudeme používat žádnou škálu, k hodnocení "úspěš
 
 \section{Implementované modely}
 \label{implementace}
-V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Společně s implementací jsou popsány zjištěné problémy během implementování a jejich řešení. 
+V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Společně s implementací jsou popsány zjištěné problémy během implementování a jejich řešení.
 
 \subsection{Skákající míček}
 V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere rychlost $v_p$ a narazí do země. Takový model lze popsat jednoduchou diferenciální rovnicí, která má znění:
@@ -339,7 +360,7 @@ koeficient pružnosti &  0.8    &             \\ \hline
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. 
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace.
 
 Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}.
 
@@ -391,7 +412,7 @@ V jazyce Python, konkrétně tedy s využitím knihovny SciPy, se během impleme
 
 \todo{matlab - vyuziti ode125}
 
-Výsledky řešení lze nalézt v kapitole \ref{srovnani-tuhy}.
+Výsledky běhů simulace implementovaných modelů lze nalézt v kapitole \ref{srovnani-tuhy}. V této kapitole je také porovnání využitých nástrojů.
 
 \chapter{Výsledky simulací a porovnání výsledků}
 \label{kapitola5}

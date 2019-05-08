@@ -15,27 +15,27 @@
 %   projekt-01-kapitoly-chapters.tex - obsah práce / the thesis content
 %   projekt-30-prilohy-appendices.tex - přílohy / appendices
 %==============================================================================
-\documentclass[]{fitthesis} % bez zadání - pro začátek práce, aby nebyl problém s překladem
+% \documentclass[]{fitthesis} % bez zadání - pro začátek práce, aby nebyl problém s překladem
 %\documentclass[english]{fitthesis} % without assignment - for the work start to avoid compilation problem
-%\documentclass[zadani]{fitthesis} % odevzdani do wisu a/nebo tisk s barevnými odkazy - odkazy jsou barevné
+\documentclass[zadani]{fitthesis} % odevzdani do wisu a/nebo tisk s barevnými odkazy - odkazy jsou barevné
 %\documentclass[english,zadani]{fitthesis} % for submission to the IS FIT and/or print with color links - links are color
 %\documentclass[zadani,print]{fitthesis} % pro černobílý tisk - odkazy jsou černé
 %\documentclass[english,zadani,print]{fitthesis} % for the black and white print - links are black
 %\documentclass[zadani,cprint]{fitthesis} % pro barevný tisk - odkazy jsou černé, znak VUT barevný
 %\documentclass[english,zadani,cprint]{fitthesis} % for the print - links are black, logo is color
-% * Je-li práce psaná v anglickém jazyce, je zapotřebí u třídy použít
+% * Je-li práce psaná v anglickém jazyce, je zapotřebí u třídy použít 
 %   parametr english následovně:
-%   If thesis is written in english, it is necessary to use
+%   If thesis is written in english, it is necessary to use 
 %   parameter english as follows:
 %      \documentclass[english]{fitthesis}
-% * Je-li práce psaná ve slovenském jazyce, je zapotřebí u třídy použít
+% * Je-li práce psaná ve slovenském jazyce, je zapotřebí u třídy použít 
 %   parametr slovak následovně:
-%   If the work is written in the Slovak language, it is necessary
+%   If the work is written in the Slovak language, it is necessary 
 %   to use parameter slovak as follows:
 %      \documentclass[slovak]{fitthesis}
-% * Je-li práce psaná v anglickém jazyce se slovenským abstraktem apod.,
+% * Je-li práce psaná v anglickém jazyce se slovenským abstraktem apod., 
 %   je zapotřebí u třídy použít parametry english a enslovak následovně:
-%   If the work is written in English with the Slovak abstract, etc.,
+%   If the work is written in English with the Slovak abstract, etc., 
 %   it is necessary to use parameters english and enslovak as follows:
 %      \documentclass[english,enslovak]{fitthesis}
 
@@ -70,7 +70,7 @@
 % problém je, že balíček hyperref musí být uveden jako poslední, takže nemůže
 % být v šabloně
 % "hyperref" package create clickable links in pdf if you are using pdflatex.
-% Problem is that this package have to be introduced as the last one so it
+% Problem is that this package have to be introduced as the last one so it 
 % can not be placed in the template file.
 \ifWis
 \ifx\pdfoutput\undefined % nejedeme pod pdflatexem / we are not using pdflatex
@@ -107,6 +107,7 @@
 \usepackage[all]{hypcap}
 \usepackage{pdfpages}
 \usepackage{graphicx}
+\usepackage{footnote}
 
 
 % Informace o práci/projektu / Information about the thesis
@@ -122,13 +123,13 @@
   %title.length={14.5cm}, % nastavení délky bloku s titulkem pro úpravu zalomení řádku (lze definovat zde nebo níže) / setting the length of a block with a thesis title for adjusting a line break (can be defined here or below)
   %Autor / Author
   author.name={Robin},   % jméno autora / author name
-  author.surname={Vysloužil},   % příjmení autora / author surname
+  author.surname={Vysloužil},   % příjmení autora / author surname 
   %author.title.p={Bc.}, % titul před jménem (nepovinné) / title before the name (optional)
   %author.title.a={Ph.D.}, % titul za jménem (nepovinné) / title after the name (optional)
   %Ustav / Department
   department={UITS}, % doplňte příslušnou zkratku dle ústavu na zadání: UPSY/UIFS/UITS/UPGM / fill in appropriate abbreviation of the department according to assignment: UPSY/UIFS/UITS/UPGM
   % Školitel / supervisor
-  supervisor.name={Petr},   % jméno školitele / supervisor name
+  supervisor.name={Petr},   % jméno školitele / supervisor name 
   supervisor.surname={Peringer},   % příjmení školitele / supervisor surname
   supervisor.title.p={Dr. Ing.},   %titul před jménem (nepovinné) / title before the name (optional)
   supervisor.title.a={},    %titul za jménem (nepovinné) / title after the name (optional)
@@ -180,14 +181,14 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   % Vysazeni titulnich stran / Typesetting of the title pages
   % ----------------------------------------------
   \maketitle
-
-  \includepdf[]{zadani.pdf}
+  
+%   \includepdf[]{zadani.pdf}
   % Obsah
   % ----------------------------------------------
   \setlength{\parskip}{0pt}
 
   {\hypersetup{hidelinks}\tableofcontents}
-
+  
   % Seznam obrazku a tabulek (pokud prace obsahuje velke mnozstvi obrazku, tak se to hodi)
   % List of figures and list of tables (if the thesis contains a lot of pictures, it is good)
   \ifczech
@@ -197,14 +198,14 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
     \renewcommand\listfigurename{Zoznam obrázkov}
   \fi
   % \listoffigures
-
+  
   \ifczech
     \renewcommand\listtablename{Seznam tabulek}
   \fi
   \ifslovak
     \renewcommand\listtablename{Zoznam tabuliek}
   \fi
-  % \listoftables
+  % \listoftables 
 
   \ifODSAZ
     \setlength{\parskip}{0.5\bigskipamount}
@@ -221,7 +222,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   % Text prace / Thesis text
   % ----------------------------------------------
   \input{projekt-01-kapitoly-chapters}
-
+  
   % Kompilace po částech (viz výše, nutno odkomentovat)
   % Compilation piecewise (see above, it is necessary to uncomment it)
   %\subfile{projekt-01-uvod-introduction}
@@ -242,7 +243,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
     \def\@openbib@code{\addcontentsline{toc}{chapter}{Literatura}}
     \makeatother
     \bibliographystyle{bib-styles/czechiso}
-  \else
+  \else 
     \makeatletter
     \def\@openbib@code{\addcontentsline{toc}{chapter}{Bibliography}}
     \makeatother
@@ -280,7 +281,7 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
 %\iftwoside
 %  \cleardoublepage
 %\fi
-
+  
 \ifslovak
 %  \section*{Zoznam príloh}
 %  \addcontentsline{toc}{section}{Zoznam príloh}
@@ -297,23 +298,23 @@ Uvedl jsem všechny literární prameny a publikace, ze kterých jsem čerpal.},
   \setlength{\parskip}{0pt}
   % seznam příloh / list of appendices
   % \printcontents[chapters]{l}{0}{\setcounter{tocdepth}{2}}
-
+  
   \ifODSAZ
     \setlength{\parskip}{0.5\bigskipamount}
   \else
     \setlength{\parskip}{0pt}
   \fi
-
+  
   % vynechani stranky v oboustrannem rezimu
   \iftwoside
     \cleardoublepage
   \fi
-
+  
   % Přílohy / Appendices
   \input{projekt-30-prilohy-appendices}
-
+  
   % Kompilace po částech (viz výše, nutno odkomentovat)
   % Compilation piecewise (see above, it is necessary to uncomment it)
   %\subfile{projekt-30-prilohy-appendices}
-
+  
 \end{document}
