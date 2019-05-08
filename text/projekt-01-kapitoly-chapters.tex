@@ -69,7 +69,7 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
 \end{enumerate}
 Další a mnohá rozdělení simulací můžeme nalézt v~literatuře. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
-V této bakalářské práci se věnuji pouze simulacím spojitým a kombinovaným. Diskrétní simulace, které simulují například systémy hromadné obsluhy, výrobní linky a obchody, v této bakalářské práci řešeny nebudou.
+V této bakalářské práci se věnuji pouze simulacím spojitým a kombinovaným. Diskrétní simulace, které simulují například systémy hromadné obsluhy, výrobní linky a obchody, v této bakalářské práci řešeny nebudou. 
 
 \section{Postup modelování a simulace}
 Jak už bylo řečeno v~kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o~něm. Pro účely popisu tvoření modelu budeme vycházet z~předpokladu, že pozorujeme tzv. "reálný"\space systém. Na základě získaných reálií o~systému vytvoříme abstraktní model, který je vlastně "zjednodušenina" pozorovaného systému, díky tomu, že pracujeme pouze s~daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi.
@@ -127,7 +127,7 @@ Stejně jako u~výhod simulací v~kapitole \ref{vyhody} není tento výčet kone
 
 \section{Popis použitých jazyků}
 \label{popis-jazyky}
-Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze určené pro konkrétní nástroj. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}.
+Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie jazyků, které jsou využívány vybranými volně dostupnými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze určené pro konkrétní nástroj. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}. 
 
 Simulačních jazyků, jejich modifikací a nástrojů, které je následně využívají, je nespočet \cite{list}. Z těch nejznámějších to je například FORTRAN, který posloužil jako základ pro jazyk MATLAB, dále pak třeba SIMULA a Smile. Výše zvolené jazyky (MATLAB, Modelica, Python) byly zvoleny kvůli jejich rozšířenosti, díky které existuje mnoho nástrojů, které tuto trojici jazyků využívají.
 
@@ -189,7 +189,7 @@ Nástroje byly vybrány tak, aby všechny byly volně dostupné a zároveň podp
 \section{Rozdělení použitých simulačních nástrojů}
 \label{rozdeleni-nastroju}
 
-Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V tabulce \ref{tab:rozdeleni-nastroju} lze nalézt dělení podle základních vlastností, jako jsou jazyk, dostupnost, nebo podporované platformy. Jak je z tabulky patrné, všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny v tabulce zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
+Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V tabulce \ref{tab:rozdeleni-nastroju} lze nalézt dělení podle základních vlastností, jako jsou jazyk, dostupnost, nebo podporované platformy. Jak je z tabulky patrné, všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny v tabulce zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}. 
 \begin{savenotes}
 \begin{table}[]
 \centering
@@ -215,7 +215,7 @@ Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru git
 
 \section{Popis použitých nástrojů}
 \label{popis-nastroju}
-V následující kapitole jsou podrobně popsány simulační nástroje využité v rámci bakalářské práce.
+V následující kapitole jsou podrobně popsány simulační nástroje využité v rámci bakalářské práce. 
 \subsection{MATLAB a Simulink}
 \label{matlab-desc}
 
@@ -262,7 +262,7 @@ Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastníh
 \subsection{Dymola}
 \label{dymola-desc}
 
-Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice \todo{zdroj}.
+Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice\footnote{\url{https://www.3ds.com/products-services/catia/products/dymola/key-advantages/}}
 
 \begin{figure}
     \centering
@@ -271,7 +271,7 @@ Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Sys
     \label{fig:dymola}
 \end{figure}
 
-Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi \todo{verze} na školním serveru Merlin.
+Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi \todo{verze} na školním serveru Merlin. Dymola má také k dispozici, stejně jako MATLAB, zkušební časově omezenou verzi zdarma. Nicméně pro účely srovnání mi přišlo zajímavé využít právě školní licenci, která je daleko více přístupné pro případné využití studenty.
 
 
 \subsection{jModelica}
@@ -331,7 +331,7 @@ V rámci hodnocení nebudeme používat žádnou škálu, k hodnocení "úspěš
 
 \section{Implementované modely}
 \label{implementace}
-V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Společně s implementací jsou popsány zjištěné problémy během implementování a jejich řešení.
+V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Společně s implementací jsou popsány zjištěné problémy během implementování a jejich řešení. 
 
 \subsection{Skákající míček}
 V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere rychlost $v_p$ a narazí do země. Takový model lze popsat jednoduchou diferenciální rovnicí, která má znění:
@@ -360,7 +360,7 @@ koeficient pružnosti &  0.8    &             \\ \hline
 \end{table}
 \end{center}
 
-Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace.
+Po každém dopadu se vypočítá nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. 
 
 Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}.
 
