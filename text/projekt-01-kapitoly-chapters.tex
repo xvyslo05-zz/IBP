@@ -177,7 +177,7 @@ Obsahem této kapitoly je rozdělení zvolených simulačních nástrojů, kter�
     \item MATLAB
     \item GNU Octave
     \item SciLab
-    \item Freemat
+    \item FreeMat
     \item Dymola
     \item OpenModelica
     \item jModelica
@@ -196,14 +196,14 @@ Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V tabu
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
 \hline
-                                                                                                    & MATLAB                                                                                                          & GNU Octave & SciLab & Freemat & Dymola           & OpenModelica                                             & jModelica & Python + SciPy \\ \hline
+                                                                                                    & MATLAB                                                                                                          & GNU Octave & SciLab & FreeMat & Dymola           & OpenModelica                                             & jModelica & Python + SciPy \\ \hline
 Jazyk                                                                                               & MATLAB                                                                                                          & MATLAB     & MATLAB & MATLAB  & Modelica         & Modelica                                                 & Modelica  & Python         \\ \hline
 Grafické prostředí                                                                                  & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano       & Ne             \\ \hline
-Platforma                                                                                           & Vše                                                                                                             & Vše        & Vše    & Vše     & Windows, Linux   & Vše\footnote{Často nestabilní na MacOS} & Vše       & Vše            \\ \hline
+Platforma                                                                                           & Vše                                                                                                             & Vše        & Vše    & Vše     & Windows, Linux   & Vše & Windows, Linux       & Vše            \\ \hline
 Podpora jiných jazyků                                                                               & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano       & Ano            \\ \hline
 Možnost online aplikace                                                                                     & Ano                                                                                                             & Ano        & Ano    & Ne      & Ne               & Ne                                                       & Ne        & Ano            \\ \hline
-Dostupnost                                                                                          & Komerční licence\footnote{Pro účely bakalářské práce použita 30 denní zkušební licence zdarma} & Zdarma     & Zdarma & Zdarma  & Komerční licence & Zdarma                                                   & Zdarma    & Zdarma         \\ \hline
-Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru github.com} & Ne                                                                                                              & Ne         & Ano    & Ano     & Ne               & Ano                                                      & Ne        & Ano            \\ \hline
+Dostupnost                                                                                          & Komerční licence & Zdarma     & Zdarma & Zdarma  & Komerční licence & Zdarma                                                   & Zdarma    & Zdarma         \\ \hline
+Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru github.com} & Ne                                                                                                              & Ne         & Ano    & Ano     & Ne               & Ano                                                      & Ano        & Ano            \\ \hline
 \end{tabular}%
 }
 \caption{Přehled základních vlastností simulačních nástrojů}
@@ -215,7 +215,7 @@ Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru git
 
 \section{Popis použitých nástrojů}
 \label{popis-nastroju}
-V následující kapitole jsou podrobně popsány simulační nástroje využité v rámci bakalářské práce. 
+V následující kapitole jsou podrobně popsány simulační nástroje využité v rámci bakalářské práce. Kapitola neobsahuje žádné dělení podle vlastností. Pro účely dělění lze použít tabulku \ref{tab:rozdeleni-nastroju} z kapitoly \ref{rozdeleni-nastroju}.
 \subsection{MATLAB a Simulink}
 \label{matlab-desc}
 
@@ -245,7 +245,7 @@ Mezi další rozdíly patří již jen drobně odlišné syntaktické zápisy, p
 
 Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{\url{https://octave.sourceforge.io/packages.php}}.
 
-\todo{instalace, pouzita verze}
+Nástroj byl nainstalován bez obtíží podle oficiálního návodu v dokumentaci nástroje \cite{OctaveManual}. Pro účely ověření funkčnosti byl nástroj nainstalován na všech platformách, které by měl nástroj podporovat. Pro účely bakalářské práce byla použita poslední aktuální verze 5.1.0.
 
 \subsection{SciLab}
 \label{scilab-desc}
@@ -253,25 +253,32 @@ Další z~nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab
 
 Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{\url{https://www.scilab.org/cloud/web-application}}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v~rámci této bakalářské práce.
 
-\todo{instalace, pouzita verze}
+Instalace nástroje proběhla bez problému podle návodů v oficiální dokumentaci a byla také proveden test instalace pro všechny podporované platformy. Nástroj byl nainstalován ve verzi 6.0.2.
 
-\subsection{Freemat}
-\label{freemat-desc}
-\todo{freemat here}
+\subsection{FreeMat}
+\label{FreeMat-desc}
+
+Nástroj FreeMat je posledním vybraným nástrojem, který primárně podporuje jazyk MATLAB. Tento nástroj je volně dostupný pod licencí GPL a byl vyvíjen kolektivem autorů, jejichž seznam je dostupný na oficiálních stránkach nástroje\cite{FreeMat}. Poslední verze nástroje FreeMat vyšla v roce 2013, tudíž je možné ho již považovat za neaktuální. Nicméně jeho komunita je stále aktivní. Do jisté míry je to tím, že zdrojové texty tohoto nástroje jsou volně dostupné na serveru SourceForge\footnote{\url{https://sourceforge.net/projects/FreeMat/files/}}. FreeMat se také používá v rámci výuky na VUT FIT, jako náhrada za nástroj MATLAB.
+
+Skladba jazyka použitého v FreeMat je podle oficiální dokumentace přibližně na 95 \% kompatibilní s jazykem MATLAB. Oproti MATLABu je zde větší podpora pro import kódu zvenčí a lepší zobrazování 3D vizualizací dat\cite{FreeMat}.
+
+Instalace probíhá pomocí předpřipravených balíků dostupných z oficiální stránky, které jsou dostupné pro běžné platformy.
+
+
 
 \subsection{Dymola}
 \label{dymola-desc}
 
-Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice\footnote{\url{https://www.3ds.com/products-services/catia/products/dymola/key-advantages/}}
+Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Systèmes. Tento simulační nástroj je založený, jak už bylo řečeno v~rozdělení v~kapitole \ref{popis-nastroju}, na jazyce Modelica. Dymola umožňuje jednoduché vytvoření modelu a pak následně provádení simulací s~ním. Tento nástroj je velmi využíván ve strojírenství, elektrotechnice a energetice\footnote{\url{https://www.3ds.com/products-services/catia/products/dymola/key-advantages/}}.
 
-\begin{figure}
+\begin{figure}[ht]
     \centering
     \includegraphics[width=15cm]{obrazky-figures/dummy.png}
     \caption{Ukázka prostředí Dymola}
     \label{fig:dymola}
 \end{figure}
 
-Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi \todo{verze} na školním serveru Merlin. Dymola má také k dispozici, stejně jako MATLAB, zkušební časově omezenou verzi zdarma. Nicméně pro účely srovnání mi přišlo zajímavé využít právě školní licenci, která je daleko více přístupné pro případné využití studenty.
+Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi 6.0b, která vyšla v roce 2006, na školním serveru Merlin. Aktuální verze Dymola 2019 FD01 vyšla 30. listopadu 2018. Dymola má také k dispozici, stejně jako MATLAB, zkušební časově omezenou verzi zdarma. Nicméně pro účely srovnání mi přišlo zajímavé využít právě školní licenci, která je daleko více přístupná pro případné využití studenty.
 
 
 \subsection{jModelica}
@@ -279,7 +286,9 @@ Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je
 
 jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v~jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven.
 
-Pro potřeby bakalářské práce je využit balík Assimulo\footnote{\url{https://jmodelica.org/assimulo/}}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán právě v~jazyce Python.
+Pro potřeby bakalářské práce je využit balík Assimulo\footnote{\url{https://jmodelica.org/assimulo/}}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán v~jazyce Python.
+
+jModelica má volně dostupný repozitář se všemi zdrojovými kódy všech verzí, které byly vydány\footnote{\url{https://svn.jmodelica.org/}}. Zajímavostí je, že jsou přístupné i zdrojové texty verzí, které ještě nejsou oficiálně vydány. Aktuální verze, a také verze na která byla instalována, je verze 2.4, nicméně v repozitáři je dohledatelná i verze 2.8.x.
 
 \begin{figure}
     \centering
@@ -288,7 +297,7 @@ Pro potřeby bakalářské práce je využit balík Assimulo\footnote{\url{https
     \label{fig:jmodelica}
 \end{figure}
 
-\todo{instalace, pouzita verze}
+Dříve byla jModelica dostupná pro všechny běžné operační systémy. Od verze 2.0 jsou podporovány již jen operační systémy Linux a Windows a podpora pro Mac OS byla zastavena. Verze 1.9 byla tedy poslední, kdy byl systém Mac OS podporován.
 
 \subsection{OpenModelica}
 \label{openmodelica-desc}
@@ -296,20 +305,20 @@ Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých
 
 Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}.
 
-\todo{instalace, pouzita verze}
+OpenModelica, jako jediný nástroj z výběru, nabízí možnost si stáhnout předinstalovanou verzi OpenModelica na virtuálním disku s operačním systémem Linux, konkrétně na distribuci Xubuntu. Zároveň s touto možností OpenModelica podporuje běžné operační systémy, pro které byla také provedena instalace.
 
 \subsection{SciPy}
 \label{chapter-scipy}
-Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v~pravém slova smyslu, jedná se spíše o~rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{\url{https://github.com/scipy/scipy}} \cite{scipy}. V~rámci této rodiny knihoven jsou knihovny:
+Tento simulační nástroj jako jediný není založený na jazycích MATLAB, či Modelica, nýbrž na skriptovacím jazyce Python. Není to simulační nástroj v~pravém slova smyslu, jedná se spíše o~rozšiřující knihovny jazyka Python, které jsou zdarma a volně dostupné\footnote{\url{https://github.com/scipy/scipy}} \cite{scipy}. V~rámci této rodiny knihoven jsou například knihovny:
 \begin{itemize}
     \item SciPy -- tato knihovna obsahuje numerické algoritmy pro provádění simulací, zpracovávání signálů a následné statistické vyhodnocení simulace
     \item NumPy -- obsahuje metody pro numerické výpočty, práci s~číselnými poly a maticemi
     \item Matplotlib -- pomocí této knihovny je možné na základě vstupních dat vykreslovat grafické výstupy ve 2D a i ve 3D
 \end{itemize}
 
-SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python.
+SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python. 
 
-\todo{instalace, pouzita verze}
+Instalace probíhá pomocí správce balíčků pro daný operační systém, případně přes správce balíčků jazyka Python. Knihovny SciPy jsou kompatibilní jak s Python2, tak i s Python3. Nástroj SciPy byl v této bakalářské práci použit ve verzi 1.2.1.
 
 \chapter{Popis modelů a použité metodiky}
 \label{kapitola4}
