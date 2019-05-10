@@ -288,7 +288,7 @@ jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazy
 
 Pro potřeby bakalářské práce je využit balík Assimulo\footnote{\url{https://jmodelica.org/assimulo/}}, pomocí kterého je možné řešit diferenciální rovnice. Tento balík funkcí je napsán v~jazyce Python.
 
-jModelica má volně dostupný repozitář se všemi zdrojovými kódy všech verzí, které byly vydány\footnote{\url{https://svn.jmodelica.org/}}. Zajímavostí je, že jsou přístupné i zdrojové texty verzí, které ještě nejsou oficiálně vydány. Aktuální verze, a také verze na která byla instalována, je verze 2.4, nicméně v repozitáři je dohledatelná i verze 2.8.x.
+jModelica má volně dostupný repozitář se všemi zdrojovými kódy všech verzí, které byly vydány\footnote{\url{https://svn.jmodelica.org/}}. Zajímavostí je, že jsou přístupné i zdrojové texty verzí, které ještě nejsou oficiálně vydány. Aktuální verze, a také verze na která byla instalována, je verze 2.4, nicméně v repozitáři je dohledatelná i verze 2.8.x, která teprve na svoji stabilní verzi čeká.
 
 \begin{figure}
     \centering
@@ -297,7 +297,7 @@ jModelica má volně dostupný repozitář se všemi zdrojovými kódy všech ve
     \label{fig:jmodelica}
 \end{figure}
 
-Dříve byla jModelica dostupná pro všechny běžné operační systémy. Od verze 2.0 jsou podporovány již jen operační systémy Linux a Windows a podpora pro Mac OS byla zastavena. Verze 1.9 byla tedy poslední, kdy byl systém Mac OS podporován.
+Dříve byla jModelica dostupná pro všechny běžné operační systémy. Od verze 2.0 jsou podporovány již jen operační systémy Linux a Windows a podpora pro Mac OS byla zastavena. Verze 1.9 byla tedy poslední, kdy byl systém Mac OS oficiálně podporován.
 
 \subsection{OpenModelica}
 \label{openmodelica-desc}
@@ -305,7 +305,7 @@ Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých
 
 Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}.
 
-OpenModelica, jako jediný nástroj z výběru, nabízí možnost si stáhnout předinstalovanou verzi OpenModelica na virtuálním disku s operačním systémem Linux, konkrétně na distribuci Xubuntu. Zároveň s touto možností OpenModelica podporuje běžné operační systémy, pro které byla také provedena instalace.
+OpenModelica, jako jediný nástroj z výběru, nabízí možnost si stáhnout předinstalovanou verzi OpenModelica na virtuálním disku s operačním systémem Linux, konkrétně na distribuci Xubuntu. Zároveň s touto možností OpenModelica podporuje běžné operační systémy, pro které byla také provedena zkušební instalace.
 
 \subsection{SciPy}
 \label{chapter-scipy}
@@ -415,11 +415,11 @@ Tuhý systém\footnote{Z anglického "stiff system"} je systém, který je pops�
 \end{equation}
 s délkou kroku $h = \frac{1.875}{50}$ a počáteční podmínkou $y(0) = 0$. Pokud by byla délka kroku $h$ větší než $\frac{2}{50}$, pak by došlo k nestabilitě a k oscilování okolo kýženého výsledku \cite{hairer}.
 
-V jazyce Python, konkrétně tedy s využitím knihovny SciPy, se během implementace vyskytl problém s volbou zvolené metody výpočtu zvolené diferenciální rovnice. Většina metod pro výpočet diferenciálních je implementována tak, že předem detekují, zda-li je zadaná rovnice tuhá, či nikoliv. Pokud ji vyhodnotí jako tuhou, pak si metoda sama upraví velikost kroku na tolik, aby se výsledek co nejvíce přiblížil analytickému řešení. Při zvolení metody, která tuto detekci před výpočtem neobsahuje, vypisuje metoda chybu při zjištění "tuhosti" rovnice a následné oscilace výsledku okolo analytického řešení. Po studiu možných metod byla nakonec vybrána metoda \texttt{odeint()}, která obsahuje detekci pro tuhé rovnice a jejich soustavy.
+V jazyce Python, konkrétně tedy s využitím knihovny SciPy, se během implementace vyskytl problém s volbou zvolené metody výpočtu zvolené diferenciální rovnice. Většina metod pro výpočet diferenciálních je implementována tak, že předem detekují, zda-li je zadaná rovnice tuhá, či nikoliv. Pokud ji vyhodnotí jako tuhou, pak si metoda sama upraví velikost kroku na tolik, aby se výsledek co nejvíce přiblížil analytickému řešení. Při zvolení metody, která tuto detekci před výpočtem neobsahuje, vypisuje metoda chybu při zjištění tuhosti rovnice a následné oscilace výsledku okolo analytického řešení. Po studiu možných metod byla nakonec vybrána metoda \texttt{odeint()}, která obsahuje detekci pro tuhé rovnice a jejich soustavy.
 
 \todo{modelica - asi bez problemu, nutno dohledat}
 
-\todo{matlab - vyuziti ode125}
+Pro implementaci pro nástroje používající jazyk MATLAB byla vybrána metoda \texttt{ode15s()}, která je popisována jako jedna z univerzálnějších metod pro řešení tuhých rovnic a jejich sytémů \cite{MATLAB:2010}. Metoda si stejně, jako u implementace v Pythonu, sama zvolí délku kroku podle zadané rovnice. Dalšími metodami pro řešení tuhých rovnic v MATLABu jsou \texttt{ode23s()}, \texttt{ode23t()} a \texttt{ode23tb()}. MATLAB obsahuje více metod, které jsou schopny řešit tuhé rovnice, například \texttt{ode45()}, nebo \texttt{ode113()}, ale tyto metody jsou označovány za pomalé a jsou primárně doporučovány k řešení netuhých diferenciálních rovnic.
 
 Výsledky běhů simulace implementovaných modelů lze nalézt v kapitole \ref{srovnani-tuhy}. V této kapitole je také porovnání využitých nástrojů.
 
@@ -471,7 +471,6 @@ Scipy        &       0.065              &  &  \\ \hline
 \label{tab:kruh-tabulka}
 \end{table}
 
-\subsection{Shrnutí}
 
 \section{Model 3}
 \label{srovnani-tuhy}
