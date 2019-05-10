@@ -1,5 +1,3 @@
-// @TODO: model 3 for modelica
-
 model stiff_system
   Real x;
   Real y (start = 1);
