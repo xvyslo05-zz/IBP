@@ -5,6 +5,5 @@ model kruhovy_test
 equation
   der(x) = y;      // x' = y
   der(y) = -x;     // y' = -x
-  err = x-sin(time);
-  annotation (experiment(StopTime=20, NumberOfIntervals=5000));
+  annotation (experiment(StopTime=10, NumberOfIntervals=500));
 end kruhovy_test;
