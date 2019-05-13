@@ -377,7 +377,7 @@ Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z ofic
 
 Během implementace v Pythonu se vyskytl problém s detekcí výšky a výpočtu následného odrazu. Původní zvolená metoda \texttt{odeint()} byla vyhodnocena jako nevhodná z důvodu nemožnosti výpočtu derivace rychlosti v bodě $h\leq0$. Po několika neúspěšných pokusech s touto a dalšími metodami byla zvolena metoda \texttt{solve\_ivp()}, která tyto situace umí do jisté míry detekovat a hodnotu derivace vypočítat. Bohužel i při použití této metody vznikají velké nepřesnosti a během trvání výpočtu narůstá chyba výpočtu. Po několika krocích výpočtu se hodnota výšky míčku, místo přibližování se k 0, "propadne"\space do záporných hodnot. Tento jev se vyskytuje právě kvůli kumulované chybě, způsobenou zvolenou metodou.
 
-Při implementaci a následného zkoumání výsledků simulace v jazyce Modelica se jev, kdy se míček "propadne pod zem", objevuje také. Zde je to způsobeno zřejmě přesností výpočtu a následnou práci s velmi malými čisly. Nicméně na průběh výpočtu, navzdory implementace v Pythonu, tento jev nemá vliv.
+Při implementaci a následného zkoumání výsledků simulace v jazyce Modelica se jev, kdy se míček "propadne pod zem", objevuje také. Zde je to způsobeno zřejmě přesností výpočtu a následnou práci s velmi malými čisly. Nicméně na průběh výpočtu, navzdory implementace v Pythonu, tento jev nemá vliv, protože se míček propadne až po velmi dlouhé době.
 
 Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
 Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
@@ -402,7 +402,7 @@ Během běhu simulace se výsledky postupně přibližují analytickému řešen
 \end{equation}
 
 
-Implementace v jazyce Modelica proběhla velmi snadno. Jak bylo popsáno v kapitole \ref{modelica-lang}, zápis v tomto jazyce připomíná zápis výpočtu na papír. \todo{odlisnosti pro jednotlive nastroje}
+Implementace v jazyce Modelica proběhla velmi snadno. Jak bylo popsáno v kapitole \ref{modelica-lang}, zápis v tomto jazyce připomíná zápis výpočtu na papír. 
 
 Pro implementaci v Pythonu byla využita metoda \texttt{odeint()} z knihovny \texttt{scipy.integrate}\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html}}, která je vytvořena pro řešení diferenciálních rovnic a jejich soustav. Pro účely využití této metody je potřeba si definovat obslužnou funkci pro výpočet nových stavů integrátorů. Pro implementaci v tomto případě nebyla využita Eulerova metoda podle příkladu ze studijní opory, neboť rodina knihoven SciPy nemá tuto metodu implementovánu a je doporučeno využívat právě metodu \texttt{odeint()}, případně metodu \texttt{solve\_ivp()} ze stejné rodiny knihoven.
 
@@ -428,7 +428,7 @@ Výsledky běhů simulace implementovaných modelů lze nalézt v kapitole \ref{
 
 \chapter{Výsledky simulací a porovnání výsledků}
 \label{kapitola5}
-V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení porovnání simulačních nástrojů. Každý z modelů, které byly popsány v kapitole \ref{implementace}, byl postupně implementován ve všech nástrojích uvedených v kapitole \ref{popis-nastroju}. 
+V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení porovnání simulačních nástrojů. Každý z modelů, které byly popsány v kapitole \ref{implementace}, byl postupně implementován ve všech nástrojích uvedených v kapitole \ref{popis-nastroju}. Naměřené výsledky jsou zařížené velkým statistickým šumem (např. běh procesů na pozadí), avšak pro účely porovnání jsou využitelné. Všechny naměřené časy jsou čisté časy od začátku skriptu až po konec výpočtu a výpis na standardní výstup. Čas pro případnou tvorbu grafů pro ověření výsledků není v těchto měřeních zakomponován.
 
 \section{Model 1}
 \label{srovnani-micek}
@@ -440,14 +440,14 @@ Prvn
 \begin{tabular}{|l|l|l|l|}
 \hline
              & Rychlost výpočtu {[}s{]} & Obtížnost implementace &  \\ \hline
-MATLAB       &                          &  &  \\ \hline
-GNU Octave   &                          &  &  \\ \hline
-SciLab       &                          &  &  \\ \hline
+MATLAB       &              X            &  &  \\ \hline
+GNU Octave   &             X             &  &  \\ \hline
+SciLab       &            X              &  &  \\ \hline
 Dymola       &         0.010                 &  &  \\ \hline
-FreeMat &                          &  &  \\ \hline
+FreeMat &                X          &  &  \\ \hline
 OpenModelica    &       0.014                   &  &  \\ \hline
 jModelica        &     0.11                     &  &  \\ \hline
-Scipy           &                          &  &  \\ \hline
+Scipy           &          nutno přepočítat                &  &  \\ \hline
 \end{tabular}
 \caption{Průměrná rychlost výpočtu v sekundách pro model 1. Zaokrouhleno na dvě platná desetinná místa.}
 \label{tab:micek-tabulka}
@@ -463,11 +463,11 @@ Druhým modelem v pořadí, který byl implementován, byl jednoduchý kruhový 
 \begin{tabular}{|l|l|l|l|}
 \hline
              & Rychlost výpočtu {[}s{]} & Obtížnost implementace &  \\ \hline
-MATLAB       &         2.31                 &  &  \\ \hline
+MATLAB       &         1.65                 &  &  \\ \hline
 GNU Octave   &           X               &  &  \\ \hline
 SciLab       &            0.0045              &  &  \\ \hline
 Dymola       &           0.010\footnote{v čase 22.76s}               &  &  \\ \hline
-FreeMat &                          &  &  \\ \hline
+FreeMat &                  X        &  &  \\ \hline
 OpenModelica    &        0.014                  &  &  \\ \hline
 jModelica        &       0.0065              &  &  \\ \hline
 Scipy             &      0.065                    &  &  \\ \hline
@@ -480,10 +480,11 @@ Scipy             &      0.065                    &  &  \\ \hline
 \todo{python cajk}
 
 \todo{matlab bankrot}
+V případě času výpočtu nástroje MATLAB je zajímavé, že výpočet zabral tolik procesorového času. Tato velká časová odlišnost je způsobena využitou metodou \texttt{dsolve()}, která je v dokumentaci doporučována pro řešení soustav diferenciálních rovnic \cite{MATLAB:2010}. U jiných nástrojů tato metoda již není implementována, proto jsou časy daleko nižší. U nástrojů SciLab, Octave a FreeMat byla využita metoda \texttt{ode()}, která je používána pro výpočet jednotlivých diferenciálních rovnic.
 
 \section{Model 3}
 \label{srovnani-tuhy}
-Posledním měřeným modelem byla simulace tuhého systému popsaného v kapitole \ref{tuhy}. V tomto případě bylo rozpětí výsledků měření nejmenší napříč všemi nástroji. V tomto případě muhou být výsledky poněkud zkreslené různými numerickými metodami, jelikož žádný z nástrojů, vyjma nástrojů napsaných pro jazyk Modelica, nepodporují stejné metody pro řešení tuhých rovnic, a proto byly vybrány metody doporučované oficiálními dokumentacemi. Výsledky jsou dostupné v tabulce \ref{tab:tuhy-tabulka}.
+Posledním měřeným modelem byl tuhý systém popsaný v kapitole \ref{tuhy}. V tomto případě bylo rozpětí výsledků měření nejmenší napříč všemi nástroji. V tomto případě mohou být výsledky poněkud zkreslené různými numerickými metodami, jelikož žádný z nástrojů, vyjma nástrojů napsaných pro jazyk Modelica, nepodporují stejné metody pro řešení tuhých diferenciálních rovnic, a proto byly vybrány metody doporučované oficiálními dokumentacemi. Výsledky jsou dostupné v tabulce \ref{tab:tuhy-tabulka}.
 \begin{savenotes}
 \begin{table}[ht]
 \centering
@@ -491,30 +492,23 @@ Posledním měřeným modelem byla simulace tuhého systému popsaného v kapito
 \hline
              & Rychlost výpočtu {[}s{]} & Obtížnost implementace &  \\ \hline
 MATLAB       &         0.35                 &  &  \\ \hline
-GNU Octave   &                          &  &  \\ \hline
+GNU Octave   &             X             &  &  \\ \hline
 SciLab       &          0.26                &  &  \\ \hline
 Dymola       &        0.010\footnote{v čase 258s}                  &  &  \\ \hline
-FreeMat &                          &  &  \\ \hline
+FreeMat &                 X         &  &  \\ \hline
 OpenModelica    &     0.015                     &  &  \\ \hline
 jModelica        &    0.0052                      &  &  \\ \hline
- Scipy            &                          &  &  \\ \hline
+ Scipy            &      X                    &  &  \\ \hline
 \end{tabular}
 \caption{Průměrná rychlost výpočtu v sekundách pro model 3. Zaokrouhleno na dvě platná desetinná místa.}
 \label{tab:tuhy-tabulka}
 \end{table}
 \end{savenotes}
 
-U tohoto modelu bych chtěl vyzdvihnout kvality nástroje Dymola, které výpočet zabral velmi procesorového málo času. Jak je patrné z tabulky výsledků, výpočet zabral pouhých 0.010, avšak v čase simulace 258 sekund. Pokud bychom přepočítali výsledek na čas simulace $T_max = 10$, pak by rychlost výpočtu byla 0,00038 sekund.
+U tohoto modelu bych chtěl vyzdvihnout kvality nástroje Dymola, kterému výpočet zabral krátký procesorový čas. Jak je patrné z tabulky výsledků, výpočet zabral pouhých 0.010, avšak v čase simulace 258 sekund. Pokud bychom přepočítali výsledek na čas simulace $T_max = 10$, pak by rychlost výpočtu byla 0,00038 sekund. Ostatně i další naměřené časy u nástrojů zpracovávající kód v jazyce Modelica jsou velmi dobré a o řád rychlejší, než nástroje pro jazyk MATLAB.
 
+\todo{matlab}
 
-\section{Shrnutí a doporučení}
-\todo{nekompatibilita metod u matlabu}
-
-\todo{nekompatibilita jednotlivych matlabu}
-
-\todo{jednoduchost zapisu v modelica - doporucuju}
-
-\todo{python - pri dobre znalosti velmi silny nastroj}
 
 
 
@@ -528,6 +522,14 @@ U tohoto modelu bych chtěl vyzdvihnout kvality nástroje Dymola, které výpoč
 \todo{popis porovnani - 3 modely, 8 nastroju}
 
 \todo{problemy - nekompatibilita, ruzne metody}
+
+\todo{nekompatibilita metod u matlabu}
+
+\todo{nekompatibilita jednotlivych matlabu}
+
+\todo{jednoduchost zapisu v modelica - doporucuju}
+
+\todo{python - pri dobre znalosti velmi silny nastroj}
 
 \todo{mozne rozsireni}
 

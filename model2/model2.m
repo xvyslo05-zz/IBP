@@ -17,8 +17,10 @@ cond2 = y(0) == 1;
 conds = [cond1; cond2];
 [xSol(t), ySol(t)] = dsolve(odes,conds)
 
-fplot(ySol)
-legend('ySol','Location','best')
-
 endtime = clock - inittime;
 disp(endtime);
+% 
+% fplot(ySol)
+% legend('ySol','Location','best')
+
+
