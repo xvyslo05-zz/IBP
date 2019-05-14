@@ -1,45 +1,30 @@
-# @TODO: model 3 python
-
-# stiff system
-
 from scipy.integrate import odeint
 import matplotlib.pyplot as pyplot
-# import numpy as np
+import numpy as np
 import math
-# import time
+import time
 
-# def stiff(y, t):
-#   dy = -50*(y - math.cos(x))
-#   return dy
+start = time.time()
 
-# # dy = -50(y - math.cos(x)) # main equation
 
-# t = np.linspace(0, 1, 5)
+def stiff(y, t):
+  dy = -50*(y - math.cos(t))
+  return dy
 
-# y0 = 1
 
-# solve = odeint(stiff, y0, t, hmax=1.974/50)
+t = np.linspace(0, 1, 1000)
+
+y0 = 1
+
+solve = odeint(stiff, y0, t, hmax=1.974/50)
+
+end = time.time() - start
+
+
+text_file = open("model3/python_output.txt", "a")
+text_file.write("%.9f\n" % end)
+text_file.close()
 
 # pyplot.plot(solve, t)
 
 # pyplot.show()
-
-# # (yn - y)/h = f(xn, yn) # pro h=1.974/50 a h=1.875/50
-
-from scipy.integrate import ode
-
-y0, t0 = 0, 0
-
-def f(t, y, arg1):
-    return -50*(y - math.cos(t))
-
-
-r = ode(f).set_integrator('zvode', method='bdf', min_step=1.974/50, max_step=1.974/50)
-r.set_initial_value(y0, t0).set_f_params(2.0)
-t1 = 1000
-dt = 1
-while r.successful() and r.t < t1:
-    print(r.t+dt, r.integrate(r.t+dt))
-
-pyplot.plot(r.t)
-pyplot.show()
