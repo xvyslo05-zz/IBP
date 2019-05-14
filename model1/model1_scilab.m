@@ -1,17 +1,47 @@
-function dh = new_height(t, x)
-    dh = x(2)
-endfunction
-function dv = new_velocity(t, x)
-    dv = -9.81
-endfunction
+//clear;
+//clc;
+//close;
 
-height = 10
-velocity = 15
+tic()
 
-x = [height;velocity]
+height_ini = 10;
+velocity_ini = 15;
+t0_ini = 0;
+sampl=300;
+hcntr=0;
+endtime=0;
+bounces=5;
+utlum=0.8
 
-t = linspace(0, 10, 21)
+for i = 1:bounces
+    height = height_ini;
+    velocity = velocity_ini;
+    t0 = t0_ini;
 
-t0 = 0
+    x0 = [height; velocity];
+    t = linspace(0, 10, sampl);
 
-[y, rt] = ode("root", x, t0, t, 1e-3, 1e-6, new_height, 1, new_velocity)
+    function dh = new_height(t, x)
+        dh(1) = x(2)
+        dh(2) = -9.81
+    endfunction
+    res = ode(x0, t0, t, new_height);
+
+    for j = 1:sampl
+        hcntr=hcntr+1
+        h(hcntr)=res(1,j)
+        if res(1,j) <= 0 then
+            height_ini = 0.001;
+            velocity_ini = -res(2,j)*utlum
+            break
+        end
+    end
+    endtime = endtime + t(j);
+end
+
+t = linspace(0,endtime,length(h))
+
+disp(toc())
+
+//plot(t,h)
+

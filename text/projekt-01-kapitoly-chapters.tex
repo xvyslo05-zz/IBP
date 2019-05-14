@@ -1,16 +1,16 @@
 %===============================================================================
 \chapter{Úvod}
 
-Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, vytvořit model a provést na tomto modelu simulaci \cite{NEGRAO20113051}. Z~takto provedené simulace získáme představu o~tom, jak se testovaný produkt chová. To nám společně s vhodně zvoleným simulačním nástrojem může ušetřit nemalé finanční prostředky při uvádění produktu na trh, neboť simulace mohou pomoci odhalit nedostatky, které je potřeba odladit \cite{cohen2010cost}. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB \cite{MATLAB:2010} a Modelica \cite{Fritzson02modelica--}, a také jazyky, které jsou na nich založené a jsou většinově kompatibilní. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními SciPy a NumPy \cite{scipy}, který není příbuzný s~výše uvedenými jazyky.
+Dnešní doba poskytuje mnoho možností, jak si svůj vyvíjený produkt, nebo například jen pouhou hypotézu toho, jak by nějaký systém mohl fungovat, vytvořit model a provést na tomto modelu simulaci \cite{NEGRAO20113051}. Z~takto provedené simulace získáme představu o~tom, jak se testovaný produkt chová. To nám společně s~vhodně zvoleným simulačním nástrojem může ušetřit nemalé finanční prostředky při uvádění produktu na trh, neboť simulace mohou pomoci odhalit nedostatky, které je potřeba odladit \cite{cohen2010cost}. Proto je vhodné věnovat čas simulaci dostatečný čas. Simulační nástroje jsou implementovány nad různými jazyky, ale pro účely práce byly zvoleny primárně dvě hlavní rodiny jazyků - MATLAB \cite{MATLAB:2010} a Modelica \cite{Fritzson02modelica--}, a také jazyky, které jsou na nich založené a jsou většinově kompatibilní. Zároveň je pro porovnání vybrán jazyk Python s~rozšířeními SciPy a NumPy \cite{scipy}, který není příbuzný s~výše uvedenými jazyky.
 
-Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání byly implementovány simulační modely v~různých simulačních jazycích. Tyto modely byly následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání byly zhodnoceny z hlediska vhodnosti použití implementovaných modelů pro zvolené nástroje \cite{jones2004traffic}.
+Cílem této bakalářské práce je provést srovnání volně dostupných simulačních nástrojů. Pro účely porovnání byly implementovány simulační modely v~různých simulačních jazycích. Tyto modely byly následně porovnány pomocí porovnávací metodiky a získané výsledky srovnání byly zhodnoceny z~hlediska vhodnosti použití implementovaných modelů pro zvolené nástroje \cite{jones2004traffic}.
 
-V~kapitole \ref{kapitola2} jsou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Dále kapitola pojednává o zvolených programovacích jazycích. Kapitola \ref{kapitola3} obsahuje jednoduché rozdělení použitých nástrojů a jejich bližší popis. Kapitola \ref{kapitola4} se zabývá popisem implementovaných simulačních modelů pro simulační nástroje. Společně s implementací je v této kapitole vysvětlena porovnávací metodika, která je následně využita v kapitole \ref{kapitola5}, která obsahuje výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje podle zvolené metodiky.
+V~kapitole \ref{kapitola2} jsou popsány a vysvětleny důležité pojmy potřebné pro pochopení problematiky modelování a simulací. Dále kapitola pojednává o~zvolených programovacích jazycích. Kapitola \ref{kapitola3} obsahuje jednoduché rozdělení použitých nástrojů a jejich bližší popis. Kapitola \ref{kapitola4} se zabývá popisem implementovaných simulačních modelů pro simulační nástroje. Společně s~implementací je v~této kapitole vysvětlena porovnávací metodika, která je následně využita v~kapitole \ref{kapitola5}, která obsahuje výsledky porovnání simulačních nástrojů zároveň s~popisem způsobilosti použitých modelů pro využité nástroje podle zvolené metodiky.
 
 \chapter{Modelování a simulace}
 \label{kapitola2}
 
-Modelování a simulace jsou dnes již nedílnou součástí vědy a výzkumu. Tato kapitola se věnuje vysvětlení pojmů nutných k pochopení základní problematiky modelování a simulací. Dále lze v kapitole nalézt výčet výhod a nevýhod použití simulací. Poslední podkapitola se věnuje popisu programovacích jazyků využitých pro účely bakalářské práce.
+Modelování a simulace jsou dnes již nedílnou součástí vědy a výzkumu. Tato kapitola se věnuje vysvětlení pojmů nutných k~pochopení základní problematiky modelování a simulací. Dále lze v~kapitole nalézt výčet výhod a nevýhod použití simulací. Poslední podkapitola se věnuje popisu programovacích jazyků využitých pro účely bakalářské práce.
 
 \section{Problematika modelování a simulací}
 Jelikož jsou modelování a simulace velmi komplexní disciplíny, je nutné definovat, alespoň v~jednoduchosti, základní pojmy, které jsou v~rámci této práce využívány.
@@ -69,7 +69,7 @@ Simulace můžeme rozdělovat podle mnoha kritérii:
 \end{enumerate}
 Další a mnohá rozdělení simulací můžeme nalézt v~literatuře \cite{IMS-skripta}. Pro účely různých druhů simulací jsou rozdělení jiná, nemluvě o~dynamickém vývoji tohoto odvětví a tudíž i neustálým změnám v~rozdělení simulací.
 
-V této práci se věnuji pouze simulacím spojitým a kombinovaným. Diskrétní simulace, které simulují například systémy hromadné obsluhy, výrobní linky a obchody, v této bakalářské práci řešeny nebudou z důvodu velké odlišnosti a rozsahu práce.
+V~této práci se věnuji pouze simulacím spojitým a kombinovaným. Diskrétní simulace, které simulují například systémy hromadné obsluhy, výrobní linky a obchody, v~této bakalářské práci řešeny nebudou z~důvodu velké odlišnosti a rozsahu práce. 
 
 \section{Postup modelování a simulace}
 Jak už bylo řečeno v~kapitole \ref{modelovani}, modely jsou tvořeny pomocí pozorování systému a získávání poznatků o~něm. Pro účely popisu tvoření modelu budeme vycházet z~předpokladu, že pozorujeme tzv. reálný systém. Na základě získaných reálií o~systému vytvoříme abstraktní model, který je vlastně "zjednodušenina"\space pozorovaného systému, díky tomu, že pracujeme pouze s~daty, která získáme pomocí pozorování. Takto vytvořený model může být popsán například diferenciálními rovnicemi \cite{Cellierc2006}.
@@ -78,7 +78,7 @@ Z~takto popsaného abstraktního modelu dále vytvoříme simulační model. Sim
 
 S~výsledky získanými ze simulačního modelu získáváme další poznatky o~chování abstraktního modelu. Tyto získané výsledky můžeme využít pro úpravu abstraktního modelu, následnou úpravu simulačního modelu podle modelu abstraktního a na závěr opětovné provedení simulace \cite{IMS-skripta}.
 
-Výsledky je vhodné vizualizovat tak, abychom s nimi mohli dále pracovat a analyzovat je. V~rámci analýzy je potřeba rozlišit, s~jakým typem dat pracujeme, a podle toho zvolit metodu, pomocí které budeme analýzu provádět. Mezi běžné druhy analýzy výsledků patří:
+Výsledky je vhodné vizualizovat tak, abychom s~nimi mohli dále pracovat a analyzovat je. V~rámci analýzy je potřeba rozlišit, s~jakým typem dat pracujeme, a podle toho zvolit metodu, pomocí které budeme analýzu provádět. Mezi běžné druhy analýzy výsledků patří:
 \begin{itemize}
     \item Porovnání získaných výsledků s~reálnými naměřenými daty daného systému
     \item Použití statistických metod pro zpracování výsledků
@@ -94,7 +94,7 @@ V~rámci simulace můžeme sledovat i hodnoty, které s~výsledkem simulace souv
 
 %===========================================
 
-Část z~těchto proměnných budeme sledovat v~rámci naší analýzy. Popis sledování lze nalézt v  \ref{kapitola4} a následné porovnání se nachází v~kapitole \ref{kapitola5}.
+Část z~těchto proměnných budeme sledovat v~rámci naší analýzy. Popis sledování lze nalézt v~\ref{kapitola4} a následné porovnání se nachází v~kapitole \ref{kapitola5}.
 
 \section{Výhody a nevýhody využití simulací}
 
@@ -129,13 +129,13 @@ Stejně jako u~výhod simulací v~kapitole \ref{vyhody} není tento výčet kone
 
 \section{Charakteristiky použitých jazyků}
 \label{popis-jazyky}
-Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie jazyků, které jsou využívány vybranými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze určené pro konkrétní nástroj. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}.
+Jazyků umožňujících vytváření a specifikaci modelů a provádení experimentů s~nimi je na trhu nepřeberné množství \cite{list-of-process-modelling-lang}. Tyto jazyky se také liší v~případech využití - pro různé typy modelů a simulací systémů jsou jinak vhodné. Pro potřeby bakalářské práce jsem si zvolil tři programovací jazyky, z~toho dva z~kategorie jazyků, které jsou využívány vybranými simulačními nástroji. Nástroje tyto jazyky používají buď v~čisté formě, případně jejich modifikované verze určené pro konkrétní nástroj. Těmito jazyky jsou MATLAB\cite{MATLAB:2010} a Modelica\cite{Fritzson02modelica--}. Jako třetí programovací jazyk byl pro porovnání zvolen jazyk Python s~podporou matematických, vědeckých a simulačních knihoven a knihoven pro tvorbu grafů \cite{scipy}. 
 
-Simulačních jazyků, jejich modifikací a nástrojů, které je následně využívají, je nespočet \cite{list}. Z těch nejznámějších to je například FORTRAN, který posloužil jako základ pro jazyk MATLAB, dále pak třeba SIMULA a Smile. Výše zvolené jazyky (MATLAB, Modelica, Python) byly zvoleny kvůli jejich rozšířenosti, díky které existuje mnoho nástrojů, které tuto trojici jazyků využívají.
+Simulačních jazyků, jejich modifikací a nástrojů, které je následně využívají, je nespočet \cite{list}. Z~těch nejznámějších to je například FORTRAN, který posloužil jako základ pro jazyk MATLAB, dále pak třeba SIMULA a Smile. Výše zvolené jazyky (MATLAB, Modelica, Python) byly zvoleny kvůli jejich rozšířenosti, díky které existuje mnoho nástrojů, které tuto trojici jazyků využívají.
 
 \subsection*{MATLAB}
 \label{matlab-lang}
-Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným nástrojem MATLAB \cite{MATLAB:2010}. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl. Výsledky práce s nástrojem MATLAB můžete nalézt v~kapitole \ref{kapitola5}.
+Jazyk MATLAB je uzavřený skriptovací jazyk, který je vyvíjený a spravovaný firmou MathWorks od roku 1984. Tento jazyk je spjatý se stejnojmenným nástrojem MATLAB \cite{MATLAB:2010}. Jazyk je využíván k~popisu analýzy dat, k~návrhu a implementaci algoritmů a také k~vytváření modelů a provádění operací (simulací) s~nimi. Jazyk MATLAB se vyznačuje velmi slabou typovou kontrolu a také tím, že se všemi objekty je pracováno jako s~maticemu, v~případě jednořádkové matice, vektoru, je práce s~touto maticí shodná s~prací s~polem hodnot. Většina vestavěných funkcí je pro tento účel naprogramována a očekává na svém vstupu právě matici. Syntax zápisu kódu v~MATLABu připomíná kterýkoliv jiný funkcionální jazyk. Jazyk MATLAB podporuje také objektově orientované programování. Pro účely zpracování a analýzy získaných výsledků dává jazyk možnost vykreslit grafy. Prostředí MATLABu je navrženo tak, že navíc dokáže pracovat s~funkcemi napsanými v~jazyce C a Fortran. Zároveň má jazyk možnost využít knihovny napsané v~jiných jazycích, jako jsou například Java, .NET nebo Perl. Výsledky práce s~nástrojem MATLAB můžete nalézt v~kapitole \ref{kapitola5}.
 
 Tento programovací jazyk byl vybrán kvůli rozšířenosti na středních a vysokých školách, ale také na různých pracovištích zabývajícími se výpočty, modelováním a simulacemi. Navzdory tomu, že nástroj MATLAB není volně dostupný, na trhu jsou k~dostání volně dostupné nástroje, jako například GNU Octave \cite{OctaveManual} a SciLab \cite{scilab}, které jsou s~jazykem MATLAB do určité míry kompatibilní. Dále pro MATLAB existuje rozšíření SIMULINK, které do prostředí MATLABu přidává možnost provádět vícerozměrné grafické simulace. Také tyto nástroje jsou ve výběru nástrojů využitých v~této bakalářské práci.
 
@@ -150,12 +150,12 @@ Pro to, aby byl model funkční, je nutné definovat vstupní hodnoty jednotliv�
 
 Jazyk je v~současnosti velmi využíván v~oblasti proudění kapalin a termodynamiky, vzhledem k~velmi jednoduchému vytvoření modelu podle předem stanovených rovnic. Dále se pak používá ve větší míře v~elektrotechnice a strojírenství \cite{modelica-example}.
 
-Výsledky běhu simulací nástrojů využívajících jazyk Modelica jsou dostupné v kapitole \ref{kapitola5}.
+Výsledky běhu simulací nástrojů využívajících jazyk Modelica jsou dostupné v~kapitole \ref{kapitola5}.
 
 \subsection*{Python}
 Python je volně dostupný interpretovaný programovací jazyk, který má nepřeberné množství využití. Poprvé byl představen v~roce 1991. Jazyk Python není v~základním pojetí simulačním nebo modelačním jazykem. Tuto funkcionalitu získává teprve s~dodatečnými knihovnami. V~rámci využití v~této bakalářské práci byla vybrána rodina knihoven SciPy. Hlavním přínosem této rodiny knihoven je možnost použití metod integrace, lineární algebry, rychlé Fourierovy transformace a řešení diferenciálních rovnic.
 
-Tento jazyk byl zvolen z~důvodu, který byl řečený výše. Python nemá primární použití jako jazyk vhodný pro modelování a simulace. Nicméně s~jeho rostoucí popularitou a rostoucí uživatelskou základnou, bude jeho využití růst ještě více. Momentálně má Python velmi široký záběr pokrytí - od funkcionální, přes logické programování, až po tvorbu grafiky, databází, nebo provádění simulací. Jazyk je využíván velkými firmami na trhu, jako jsou například Google, NASA nebo Wikipedia. Velmi často je v dnešní době využíván k implementaci strojového učení \cite{kirk2017thoughtful}.
+Tento jazyk byl zvolen z~důvodu, který byl řečený výše. Python nemá primární použití jako jazyk vhodný pro modelování a simulace. Nicméně s~jeho rostoucí popularitou a rostoucí uživatelskou základnou, bude jeho využití růst ještě více. Momentálně má Python velmi široký záběr pokrytí - od funkcionální, přes logické programování, až po tvorbu grafiky, databází, nebo provádění simulací. Jazyk je využíván velkými firmami na trhu, jako jsou například Google, NASA nebo Wikipedia. Velmi často je v~dnešní době využíván k~implementaci strojového učení \cite{kirk2017thoughtful}.
 
 Jako simulační knihovny k~tomuto jazyku byla vybrána rodina knihoven SciPy \cite{scipy} \cite{Nunez-Iglesias:2017:ESA:3169538}. Pomocí těchto knihoven je následně možné prováděť náročnější matematické operace, simulace a vizualizaci dat. Bližší popis této knihovny je k~nalezení v~kapitole \ref{chapter-scipy}.
 
@@ -164,7 +164,7 @@ Stejně jako u~jazyků MATLAB a Modelica jsou výsledky simulací v~jazyce Pytho
 \chapter{Popis použitých simulačních nástrojů}
 \label{kapitola3}
 
-Obsahem této kapitoly je rozdělení zvolených simulačních nástrojů, které lze nalézt v kapitole \ref{rozdeleni-nastroju}. Následující podkapitola \ref{popis-nastroju} obsahuje bližší popis jednotlivých nástrojů společně s jejich výhodami a zajímavostmi. Vybranými nástroji pro porovnání v rámci bakalářské práce jsou:
+Obsahem této kapitoly je rozdělení zvolených simulačních nástrojů, které lze nalézt v~kapitole \ref{rozdeleni-nastroju}. Následující podkapitola \ref{popis-nastroju} obsahuje bližší popis jednotlivých nástrojů společně s~jejich výhodami a zajímavostmi. Vybranými nástroji pro porovnání v~rámci bakalářské práce jsou:
 \begin{itemize}
     \item MATLAB
     \item GNU Octave
@@ -176,12 +176,12 @@ Obsahem této kapitoly je rozdělení zvolených simulačních nástrojů, kter�
     \item Python + SciPy
 \end{itemize}
 
-Výše uvedené nástroje byly vybrány tak, aby všechny byly volně dostupné a zároveň podporovaly alespoň jeden jazyk ze zvolených v kapitole \ref{popis-jazyky}. Nicméně dva nástroje z výběru nejsou primárně volně dostupné. Prvním z nich je MATLAB, u kterého je volná dostupnost zaručena využitím 30 denní zkušební verze, která je zdarma ke stažení. Druhým takovým nástrojem je Dymola, u které je dostupnost zaručena díky školní licenci VUT FIT a je dostupná na serveru Merlin. I zde je dostupná zkušební verze zdarma po omezenou dobu.
+Výše uvedené nástroje byly vybrány tak, aby všechny byly volně dostupné a zároveň podporovaly alespoň jeden jazyk ze zvolených v~kapitole \ref{popis-jazyky}. Nicméně dva nástroje z~výběru nejsou primárně volně dostupné. Prvním z~nich je MATLAB, u~kterého je volná dostupnost zaručena využitím 30 denní zkušební verze, která je zdarma ke stažení. Druhým takovým nástrojem je Dymola, u~které je dostupnost zaručena díky školní licenci VUT FIT a je dostupná na serveru Merlin. I~zde je dostupná zkušební verze zdarma po omezenou dobu.
 
 \section{Rozdělení použitých simulačních nástrojů}
 \label{rozdeleni-nastroju}
 
-Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V tabulce \ref{tab:rozdeleni-nastroju} lze nalézt dělení podle základních vlastností, jako jsou jazyk, dostupnost, nebo podporované platformy. Jak je z tabulky patrné, všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny v tabulce zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}.
+Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V~tabulce \ref{tab:rozdeleni-nastroju} lze nalézt dělení podle základních vlastností, jako jsou jazyk, dostupnost, nebo podporované platformy. Jak je z~tabulky patrné, všechny nástroje jsou spustitelné na všech běžných platformách (Windows, Linux, MacOS), kromě nástroje Dymola popsán v~kapitole \ref{dymola-desc}, který je spustitelný pouze v~prostředí Windows a Linux. Všechny v~tabulce zmíněné nástroje mají také do určité míry vlastní grafické prostředí, až na nástroj SciPy, který je popsán v~kapitole \ref{chapter-scipy}. 
 
 \begin{savenotes}
 \begin{table}[]
@@ -191,7 +191,7 @@ Zvolené simulační nástroje můžeme rozdělit podle mnoha kritérií. V tabu
 \hline
                                                                                                     & MATLAB                                                                                                          & GNU Octave & SciLab & FreeMat & Dymola           & OpenModelica                                             & jModelica & Python + SciPy \\ \hline
 Jazyk                                                                                               & MATLAB                                                                                                          & MATLAB     & MATLAB & MATLAB  & Modelica         & Modelica                                                 & Modelica  & Python         \\ \hline
-Grafické prostředí                                                                                  & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano       & Ne             \\ \hline
+Grafické prostředí                                                                                  & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano\footnote{Jen s~příslušným rozšířením, viz \ref{jmodelica}}       & Ne             \\ \hline
 Platforma                                                                                           & Vše                                                                                                             & Vše        & Vše    & Vše     & Windows, Linux   & Vše & Windows, Linux       & Vše            \\ \hline
 Podpora jiných jazyků                                                                               & Ano                                                                                                             & Ano        & Ano    & Ano     & Ano              & Ano                                                      & Ano       & Ano            \\ \hline
 Možnost online aplikace                                                                                     & Ano                                                                                                             & Ano        & Ano    & Ne      & Ne               & Ne                                                       & Ne        & Ano            \\ \hline
@@ -208,11 +208,11 @@ Opensource\footnote{Volně dostupné zdrojové kódy, například na serveru git
 
 \section{Popis použitých nástrojů}
 \label{popis-nastroju}
-V následující kapitole jsou podrobně popsány simulační nástroje využité v rámci bakalářské práce. Kapitola neobsahuje žádné dělení podle vlastností. Pro účely dělení lze použít tabulku \ref{tab:rozdeleni-nastroju} z kapitoly \ref{rozdeleni-nastroju}.
+V~následující kapitole jsou podrobně popsány simulační nástroje využité v~rámci bakalářské práce. Kapitola neobsahuje žádné dělení podle vlastností. Pro účely dělení lze použít tabulku \ref{tab:rozdeleni-nastroju} z~kapitoly \ref{rozdeleni-nastroju}. 
 \subsection{MATLAB a Simulink}
 \label{matlab-desc}
 
-Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v~kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Nástroj je mateřským prostředím pro nástroj Simulink, který je také součástí této kapitoly.
+Simulační nástroj MATLAB, je stejně jako jazyk MATLAB, který je popsán v~kapitole \ref{matlab-lang}, uzavřený nástroj vyvíjený společností MathWorks. Nástroj je mateřským prostředím pro nástroj Simulink, který je také součástí této kapitoly. 
 
 Umožňuje tvorbu modelů a následné simulace s~nimi. Tento nástroj také nabízí široký záběr možností využití, od matematických výpočtů, přes použití pro ekonomii, až například po využití pro genetické algoritmy ve strojírenství \cite{Zapletal2016}.
 
@@ -227,18 +227,18 @@ MATLAB má také vlastní rozhraní pro plnohodnotnou webovou instanci tohoto si
 
 Simulink je programovatelná grafická nástavba pro nástroj MATLAB. Tento nástroj je také vyvíjen společností MathWorks. Hlavní využití nástroje je jednoduché vymodelování systému pomocí grafických programovatelných bloků, respektive blokových schemat. Pro tyto účely jsou v~rámci nástroje Simulink předem vytvořeny a předdefinovány bloky pro tvorbu dynamických a spojitých modelů. Další výhodou je přímé generování kódu v~jazyce C, případně v~jazyce C++. Běh simulací s~takto vytvořenými modely je možné sledovat v~reálném čase.
 
-Nástroj MATLAB bohužel není volně dostupný, nicméně v~akademickém prostředí je velmi běžně k~dostání, stejně jako v~následné praxi. Pro účely bakalářské práce je však využita běžná 30 denní zkušební licence, dostupná zdarma z webových stránek společnosti MathWorks\footnote{\url{https://www.mathworks.com/campaigns/products/trials.html?procode=ML}}, ve verzi MATLAB\_R2019a.
+Nástroj MATLAB bohužel není volně dostupný, nicméně v~akademickém prostředí je velmi běžně k~dostání, stejně jako v~následné praxi. Pro účely bakalářské práce je však využita běžná 30 denní zkušební licence, dostupná zdarma z~webových stránek společnosti MathWorks\footnote{\url{https://www.mathworks.com/campaigns/products/trials.html?procode=ML}}, ve verzi MATLAB\_R2019a.
 
 Simulink je, stejně jako MATLAB, uzavřený a komerční nástroj. Jako volně dostupnou alternativu bychom mohli považovat nástroj OpenModelica, který je popsán v~kapitole \ref{openmodelica-desc}.
 
 \subsection{GNU Octave}
 \label{octave-desc}
 Nástroj Octave je vyvíjený pod veřejnou licencí GNU General Public Licence (GPL) \cite{OctaveManual}. Syntax jazyka, který je použit k~modelování v~GNU Octave je velmi podobný jazyku MATLAB, dokonce je s~tímto jazykem ve větší části kompatibilní. Hlavním rozdílem v~syntaxi je ten, že Octave podporuje autoinkrementaci stejně, tak jako například jazyk C -- MATLAB tuto podporu bohužel nemá.
-Mezi další rozdíly patří drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v~Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b}, zatímco v~MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{OctaveManual}.
+Mezi další rozdíly patří drobně odlišné syntaktické zápisy, případně volání jinak pojmenovaných funkcí, například pro matematickou operaci umocňování se v~Octave používá zápis \texttt{a\^\space b} nebo \texttt{a**b} \cite{OctaveManual}, zatímco v~MATLABu je možné tuto operaci zapsat pouze jako \texttt{a\^\space b} \cite{MATLAB:2010}.
 
 Hlavní výhodou nástroje GNU Octave je, jak už bylo nastíněno výše, že je volně otevřený a zdarma. Tento nástroj má poměrně širokou komunitu uživatelů, kteří vyvíjí další rozšiřující balíčky pro potřeby simulací, matematiky, statistiky a dalších jiných vědeckých odvětví\footnote{\url{https://octave.sourceforge.io/packages.php}}.
 
-Nástroj byl nainstalován bez obtíží podle oficiálního návodu v dokumentaci nástroje \cite{OctaveManual}. Pro účely ověření funkčnosti byl nástroj nainstalován na všech platformách, které by měl nástroj podporovat. V rámci bakalářské práce byla použita poslední aktuální verze 5.1.0.
+Nástroj byl nainstalován bez obtíží podle oficiálního návodu v~dokumentaci nástroje \cite{OctaveManual}. Pro účely ověření funkčnosti byl nástroj nainstalován na všech platformách, které by měl nástroj podporovat. V~rámci bakalářské práce byla použita poslední aktuální verze 5.1.0.
 
 \subsection{SciLab}
 \label{scilab-desc}
@@ -246,16 +246,16 @@ Další z~nástrojů, který je volně dostupnou alternativou MATLABu, je SciLab
 
 Podobně jako u~MATLABu, i nástroj SciLab nabízí možnost využití vlastního webového rozhraní\footnote{\url{https://www.scilab.org/cloud/web-application}}. Přítomnost této možnosti používání bych označil za velkou výhodu oproti jiným volně dostupným nástrojům. Ani pro tento nástroj nebude tato možnost více rozebírána v~rámci této bakalářské práce.
 
-Instalace nástroje proběhla bez problému podle návodů v oficiální dokumentaci a byla také proveden test instalace pro všechny podporované platformy. Nástroj byl nainstalován ve verzi 6.0.2.
+Instalace nástroje proběhla bez problému podle návodů v~oficiální dokumentaci a byla také proveden test instalace pro všechny podporované platformy. Nástroj byl nainstalován ve verzi 6.0.2.
 
 \subsection{FreeMat}
 \label{FreeMat-desc}
 
-Nástroj FreeMat je posledním vybraným nástrojem, který primárně podporuje jazyk MATLAB. Tento nástroj je volně dostupný pod licencí GPL a byl vyvíjen kolektivem autorů, jejichž seznam je dostupný na oficiálních stránkach nástroje\cite{FreeMat}. Poslední verze nástroje FreeMat vyšla v roce 2013, tudíž je možné ho již považovat za neaktuální. Nicméně jeho komunita je stále aktivní. Do jisté míry je to tím, že zdrojové texty tohoto nástroje jsou volně dostupné na serveru SourceForge\footnote{\url{https://sourceforge.net/projects/FreeMat/files/}}. FreeMat se také používá v rámci výuky na VUT FIT, jako náhrada za nástroj MATLAB.
+Nástroj FreeMat je posledním vybraným nástrojem, který primárně podporuje jazyk MATLAB. Tento nástroj je volně dostupný pod licencí GPL a byl vyvíjen kolektivem autorů, jejichž seznam je dostupný na oficiálních stránkach nástroje\cite{FreeMat}. Poslední verze nástroje FreeMat vyšla v~roce 2013, tudíž je možné ho již považovat za neaktuální. Nicméně jeho komunita je stále aktivní. Do jisté míry je to tím, že zdrojové texty tohoto nástroje jsou volně dostupné na serveru SourceForge\footnote{\url{https://sourceforge.net/projects/FreeMat/files/}}. FreeMat se také používá v~rámci výuky na VUT FIT, jako náhrada za nástroj MATLAB.
 
-Skladba jazyka použitého v FreeMat je podle oficiální dokumentace přibližně na 95 \% kompatibilní s jazykem MATLAB. Oproti MATLABu je zde větší podpora pro import kódu zvenčí a lepší zobrazování 3D vizualizací dat\cite{FreeMat}.
+Skladba jazyka použitého v~FreeMat je podle oficiální dokumentace přibližně na 95 \% kompatibilní s~jazykem MATLAB. Oproti MATLABu je zde větší podpora pro import kódu zvenčí a lepší zobrazování 3D vizualizací dat\cite{FreeMat}.
 
-Instalace probíhá pomocí předpřipravených balíků dostupných z oficiální stránky, které jsou dostupné pro běžné platformy.
+Instalace probíhá pomocí předpřipravených balíků dostupných z~oficiální stránky, které jsou dostupné pro běžné platformy.
 
 \subsection{Dymola}
 \label{dymola-desc}
@@ -269,14 +269,15 @@ Nástroj Dymola je uzavřený komerční nástroj vyvíjený firmou Dassault Sys
     \label{fig:dymola}
 \end{figure}
 
-Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi 6.0b, která vyšla v roce 2006, na školním serveru Merlin. Aktuální verze Dymola 2019 FD01 vyšla 30. listopadu 2018. Dymola má také k dispozici, stejně jako MATLAB, zkušební časově omezenou verzi zdarma. Nicméně pro účely srovnání mi přišlo zajímavé využít právě školní licenci, která je daleko více přístupná pro případné využití studenty.
+Pro účely této bakalářské práce je využita instalace nástroje Dymola ve verzi 6.0b, která vyšla v~roce 2006, na školním serveru Merlin. Aktuální verze Dymola 2019 FD01 vyšla 30. listopadu 2018. Dymola má také k~dispozici, stejně jako MATLAB, zkušební časově omezenou verzi zdarma. Nicméně pro účely srovnání mi přišlo zajímavé využít právě školní licenci, která je daleko více přístupná pro případné využití studenty.
 
 
 \subsection{jModelica}
-Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je volně dostupný, otevřený a stejně jako GNU Octave, který byl popsán v~kapitole \ref{octave-desc}, vyvíjený pod licencí GPL.
+\label{jmodelica}
+Jednou z~možných alternativ k~nástroji Dymola je jModelica. Tento nástroj je volně dostupný, otevřený a stejně jako GNU Octave, který byl popsán v~kapitole \ref{octave-desc}, vyvíjený pod licencí GPL.  
 
-jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v~jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven. Aplikace má uživatelské rozhraní na bázi příkazové řádky, které je napsáno v jazyce Python. Aplikace sama o sobě grafický editor nemá, lze ho však emulovat pomocí rozšíření do editoru Eclipse \cite{modelica-example}. Pro řešení diferenciálních rovnic jModelica používá balík Assimulo\footnote{\url{https://jmodelica.org/assimulo/}}. Tento balík funkcí je také napsán v~jazyce Python.
-jModelica má volně dostupný repozitář se všemi zdrojovými kódy všech verzí, které byly vydány\footnote{\url{https://svn.jmodelica.org/}}. Zajímavostí je, že jsou přístupné i zdrojové texty verzí, které ještě nejsou oficiálně vydány. Aktuální verze, a také verze na která byla instalována, je verze 2.4, nicméně v repozitáři je dohledatelná i verze 2.8.x, která teprve na svoji stabilní verzi čeká.
+jModelica podporuje přímé generování ze zdrojového kódu napsaného v~jazyce Modelica do jazyků C a XML. Tato funkcionalita je velmi přínosná, pokud například chceme využívat nástroj jModelica jen jako modelační prostředek a následné simulace spouštět v~jiném prostředí. Dále také podporuje využití jazyka Python a jeho knihoven. Aplikace má uživatelské rozhraní na bázi příkazové řádky, které je napsáno v~jazyce Python. Aplikace sama o~sobě grafický editor nemá, lze ho však emulovat pomocí rozšíření do editoru Eclipse \cite{modelica-example}. Pro řešení diferenciálních rovnic jModelica používá balík Assimulo\footnote{\url{https://jmodelica.org/assimulo/}}. Tento balík funkcí je také napsán v~jazyce Python. 
+jModelica má volně dostupný repozitář se všemi zdrojovými kódy všech verzí, které byly vydány\footnote{\url{https://svn.jmodelica.org/}}. Zajímavostí je, že jsou přístupné i zdrojové texty verzí, které ještě nejsou oficiálně vydány. Aktuální verze, a také verze na která byla instalována, je verze 2.4, nicméně v~repozitáři je dohledatelná i verze 2.8.x, která teprve na svoji stabilní verzi čeká.
 
 Dříve byla jModelica dostupná pro všechny běžné operační systémy. Od verze 2.0 jsou podporovány již jen operační systémy Linux a Windows a podpora pro MacOS byla zastavena. Verze 1.9 byla tedy poslední, kdy byl systém MacOS oficiálně podporován.
 
@@ -284,7 +285,7 @@ Dříve byla jModelica dostupná pro všechny běžné operační systémy. Od v
 \label{openmodelica-desc}
 Simulační nástroj OpenModelica je vyvíjena společenstvím autorů známých pod jménem Open Source Modelica Consortium (OSMC). OpenModelica má jako jeden ze dvou vybraných nástrojů volně dostupné zdrojové kódy\footnote{\url{https://github.com/OpenModelica}}. Tato skutečnost nahrává k~vývoji vlastních modifikací a uživatelských pluginů.
 
-Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}. Dále je jednou z možných alternativ nástroje Dymola. Z~obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v~GUI jednotlivých nástrojů nejsou nijak markantní.
+Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí MATLAB + Simulink. Další takovou alternativou je nástroj SciLab popsaný v~kapitole \ref{scilab-desc}. Dále je jednou z~možných alternativ nástroje Dymola. Z~obrázků \ref{fig:dymola} a \ref{fig:jmodelica} je patrné, že i grafické rozdíly v~GUI jednotlivých nástrojů nejsou nijak markantní.
 
 \begin{figure}
     \centering
@@ -293,7 +294,7 @@ Obecně se nástroj OpenModelica udává jako jedna z~alternativ pro prostředí
     \label{fig:jmodelica}
 \end{figure}
 
-OpenModelica, jako jediný nástroj z výběru, nabízí možnost si stáhnout předinstalovanou verzi OpenModelica na virtuálním disku s operačním systémem Linux, konkrétně na distribuci Xubuntu. Zároveň s touto možností OpenModelica podporuje běžné operační systémy, pro které byla také provedena zkušební instalace.
+OpenModelica, jako jediný nástroj z~výběru, nabízí možnost si stáhnout předinstalovanou verzi OpenModelica na virtuálním disku s~operačním systémem Linux, konkrétně na distribuci Xubuntu. Zároveň s~touto možností OpenModelica podporuje běžné operační systémy, pro které byla také provedena zkušební instalace.
 
 \subsection{SciPy}
 \label{chapter-scipy}
@@ -304,34 +305,34 @@ Tento simulační nástroj jako jediný není založený na jazycích MATLAB, č
     \item Matplotlib -- pomocí této knihovny je možné na základě vstupních dat vykreslovat grafické výstupy ve 2D a i ve 3D
 \end{itemize}
 
-SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python.
+SciPy nemá žádné vlastní grafické prostředí pro tvorbu modelů a následný průběh simulací probíhá proto v~běžném IDE pro vývoj kódu v~jazyce Python. 
 
-Instalace probíhá pomocí správce balíčků pro daný operační systém, případně přes správce balíčků jazyka Python. Knihovny SciPy jsou kompatibilní jak s Python2, tak i s Python3. Nástroj SciPy byl v této bakalářské práci použit ve verzi 1.2.1.
+Instalace probíhá pomocí správce balíčků pro daný operační systém, případně přes správce balíčků jazyka Python. Knihovny SciPy jsou kompatibilní jak s~Python2, tak i s~Python3. Nástroj SciPy byl v~této bakalářské práci použit ve verzi 1.2.1.
 
 \chapter{Návrh metodiky a popis implementovaných modelů}
 \label{kapitola4}
-V této kapitole bude představena použitá porovnávací metodika, kritéria hodnocení a následné způsoby jejich vyhodnocení. Tato metodika bude následně použita pro vyhodnocení výsledků získaných z běhu simulací s modely, které jsou také popsány v této kapitole. Zároveň s popisem modelů lze v této kapitole najít i popis jejich implementace a popis nastalých problémů během ní.
+V~této kapitole bude představena použitá porovnávací metodika, kritéria hodnocení a následné způsoby jejich vyhodnocení. Tato metodika bude následně použita pro vyhodnocení výsledků získaných z~běhu simulací s~modely, které jsou také popsány v~této kapitole. Zároveň s~popisem modelů lze v~této kapitole najít i popis jejich implementace a popis nastalých problémů během ní.
 
 \section{Popis vytvořené metodiky}
 
-Předlohou k tvorbě vyhodnocovací metodiky sloužila metodika ke srovnávání nástrojů simulujících dopravní situace na pozemních komunikacích \cite{jones2004traffic}. Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání a následně byla vytvořena tato kritéria:
+Předlohou k~tvorbě vyhodnocovací metodiky sloužila metodika ke srovnávání nástrojů simulujících dopravní situace na pozemních komunikacích \cite{jones2004traffic}. Původní převzatá metodika sledovala kritéria jako hardware a software náročnost, náročnost na kvalitu vstupních dat a pak další kritéria ve vztahu k~použitým nástrojům. Pro účely bakalářské práce byla vybraná metodika modifikována podle potřeb zadání a následně byla vytvořena tato kritéria:
 \begin{itemize}
     \item Strojový čas -- čas, po který simulace běží na výpočetním stroji.
-    \item Hardwarové a softwarové požadavky -- v rámci tohoto kritéria bude hodnocena kompatibilita nástrojů napříč standardními platformami (Windows, Linux, MacOS), případně zde budou uvedeny omezení, která vyplynou z instalace a běhu experimentu.
-    \item Obtížnost implementace modelu -- u tohoto kritéria lze namítat, že je velmi subjektivní. Obecně lze předpokládat, že pokud budou vybrány základní typy modely pro různé druhy simulací, bude obtížnost implementace nízká, pokud bude jazyk, nebo nástroj, vhodný pro tuto implementaci. V opačném případě bude obtížnost implementace označena jako vysoká.
-    \item Obtížnost instalace -- všechny nástroje byly nainstalovány pomocí návodů v oficiálních dokumentacích. Nebylo-li tomu tak, pak v rámci hodnocení obtížnosti instalace jsou uvedena úskalí vyvstalá během instalace.
+    \item Hardwarové a softwarové požadavky -- v~rámci tohoto kritéria bude hodnocena kompatibilita nástrojů napříč standardními platformami (Windows, Linux, MacOS), případně zde budou uvedeny omezení, která vyplynou z~instalace a běhu experimentu.
+    \item Obtížnost implementace modelu -- u~tohoto kritéria lze namítat, že je velmi subjektivní. Obecně lze předpokládat, že pokud budou vybrány základní typy modely pro různé druhy simulací, bude obtížnost implementace nízká, pokud bude jazyk, nebo nástroj, vhodný pro tuto implementaci. V~opačném případě bude obtížnost implementace označena jako vysoká.
+    \item Obtížnost instalace -- všechny nástroje byly nainstalovány pomocí návodů v~oficiálních dokumentacích. Nebylo-li tomu tak, pak v~rámci hodnocení obtížnosti instalace jsou uvedena úskalí vyvstalá během instalace.
 \end{itemize}
 
-V rámci hodnocení nebudeme používat žádnou škálu, k hodnocení "úspěšnosti" simulačního nástroje. Výsledek hodnocení bude spíše doporučení, jestli je daný simulační nástroj, případně jazyk, vhodný pro daný typ úloh.
+V~rámci hodnocení nebudeme používat žádnou škálu, k~hodnocení "úspěšnosti" simulačního nástroje. Výsledek hodnocení bude spíše doporučení, jestli je daný simulační nástroj, případně jazyk, vhodný pro daný typ úloh.
 
 
 \section{Implementované modely}
 \label{implementace}
-V následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v simulačních nástrojích. Společně s implementací jsou popsány zjištěné problémy během implementování a jejich řešení.
+V~následující kapitole jsou popsány jednotlivé modely a jejich implementace pro potřeby běhu experimentu v~simulačních nástrojích. Společně s~implementací jsou popsány zjištěné problémy během implementování a jejich řešení. 
 
 \subsection*{Skákající míček}
 \label{micek-desc}
-V rámci této implementace je namodelován systém skákajícího míčku, který je z nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z výšky $h$, postupně nabere rychlost $v_p$ a narazí do země. Takový model lze popsat jednoduchou diferenciální rovnicí, která má znění:
+V~rámci této implementace je namodelován systém skákajícího míčku, který je z~nedokonale pružného materiálu a postupně během skoků ztrácí svou rychlost a výšku odrazu. Míček je vypouštěn z~výšky $h$, postupně nabere rychlost $v_p$ a narazí do země. Takový model lze popsat jednoduchou diferenciální rovnicí, která má znění:
 
 \begin{equation}
     h' = v_p
@@ -340,7 +341,7 @@ V rámci této implementace je namodelován systém skákajícího míčku, kter
     v_p ' = -9.81
 \end{equation}
 
-s počáteční podmínkou $h(0) = 10$. Pro účely experimentu jsou další počáteční hodnoty nastaveny takto:
+s~počáteční podmínkou $h(0) = 10$. Pro účely experimentu jsou další počáteční hodnoty nastaveny takto:
 
 \begin{center}
 \begin{table}[ht]
@@ -356,21 +357,21 @@ koeficient pružnosti &  0.8    &             \\ \hline
     \label{tab:micek-hodnoty}
 \end{table}
 \end{center}
-Po každém dopadu se vypočte nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace.
+Po každém dopadu se vypočte nová výška, do které míček vyletí a nová rychlost, kterou míček dopadne na zem. Tyto vypočtené hodnoty se následně použijí pro výpočet další iterace. 
 
-Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}.
+Pro implementaci posloužil jako základ kód pro jazyk MATLAB převzatý z~oficiální dokumentace MathWorks pro nástroj MATLAB\footnote{\url{https://www.mathworks.com/help/stateflow/ug/modeling-a-bouncing-ball-in-continuous-time.html}}.
 
-Během implementace v Pythonu se vyskytl problém s detekcí výšky a výpočtu následného odrazu. Původní zvolená metoda \texttt{odeint()} byla vyhodnocena jako nevhodná z důvodu nemožnosti detekce nespojitostí ve výpočtu. Po několika neúspěšných pokusech s touto a dalšími metodami byla zvolena metoda \texttt{solve\_ivp()}, která tyto situace umí do jisté míry detekovat a hodnotu derivace vypočítat. Bohužel i při použití této metody vznikají velké nepřesnosti a během trvání výpočtu narůstá chyba výpočtu. Po několika krocích výpočtu se hodnota výšky míčku, místo přibližování se k 0, "propadne"\space do záporných hodnot. Tento jev se vyskytuje právě kvůli kumulované chybě, způsobenou zvolenou metodou.
+Během implementace v~Pythonu se vyskytl problém s~detekcí výšky a výpočtu následného odrazu. Původní zvolená metoda \texttt{odeint()} byla vyhodnocena jako nevhodná z~důvodu nemožnosti detekce nespojitostí ve výpočtu. Po několika neúspěšných pokusech s~touto a dalšími metodami byla zvolena metoda \texttt{solve\_ivp()}, která tyto situace umí do jisté míry detekovat a hodnotu derivace vypočítat. Bohužel i při použití této metody vznikají velké nepřesnosti a během trvání výpočtu narůstá chyba výpočtu. Po několika krocích výpočtu se hodnota výšky míčku, místo přibližování se k~0, "propadne"\space do záporných hodnot. Tento jev se vyskytuje právě kvůli kumulované chybě, způsobenou zvolenou metodou.
 
-Při implementaci a následného zkoumání výsledků simulace v jazyce Modelica se jev, kdy se míček "propadne pod zem", objevuje také. Zde je to způsobeno zřejmě přesností výpočtu a následnou práci s velmi malými čisly. Nicméně na průběh výpočtu, navzdory implementace v Pythonu, tento jev nemá vliv, protože se míček propadne až po velmi dlouhé době.
+Při implementaci a následného zkoumání výsledků simulace v~jazyce Modelica se jev, kdy se míček "propadne pod zem", objevuje také. Zde je to způsobeno zřejmě přesností výpočtu a následnou práci s~velmi malými čisly. Nicméně na průběh výpočtu, navzdory implementace v~Pythonu, tento jev nemá vliv, protože se míček propadne až po velmi dlouhé době.
 
-Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v kapitole \ref{srovnani-micek}.
-Zvolený model byl implementován pro všechny nástroje popsané v kapitole~\ref{popis-nastroju}.
+Výsledky implementovaného modelu a následné srovnání výsledků simulačních nástrojů lze nalézt v~kapitole \ref{srovnani-micek}.
+Zvolený model byl implementován pro všechny nástroje popsané v~kapitole~\ref{popis-nastroju}.
 
 \subsection*{Kruhový test}
 \label{kruhovy-test}
 
-Kruhový test je implementován podle návodu ze studijní opory pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o implementaci řešení jednoduché soustavy diferenciálních rovnic. Systém, který byl modelován je zadán soustavou diferenciálních rovnic:
+Kruhový test je implementován podle návodu ze studijní opory pro předmět IMS - Modelování a simulace \cite{IMS-skripta}. Jedná se o~implementaci řešení jednoduché soustavy diferenciálních rovnic. Systém, který byl modelován je zadán soustavou diferenciálních rovnic:
 
 \begin{equation}
    x' = y
@@ -387,37 +388,37 @@ Během běhu simulace se výsledky postupně přibližují analytickému řešen
 \end{equation}
 
 
-Implementace v jazyce Modelica proběhla velmi snadno. Jak bylo popsáno v kapitole \ref{modelica-lang}, zápis v tomto jazyce připomíná zápis výpočtu na papír.
+Implementace v~jazyce Modelica proběhla velmi snadno. Jak bylo popsáno v~kapitole \ref{modelica-lang}, zápis v~tomto jazyce připomíná zápis výpočtu na papír. 
 
-Pro implementaci v Pythonu byla využita metoda \texttt{odeint()} z knihovny \texttt{scipy.integrate}\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html}}, která je vytvořena pro řešení diferenciálních rovnic a jejich soustav. Pro účely využití této metody je potřeba si definovat obslužnou funkci pro výpočet nových stavů integrátorů. Pro implementaci v tomto případě nebyla využita Eulerova metoda podle příkladu ze studijní opory, neboť rodina knihoven SciPy nemá tuto metodu implementovánu a je doporučeno využívat právě metodu \texttt{odeint()}.
+Pro implementaci v~Pythonu byla využita metoda \texttt{odeint()} z~knihovny \texttt{scipy.integrate}\footnote{\url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.odeint.html}}, která je vytvořena pro řešení diferenciálních rovnic a jejich soustav. Pro účely využití této metody je potřeba si definovat obslužnou funkci pro výpočet nových stavů integrátorů. Pro implementaci v~tomto případě nebyla využita Eulerova metoda podle příkladu ze studijní opory, neboť rodina knihoven SciPy nemá tuto metodu implementovánu a je doporučeno využívat právě metodu \texttt{odeint()}.
 
-Tento model byl implementován také v jazyce MATLAB. K výpočtu byla využita standardní funkce pro výpočet diferenciálních rovnic \texttt{dsolve()}. Během studování výpisů ze standardního výstupu jsem objevil, že MATLAB přímo vypočítává i výsledek analytického řešení, ke kterému by měl výpočet konvergovat. \todo{odlisnosti pro jednotlive nastroje - stale v reseni}
+Tento model byl implementován také v~jazyce MATLAB. K~výpočtu byla využita standardní funkce pro výpočet diferenciálních rovnic \texttt{dsolve()}. Během studování výpisů ze standardního výstupu jsem objevil, že MATLAB přímo vypočítává i výsledek analytického řešení, ke kterému by měl výpočet konvergovat. \todo{odlisnosti pro jednotlive nastroje - stale v~reseni}
 
 
 \subsection*{Tuhý systém}
 \label{tuhy}
-Tuhý systém\footnote{Z anglického "stiff system"} je systém, který je popsán matematickou rovnicí, kterou lze označit za tuhou \cite{hairer}. Tuhá rovnice je diferenciální rovnice, která má při řešení určitými numerickými metodami numericky nestabilní řešení. Systémy, které můžeme označit za tuhé, můžeme najít například v rámci chemických reakcí. Tato nestabilita je způsobena vysokou hodnotou délky kroku při řešení rovnice. Pro řešení se většinou používají jednokrokové metody pro výpočty diferenciálních rovnic. Obvykle je k řešení využita některá z varianty metod Runge-Kutta, nebo i jednoduchá Eulerova metoda \cite{IMS-skripta}. Při výpočtu vícekrokovou metodou se využívají například metody Adamsova, nebo Nyströmova. Využití vícekrokových metod je ale velmi vzácné a podle literatury popisováno jako méně stabilní, než jednokrokové metody \cite{hairer}. Pro účely experimentu byla vybrána rovnice:
+Tuhý systém\footnote{Z anglického "stiff system"} je systém, který je popsán matematickou rovnicí, kterou lze označit za tuhou \cite{hairer}. Tuhá rovnice je diferenciální rovnice, která má při řešení určitými numerickými metodami numericky nestabilní řešení. Systémy, které můžeme označit za tuhé, můžeme najít například v~rámci chemických reakcí. Tato nestabilita je způsobena vysokou hodnotou délky kroku při řešení rovnice. Pro řešení se většinou používají jednokrokové metody pro výpočty diferenciálních rovnic. Obvykle je k~řešení využita některá z~varianty metod Runge-Kutta, nebo i jednoduchá Eulerova metoda \cite{IMS-skripta}. Při výpočtu vícekrokovou metodou se využívají například metody Adamsova, nebo Nyströmova. Využití vícekrokových metod je ale velmi vzácné a podle literatury popisováno jako méně stabilní, než jednokrokové metody \cite{hairer}. Pro účely experimentu byla vybrána rovnice:
 
 \begin{equation}
     y' = -50(y - \cos{(x)})
 \end{equation}
-s délkou kroku $h = \frac{1.875}{50}$ a počáteční podmínkou $y(0) = 0$. Pokud by byla délka kroku $h$ větší než $\frac{2}{50}$, pak by došlo k nestabilitě a k oscilování okolo kýženého výsledku \cite{hairer}.
+s~délkou kroku $h = \frac{1.875}{50}$ a počáteční podmínkou $y(0) = 0$. Pokud by byla délka kroku $h$ větší než $\frac{2}{50}$, pak by došlo k~nestabilitě a k~oscilování okolo kýženého výsledku \cite{hairer}.
 
-V jazyce Python, konkrétně tedy s využitím knihovny SciPy, se během implementace vyskytl problém s volbou zvolené metody výpočtu zvolené diferenciální rovnice. Většina metod pro výpočet diferenciálních je implementována tak, že předem detekují, zda-li je zadaná rovnice tuhá, či nikoliv. Pokud ji vyhodnotí jako tuhou, pak si metoda sama upraví velikost kroku na tolik, aby se výsledek co nejvíce přiblížil analytickému řešení. Při zvolení metody, která tuto detekci před výpočtem neobsahuje, vypisuje metoda chybu při zjištění tuhosti rovnice a následné oscilace výsledku okolo analytického řešení. Po studiu možných metod byla nakonec vybrána metoda \texttt{odeint()}, která obsahuje detekci pro tuhé rovnice a jejich soustavy.
+V~jazyce Python, konkrétně tedy s~využitím knihovny SciPy, se během implementace vyskytl problém s~volbou zvolené metody výpočtu zvolené diferenciální rovnice. Většina metod pro výpočet diferenciálních je implementována tak, že předem detekují, zda-li je zadaná rovnice tuhá, či nikoliv. Pokud ji vyhodnotí jako tuhou, pak si metoda sama upraví velikost kroku na tolik, aby se výsledek co nejvíce přiblížil analytickému řešení. Při zvolení metody, která tuto detekci před výpočtem neobsahuje, vypisuje metoda chybu při zjištění tuhosti rovnice a následné oscilace výsledku okolo analytického řešení. Po studiu možných metod byla nakonec vybrána metoda \texttt{odeint()}, která obsahuje detekci pro tuhé rovnice a jejich soustavy.
 
-Implementace pro nástroje Dymola, OpenModelica a jModelica proběhla naprosto identicky s předešlými implementacemi, jen byla změněna diferenciální rovnice a vstupní proměnné. Jazyk Modelica má v tomto jednoduchém přístupu implementace velké výhody, oproti jazykům MATLAB a Python, kde je implementace o poznání složitější.
+Implementace pro nástroje Dymola, OpenModelica a jModelica proběhla naprosto identicky s~předešlými implementacemi, jen byla změněna diferenciální rovnice a vstupní proměnné. Jazyk Modelica má v~tomto jednoduchém přístupu implementace velké výhody, oproti jazykům MATLAB a Python, kde je implementace o~poznání složitější.
 
-Pro implementaci pro nástroje používající jazyk MATLAB byla vybrána metoda \texttt{ode15s()}, která je popisována jako jedna z univerzálnějších metod pro řešení tuhých rovnic a jejich sytémů \cite{MATLAB:2010}. Metoda si stejně, jako u implementace v Pythonu, sama zvolí délku kroku podle zadané rovnice. Dalšími metodami pro řešení tuhých rovnic v MATLABu jsou \texttt{ode23s()}, \texttt{ode23t()} a \texttt{ode23tb()}. MATLAB obsahuje více metod, které jsou schopny řešit tuhé rovnice, například \texttt{ode45()}, nebo \texttt{ode113()}, ale tyto metody jsou označovány za pomalé a jsou primárně doporučovány k řešení netuhých diferenciálních rovnic \cite{MATLAB:2010}.
+Pro implementaci pro nástroje používající jazyk MATLAB byla vybrána metoda \texttt{ode15s()}, která je popisována jako jedna z~univerzálnějších metod pro řešení tuhých rovnic a jejich sytémů \cite{MATLAB:2010}. Metoda si stejně, jako u~implementace v~Pythonu, sama zvolí délku kroku podle zadané rovnice. Dalšími metodami pro řešení tuhých rovnic v~MATLABu jsou \texttt{ode23s()}, \texttt{ode23t()} a \texttt{ode23tb()}. MATLAB obsahuje více metod, které jsou schopny řešit tuhé rovnice, například \texttt{ode45()}, nebo \texttt{ode113()}, ale tyto metody jsou označovány za pomalé a jsou primárně doporučovány k~řešení netuhých diferenciálních rovnic \cite{MATLAB:2010}.
 
-Výsledky běhů simulace implementovaných modelů lze nalézt v kapitole \ref{srovnani-tuhy}. V této kapitole je také porovnání využitých nástrojů.
+Výsledky běhů simulace implementovaných modelů lze nalézt v~kapitole \ref{srovnani-tuhy}. V~této kapitole je také porovnání využitých nástrojů.
 
 \chapter{Simulační experimenty a porovnání výsledků}
 \label{kapitola5}
-V této kapitole lze nalézt výsledky z experimentů a následné vyhodnocení porovnání simulačních nástrojů. Každý z modelů, které byly popsány v kapitole \ref{implementace}, byl postupně implementován ve všech nástrojích uvedených v kapitole \ref{popis-nastroju}. Naměřené výsledky jsou zatížené velkým statistickým šumem (např. běh procesů na pozadí), avšak pro účely porovnání jsou využitelné. Všechny naměřené časy jsou čisté časy od začátku skriptu až po konec výpočtu a výpis na standardní výstup. Čas pro případnou tvorbu grafů pro ověření výsledků není v těchto měřeních zakomponován.
+V~této kapitole lze nalézt výsledky z~experimentů a následné vyhodnocení porovnání simulačních nástrojů. Každý z~modelů, které byly popsány v~kapitole \ref{implementace}, byl postupně implementován ve všech nástrojích uvedených v~kapitole \ref{popis-nastroju}. Naměřené výsledky jsou zatížené velkým statistickým šumem (např. běh procesů na pozadí), avšak pro účely porovnání jsou využitelné. Všechny naměřené časy jsou čisté časy od začátku skriptu až po konec výpočtu a výpis na standardní výstup. Čas pro případnou tvorbu grafů pro ověření výsledků není v~těchto měřeních zakomponován.
 
 \section{Model systému skákajícího míčku}
 \label{srovnani-micek}
-Prvním implementovaným modelem byl systém skákajícího míčku, který je popsán v kapitole \ref{micek-desc}.
+Prvním implementovaným modelem byl systém skákajícího míčku, který je popsán v~kapitole \ref{micek-desc}.
 
 
 \begin{table}[ht]
@@ -434,7 +435,7 @@ OpenModelica    &       0.014                   &  \\ \hline
 jModelica        &     0.11                     &  \\ \hline
 Scipy           &          nutno přepočítat                &  \\ \hline
 \end{tabular}
-\caption{Průměrná rychlost výpočtu v sekundách pro model 1. Zaokrouhleno na dvě platná desetinná místa.}
+\caption{Průměrná rychlost výpočtu v~sekundách pro model 1. Zaokrouhleno na dvě platná desetinná místa.}
 \label{tab:micek-tabulka}
 \end{table}
 
@@ -444,7 +445,7 @@ Scipy           &          nutno přepočítat                &  \\ \hline
 
 \section{Model kruhového testu}
 \label{srovnani-kruh}
-Druhým modelem v pořadí, který byl implementován, byl jednoduchý kruhový test popsaný v kapitole \ref{kruhovy-test}. Jak je patrné z výsledků rychlosti výpočtu v tabulce \ref{tab:kruh-tabulka}, rozdíly napříč jednotlivými nástroji jsou velké. Pokud se například podíváme na nástroje napsané v jazyce Modelica (Dymola, OpenModelica, jModelica), je rozdíl v rychlosti mezi jModelica a zbytkem nástrojů o prakticky řádový. Zde je nunto podoktnout, že nástroj Dymola pro původní délku testu vypisoval strojový čas 0s. Po delším zkoumání bylo zjištěno, že Dymola čas zaokrouhluje na setiny vteřin, proto u takto malých výpočtů nebylo možné dosáhnout validního  výsledku měření. Toto zaokrouhlení navíc provádí až po nějaké době výpočtu -- v našem případě to bylo po více než dvojnásobném simulačním čase. Pokud by nástroj byl schopen dodávat validní výslekdy, byl by bez pochyb nejrychlejší z nástrojů napsaných pro jazyk Modelica a možná i nejrychlejším z výběru nástrojů.
+Druhým modelem v~pořadí, který byl implementován, byl jednoduchý kruhový test popsaný v~kapitole \ref{kruhovy-test}. Jak je patrné z~výsledků rychlosti výpočtu v~tabulce \ref{tab:kruh-tabulka}, rozdíly napříč jednotlivými nástroji jsou velké. Pokud se například podíváme na nástroje napsané v~jazyce Modelica (Dymola, OpenModelica, jModelica), je rozdíl v~rychlosti mezi jModelica a zbytkem nástrojů o~prakticky řádový. Zde je nunto podoktnout, že nástroj Dymola pro původní délku testu vypisoval strojový čas 0s. Po delším zkoumání bylo zjištěno, že Dymola čas zaokrouhluje na setiny vteřin, proto u~takto malých výpočtů nebylo možné dosáhnout validního  výsledku měření. Toto zaokrouhlení navíc provádí až po nějaké době výpočtu -- v~našem případě to bylo po více než dvojnásobném simulačním čase. Pokud by nástroj byl schopen dodávat validní výslekdy, byl by bez pochyb nejrychlejší z~nástrojů napsaných pro jazyk Modelica a možná i nejrychlejším z~výběru nástrojů.
 
 \begin{savenotes}
 \begin{table}[ht]
@@ -461,16 +462,16 @@ OpenModelica    &        0.014                  &  \\ \hline
 jModelica        &       0.0065              &  \\ \hline
 Scipy             &      0.065                    &  \\ \hline
 \end{tabular}
-\caption{Průměrná rychlost výpočtu v sekundách pro model 2. Zaokrouhleno na dvě platná desetinná místa.}
+\caption{Průměrná rychlost výpočtu v~sekundách pro model 2. Zaokrouhleno na dvě platná desetinná místa.}
 \label{tab:kruh-tabulka}
 \end{table}
 \end{savenotes}
 
-V případě času výpočtu nástroje MATLAB může zaujmout, že výpočet zabral tolik procesorového času. Tato velká časová odlišnost je způsobena využitou metodou \texttt{dsolve()}, která je v dokumentaci doporučována pro řešení soustav diferenciálních rovnic \cite{MATLAB:2010}. U jiných nástrojů tato metoda nebyla použita, neboť pro ně není implementována, proto jsou časy daleko nižší. U nástrojů SciLab, Octave a FreeMat byla využita metoda \texttt{ode()}, která je používána pro výpočet jednotlivých diferenciálních rovnic.
+V~případě času výpočtu nástroje MATLAB může zaujmout, že výpočet zabral tolik procesorového času. Tato velká časová odlišnost je způsobena využitou metodou \texttt{dsolve()}, která je v~dokumentaci doporučována pro řešení soustav diferenciálních rovnic \cite{MATLAB:2010}. U~jiných nástrojů tato metoda nebyla použita, neboť pro ně není implementována, proto jsou časy daleko nižší. U~nástrojů SciLab, Octave a FreeMat byla využita metoda \texttt{ode()}, která je používána pro výpočet jednotlivých diferenciálních rovnic.
 
 \section{Model tuhého systému}
 \label{srovnani-tuhy}
-Posledním měřeným modelem byl tuhý systém taktéž popsaný v kapitole \ref{tuhy}. V tomto případě bylo rozpětí výsledků měření nejmenší napříč všemi nástroji. V tomto případě mohou být výsledky poněkud zkreslené různými numerickými metodami, jelikož žádný z nástrojů, vyjma nástrojů napsaných pro jazyk Modelica, nepodporují stejné metody pro řešení tuhých diferenciálních rovnic, a proto byly vybrány metody doporučované oficiálními dokumentacemi. Výsledky jsou dostupné v tabulce \ref{tab:tuhy-tabulka}.
+Posledním měřeným modelem byl tuhý systém taktéž popsaný v~kapitole \ref{tuhy}. V~tomto případě bylo rozpětí výsledků měření nejmenší napříč všemi nástroji. V~tomto případě mohou být výsledky poněkud zkreslené různými numerickými metodami, jelikož žádný z~nástrojů, vyjma nástrojů napsaných pro jazyk Modelica, nepodporují stejné metody pro řešení tuhých diferenciálních rovnic, a proto byly vybrány metody doporučované oficiálními dokumentacemi. Výsledky jsou dostupné v~tabulce \ref{tab:tuhy-tabulka}.
 \begin{savenotes}
 \begin{table}[ht]
 \centering
@@ -486,14 +487,14 @@ OpenModelica    &     0.015                     &  \\ \hline
 jModelica        &    0.0052                      &  \\ \hline
  Scipy            &      X                    &  \\ \hline
 \end{tabular}
-\caption{Průměrná rychlost výpočtu v sekundách pro model 3. Zaokrouhleno na dvě platná desetinná místa.}
+\caption{Průměrná rychlost výpočtu v~sekundách pro model 3. Zaokrouhleno na dvě platná desetinná místa.}
 \label{tab:tuhy-tabulka}
 \end{table}
 \end{savenotes}
 
-U tohoto modelu bych chtěl vyzdvihnout kvality nástroje Dymola, kterému výpočet zabral velmi malý procesorový čas. Výpočet zabral pouhých 0.010, avšak tento čas byl detekován až v čase simulace 258 sekund. Pokud bychom přepočítali výsledek na čas simulace $T_{max} = 10$, pak by rychlost výpočtu byla přibližně 0,00038 sekund. Stejně dobře, i když řádově pomaleji, si vedly i další nástroje zpracovávající modely v jazyce Modelica.
+U~tohoto modelu bych chtěl vyzdvihnout kvality nástroje Dymola, kterému výpočet zabral velmi malý procesorový čas. Výpočet zabral pouhých 0.010, avšak tento čas byl detekován až v~čase simulace 258 sekund. Pokud bychom přepočítali výsledek na čas simulace $T_{max} = 10$, pak by rychlost výpočtu byla přibližně 0,00038 sekund. Stejně dobře, i když řádově pomaleji, si vedly i další nástroje zpracovávající modely v~jazyce Modelica.
 
-Pro nástroj MATLAB byla využita metoda \texttt{ode15s()}, která je podle dokumentace \cite{MATLAB:2010} označována za nejpřesnější metodu pro řešení tuhých systémů. Naopak v implementaci pro SciLab byla využita metoda \texttt{ode()} s parametrem \texttt{"stiff"} a následně volá metodu \texttt{lsode()}, která je schopna řešit diferenciální rovnice tuhých systémů. \todo{doplnit freemat a octave jak to rozjedu}
+Pro nástroj MATLAB byla využita metoda \texttt{ode15s()}, která je podle dokumentace \cite{MATLAB:2010} označována za nejpřesnější metodu pro řešení tuhých systémů. Naopak v~implementaci pro SciLab byla využita metoda \texttt{ode()} s~parametrem \texttt{"stiff"} a následně volá metodu \texttt{lsode()}, která je schopna řešit diferenciální rovnice tuhých systémů. \todo{doplnit freemat a octave jak to rozjedu}
 
 \section{Shrnutí výsledků experimentů a porovnání nástrojů}
 
@@ -509,15 +510,17 @@ Pro nástroj MATLAB byla využita metoda \texttt{ode15s()}, která je podle doku
 \chapter{Závěr}
 \label{kapitola6}
 
-Cílem této práce bylo získat povědomí o simulačních nástrojích, jak komerčních, tak i volně dostupných, analyzovat je a vytvořit reprezentativní sadu nástrojů vhodných k porovnávání. Pro tyto účely bylo zkoumáno více než 12 simulačních nástrojů, z nichž bylo následně vybráno 8 tak, aby měly společné průniky v přijímaných jazycích - MATLAB, Modelica, Python.
+Cílem této práce bylo získat povědomí o~simulačních nástrojích, jak komerčních, tak i volně dostupných, analyzovat je a vytvořit reprezentativní sadu nástrojů vhodných k~porovnávání. Pro tyto účely bylo zkoumáno více než 12 simulačních nástrojů, z~nichž bylo následně vybráno 8 tak, aby měly společné průniky v~přijímaných jazycích - MATLAB, Modelica, Python. 
 
-Pro tyto nástroje byly navrženy jednoduché modely, které sloužily k následnému porovnání nástrojů. Modely byly za účelem validity vybrány z oficiálních dokumentací, případně z literatury zabývající se daným tématem a byly postupně implementovány pro všech 8 zvolených nástrojů.
+Pro tyto nástroje byly navrženy jednoduché modely, které sloužily k~následnému porovnání nástrojů. Modely byly za účelem validity vybrány z~oficiálních dokumentací, případně z~literatury zabývající se daným tématem a byly postupně implementovány pro všech 8 zvolených nástrojů. Z~důvodu rozsahu práce byly zvoleny pouze spojité a kombinované modely. 
 
-Během implementace a následných experimentů byla objevena značná nekompatibilita mezi jednotlivými nástroji používající jazyk MATLAB, především u metod pro řešení diferenciálních rovnic. Naproti tomu bych chtěl vyzdvihnout jednoduchost práce s modelačním jazykem Modelica, který z porovnání vyšel nejlépe, jak z hlediska měření času výpočtu, tak i jednoduchostí implementace. Jazyk Python, konkrétně tedy rozšíření SciPy, byl do porovnání zařazen pouze z kuriozity, jak si bude stát proti jazykům MATLAB a Modelica. Nicméně se ukázal jako velmi silný nástroj pro modelování a simulaci menších systémů.
+Během implementace a následných experimentů byla potvrzena nekompatibilita mezi jednotlivými nástroji používající jazyk MATLAB, především u~metod pro řešení diferenciálních rovnic. Naproti tomu bych chtěl vyzdvihnout jednoduchost práce s~jazykem Modelica, který z~porovnání vyšel nejlépe, jak z~hlediska měření času výpočtu, tak i jednoduchostí implementace vybraných modelů. 
 
-Doporučujícím výstupem z této práce je používat pro tvorbu modelů jazyk Modelica v rámci kteréhokoliv nástroje, zejména díky jednoduchosti v modelování, velké uživatelské komunitě a zpracované dokumentaci. Osobně bych volil nástroj OpenModelica, který mi přišel ze všech nejvíce uživatelsky přívětivý.
+\todo{prepsat}Jazyk Python, konkrétně tedy rozšíření SciPy, byl do porovnání zařazen pouze z~kuriozity, jak si bude stát proti jazykům MATLAB a Modelica. Nicméně se ukázal jako velmi silný nástroj pro modelování a simulaci menších systémů. 
 
-Možným rozšířením této práce by byl hlubší průzkum možností využití simulačních nástrojů, především pro modelační jazyk Modelica, který z konečného porovnání vyšel jako nejlepší. Pro tyto účely by bylo potřeba rozšířit oblast průzkumu také na komerční nástroje, například Wolfram SystemModeler, nebo SimulationX. Dalším možným rozšířením by byl popis kompatibility nástrojů využívajících MATLAB, či srovnání podporovaných oblastí výpočtů napříč těmito nástroji, například práce s diferenciálními rovnicemi a jejich soustavami.
+Doporučujícím výstupem z~této práce je používat pro tvorbu modelů jazyk Modelica v~rámci kteréhokoliv nástroje, zejména díky jednoduchosti v~modelování, velké uživatelské komunitě a zpracované dokumentaci. Osobně bych volil nástroj OpenModelica, který mi přišel ze všech nejvíce uživatelsky přívětivý.
+
+Možným rozšířením této práce by byl hlubší průzkum možností využití simulačních nástrojů, především pro jazyk Modelica, který z~konečného porovnání vyšel jako nejlepší. Pro tyto účely by bylo potřeba rozšířit oblast průzkumu také na komerční nástroje, například o~nástroj Wolfram SystemModeler, nebo SimulationX. Dalším možným rozšířením by bylo srovnání nástrojů pro modelování diskrétních systémů, následná implementace vybraných diskrétních modelů a vyhodnocení výsledků podle zvolené metodiky. K~tomuto rozšíření by bylo vhodné rozšířit sadu zvolených nástrojů, například o~nástroje určené pro tvorbu Petriho sítí. 
 
 
 
