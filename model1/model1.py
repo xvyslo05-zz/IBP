@@ -19,14 +19,14 @@ def bounce(y, t):
 
 
     if(y[0] <= 0):
-      dydt1 += force / (1 + np.exp(y[0]/0.001))
+      dydt1 += (force / (1 + np.exp(y[0]/0.001)))*cr
 
 
-    dydt = [dydt0, -dydt1*cr]
+    dydt = [dydt0, -dydt1]
     return dydt
 
 
-t = np.linspace(0, 100, 1000)
+t = np.linspace(0, 10, 1000)
 
 y0 = [position, velocity]
 

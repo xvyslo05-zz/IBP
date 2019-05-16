@@ -6,7 +6,7 @@ endfunction
 
 y0 = 1;
 t0 = 0;
-t = 0:1;
+t = linspace(0,1, 500);
 
 y = ode(y0, t0, t, f);
 

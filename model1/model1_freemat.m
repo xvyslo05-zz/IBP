@@ -1,21 +1,46 @@
+clear;
+clc;
+close;
 
-clear all
-h_i=2; %Height in meters
-v_t=10; %Terminal velocity in meters per second
-g=9.8; %Acceleration due to gravity in meters per sec^2
-C_R=0.9; %Coefficient of restitution
+tic();
+
+height_ini = 10;
+velocity_ini = 15;
+t0_ini = 0;
+sampl=14;
+hcntr=0;
+endtime=0;
+bounces=5;
+utlum=0.8;
 
 
 
-h(1)=h_i;
-b=1; %Initialize bounce number
-for b=1:3 % Loop through three bounces
-    %The equations in the loop come right from the
-    %problem statement
-    v_impact(b)=v_t*sqrt(1-exp(-2*g*h(b)/(v_t^2)));
-    v_r(b)=C_R*v_impact(b)*(1-0.01*rand());
-    h(b+1)=-((v_t^2)/g)*log(cos(atan(v_r(b)/v_t)));
+for i = 1:bounces
+    height = height_ini;
+    velocity = velocity_ini;
+    t0 = t0_ini;
+
+    x0 = [height; velocity];
+    t = linspace(0, 10, sampl);
+
+    [t, res] = ode45(@new_height,t, x0);
+    
+
+    for j = 1:sampl
+        hcntr=hcntr+1;
+        h(hcntr)=res(j,1);
+        if res(j,1) <= 0 then
+            height_ini = 0.001;
+            velocity_ini = -res(j,2)*utlum
+            break
+        end
+    end
+    endtime = endtime + t(j);
 end
-sprintf('The height of the third bounce is %0.3f meters.', h(4))
 
-disp(h(4))
+t = linspace(0,endtime,length(h));
+
+disp(toc())
+
+plot(t,h)
+
