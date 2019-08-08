@@ -1,3 +1,10 @@
+#
+# Bakalarska prace
+# Robin Vyslouzil
+# xvyslo05@stud.fit.vutbr.cz
+# Model kruhoveho testu pro nastroj SciPy
+#
+
 import numpy
 import time
 from scipy.integrate import quad
@@ -15,9 +22,9 @@ def model2(y, t):
     return result
 
 
-y0 = [1, 0]
+y0 = [100, 0]
 
-t = numpy.linspace(0, 20, 5000)
+t = numpy.linspace(0, 10000, 5000)
 
 y = odeint(model2, y0, t)
 
@@ -27,9 +34,6 @@ endTime = time.time() - startTime
 
 print(endTime)
 
-text_file = open("model2/python_output.txt", "a")
-text_file.write("%.9f\n" % endTime)
-text_file.close()
 
 # pyplot.show()
 

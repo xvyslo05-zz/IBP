@@ -1,3 +1,9 @@
+/*
+Bakalarska prace
+Robin Vyslouzil
+xvyslo05@stud.fit.vutbr.cz
+Obsluzna funkce testu pro nastroj FreeMat
+*/
 
 tic();
 

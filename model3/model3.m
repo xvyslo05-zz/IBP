@@ -1,3 +1,10 @@
+/*
+Bakalarska prace
+Robin Vyslouzil
+xvyslo05@stud.fit.vutbr.cz
+Model tuheho systemu pro nastroj MATLAB
+*/
+
 tic();
 
 tspan = [0 2];

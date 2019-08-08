@@ -1,3 +1,10 @@
+/*
+Bakalarska prace
+Robin Vyslouzil
+xvyslo05@stud.fit.vutbr.cz
+Model kruhoveho testu pro nastroje Dymola, OpenModelica a jModelica
+*/
+
 model kruhovy_test
   Real x;
   Real y(start=1); // pocatecni podminka

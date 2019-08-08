@@ -1,26 +1,33 @@
-clear;
-clc;
-close;
+/*
+Bakalarska prace
+Robin Vyslouzil
+xvyslo05@stud.fit.vutbr.cz
+Model skakajiciho micku pro nastroj FreeMat
+*/
+
+//clear;
+//clc;
+//close;
 
 tic();
 
-height_ini = 10;
-velocity_ini = 15;
+height_ini = 100;
+velocity_ini = 30;
 t0_ini = 0;
-sampl=300;
+sampl=500;
 hcntr=0;
-endtime=0;
-bounces=5;
+endtime=100;
+bounces=15;
 utlum=0.8;
 
 for i = 1:bounces
     height = height_ini;
     velocity = velocity_ini;
     t0 = t0_ini;
-        
+
     x0 = [height; velocity];
     t = linspace(0, 10, sampl);
-    
+
     function dh = new_height(t, x)
         dh(1) = x(2)
         dh(2) = -9.81
@@ -40,7 +47,7 @@ for i = 1:bounces
 end
 
 t = linspace(0,endtime,length(h))
-toc();
+disp(toc())
 
 plot(t,h)
 

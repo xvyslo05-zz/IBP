@@ -1,46 +1,38 @@
-from scipy.misc import derivative
-from scipy.integrate import odeint
+#
+# Bakalarska prace
+# Robin Vyslouzil
+# xvyslo05@stud.fit.vutbr.cz
+# Model skakajiciho micku pro nastroj SciPy
+#
+
 from scipy.integrate import solve_ivp
-import matplotlib.pyplot as pyplot
 import numpy as np
-import time
+import matplotlib.pyplot as plt
 
-start_time = time.time()
+def ball(t, y):
+  return y
 
-position = 0.1
-velocity = 15
-cr = -0.8
-force = 10000
+def helper(t, y):
+  return ball(t, [0, -y[1]])
 
-def bounce(y, t):
+def hit_ground(t, y):
+  return ball(t, [y[1], -9.81])
 
-    dydt0 = y[1]
-    dydt1 = -9.81
+ball.terminal = True
+ball.direction = -1
 
+sol = solve_ivp(hit_ground, (0, 10), [10, 15], max_step=0.001, events=helper)
+print(sol)
 
-    if(y[0] <= 0):
-      dydt1 += (force / (1 + np.exp(y[0]/0.001)))*cr
-
-
-    dydt = [dydt0, -dydt1]
-    return dydt
+plt.plot(sol.t, sol.y[0])
+plt.show()
 
 
-t = np.linspace(0, 10, 1000)
+# def ball(t, y):
+#     return y
 
-y0 = [position, velocity]
-
-z = odeint(bounce, y0, t, hmax=0.01)
-
-
-print("--- %s seconds ---" % (time.time() - start_time))
-
-pyplot.plot(t, z[:, 0], 'r', label='position(t)')
-
-
-pyplot.grid()
-pyplot.legend(loc='best')
-pyplot.show()
-
-
-
+# def hit_ground(t, y):
+#     if(ball(t, y) == 0):
+#         return ball(t, [0, -y[1]*-0.8])
+#     else:
+#         return ball(t, [y[1], -9.81])
